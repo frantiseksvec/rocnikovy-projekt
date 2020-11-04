@@ -20,10 +20,11 @@ class ChartData(APIView):
 
     authentication_classes = []
     permission_classes = []
-
     def get(self, request, format=None):
+        labels = ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange']
+        default_items =[ 10 ,15,18,19,20,17]
         data = {
-            "cena": 100,
-            "rust": 20,
+            "labels": labels,
+            "default": default_items,
         }
         return Response(data)
