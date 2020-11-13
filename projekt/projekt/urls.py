@@ -17,12 +17,11 @@ from django.contrib import admin
 from django.conf.urls import url
 
 
-from .views import ChartView, get_data, ChartData
+from .views import ChartView, ChartData
 
 urlpatterns = [
     url(r'^$', ChartView.as_view(), name='chart'),
-    url(r'^api/data/$', get_data, name='api-data'),
-    url(r'^api/chart/data/$', ChartData.as_view()),
+    url(r'^api/data/$', ChartData.as_view()),
     url(r'^admin/', admin.site.urls),
 
 ]
