@@ -1,45 +1,96 @@
 {% extends 'base.html' %}
-
 <script>
 {% block jquery %}
 var endpoint = 'api/data'
-var Labels = []
-var Data = []
-var Label = ""
 $.ajax({
     method: "GET",
     url: endpoint,
     success: function(data){
-        Labels = data.labels
-        Label = data.label
-        Data = data.close_data
-        nastavGraf()
+            LabelsI = data.Tyden.IBMT.labels
+            LabelI = data.Tyden.IBMT.label
+            DataI = data.Tyden.IBMT.data
+            LabelsM = data.Tyden.MicrosoftT.labels
+            LabelM = data.Tyden.MicrosoftT.label
+            DataM = data.Tyden.MicrosoftT.data
+            LabelsA = data.Tyden.AppleT.labels
+            LabelA = data.Tyden.AppleT.label
+            DataA = data.Tyden.AppleT.data
+            LabelsMM = data.Mesic.MicrosoftM.labels
+            LabelMM = data.Mesic.MicrosoftM.label
+            DataMM = data.Mesic.MicrosoftM.data
+            nastavGraf()
+            Tydny()
     },
     error: function(error_data){
         console.log("error")
         console.log(error_data)
     }
 })
-
+ function Tydny(){
+    LabelsM = LabelsMM
+    LabelM = LabelMM
+    DataM = DataMM
+    console.log(DataM)
+  }
 function nastavGraf(){
-     var ctx = document.getElementById('MSFT');
-  var myChart = new Chart(ctx, {
+     var ibm = document.getElementById('IBM');
+     var m = document.getElementById('MSFT');
+     var a = document.getElementById('AAPL');
+     var p = document.getElementById('prehled');
+     var myChart = new Chart(ibm, {
             type: 'line',
             data: {
-    labels: Labels,
+        labels: LabelsI,
     datasets: [{
-        data: Data,
-        label: Label,
+        data: DataI,
+        label: LabelI,
         borderColor: "#3e95cd",
         fill: false
       }]
-  },
-
-
-
-
-
-        })
+    }});
+      var myChart = new Chart(m, {
+            type: 'line',
+            data: {
+        labels: LabelsM,
+    datasets: [{
+        data: DataM,
+        label: LabelM,
+        borderColor: "#8e5ea2",
+        fill: false
+      }]
+    }});
+    var myChart = new Chart(a, {
+            type: 'line',
+            data: {
+        labels: LabelsA,
+    datasets: [{
+        data: DataA,
+        label: LabelA,
+        borderColor: "#c45850",
+        fill: false
+      }]
+    }});
+    var myChart = new Chart(p, {
+            type: 'line',
+            data: {
+        labels: LabelsM,
+    datasets: [{
+        data: DataM,
+        label: LabelM,
+        borderColor: "#8e5ea2",
+        fill: false
+      },{
+        data: DataI,
+        label: LabelI,
+        borderColor: "#3e95cd",
+        fill: false
+      },{
+        data: DataA,
+        label: LabelA,
+        borderColor: "#c45850",
+        fill: false
+      }]
+    }});
 }
 {% endblock %}
 </script>
@@ -47,16 +98,36 @@ function nastavGraf(){
 <div class="container">
     <h1>Akcie</h1>
     <hr>
+     <button onclick="Hodiny()">Hodiny</button>
+     <button onclick="Den()">Dny</button>
+     <button onclick="Tydny()">Týdny</button>
+        <div class="row">
+            <div class="col-md-4">
+                <h2 align="center">Microsoft</h2>
+                <hr>
+                <canvas id="MSFT" width="600" height="400"></canvas>
+            </div>
+            <div class="col-md-4">
+                <h2 align="center">IBM</h2>
+                <hr>
+                <canvas id="IBM" width="600" height="400"></canvas>
+            </div>
+            <div class="col-md-4">
+                <h2 align="center">Apple</h2>
+                <hr>
+                <canvas id="AAPL" width="600" height="400"></canvas>
+            </div>
+        </div>
     <div class="chart-container">
-        <h2 class="center">Microsoft</h2>
-        <button class="button button1">Minuty</button>
-        <button class="button button2">Dny</button>
-        <button class="button button2">Týdny</button>
-        <canvas id="MSFT" width="400" height="200"></canvas>
+        <h2 align="center">Přehled</h2>
+        <hr>
+        <canvas id="prehled" width="600" height="400"></canvas>
     </div>
+
 </div>
 
 
 
 
 {% endblock content %}
+
