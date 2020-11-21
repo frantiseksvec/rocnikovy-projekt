@@ -1,15 +1,14 @@
 from django.shortcuts import render
 from django.views.generic import View
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from . import api1
 
-from alpha_vantage.timeseries import TimeSeries
 import requests
 import pandas as pd
 import pandas_datareader.data as web
 import datetime as dt
 import json
-
-from rest_framework.response import Response
-from rest_framework.views import APIView
 
 start_t = dt.datetime(2020, 11, 11)
 konec_t = dt.datetime(2020, 11, 18)
@@ -41,28 +40,18 @@ Apple_mesic = web.DataReader('AAPL','yahoo',start_m, konec_m)
 datumA_mesic = Apple_mesic.index
 cenaA_mesic = Apple_mesic['Close']
 
+procenta_I = cenaI_mesic.pct_change()
+procenta_I = procenta_I.iloc[1:]
 
 
-#api_key = 'GQ43JWXBO74Y0Z9N'
-#microsoft = 'MSFT'
-#ibm = 'IBM'
-#ms1 = TimeSeries(key=api_key, output_format='pandas')
-#ms2 = TimeSeries(key=api_key, output_format='json')
-#i1 = TimeSeries(key=api_key, output_format='pandas')
-#i2 = TimeSeries(key=api_key, output_format='json')
+procenta_M = cenaM_mesic.pct_change()
+procenta_M = procenta_M.iloc[1:]
 
-#microsoft1, meta_data = ms1.get_daily(symbol=microsoft,outputsize='compact')
-#microsoft2, meta_data = ms2.get_daily(symbol=microsoft,outputsize='compact')
-#ibm1, meta_data = i1.get_daily(symbol=ibm,outputsize='compact')
-#ibm2, meta_data = i2.get_daily(symbol=ibm,outputsize='compact')
+procenta_A = cenaA_mesic.pct_change()
+procenta_A = procenta_A.iloc[1:]
 
-#data_den_M = microsoft1['4. close']
-#labels_den_M = microsoft2.keys()
-#data_den_I = ibm1['4. close']
-#labels_den_I = ibm2.keys()
-
-
-
+cenaR = api1.cena
+datumR = api1.date
 
 class ChartView(View):
     def get(self, request, *args, **kwargs):
@@ -74,21 +63,25 @@ class ChartData(APIView):
             "data": cenaI_mesic,
             "labels": datumI_mesic,
             "label": 'IBM',
+            "procenta": {procenta_I[0]}
          }
         microsoft_mesic = {
              "data": cenaM_mesic,
              "labels": datumM_mesic,
              "label": 'Microsoft',
+             "procenta": {procenta_M[0]}
          }
         apple_mesic = {
              "data": cenaA_mesic,
              "labels": datumA_mesic,
              "label": 'Apple',
+             "procenta": {procenta_A[0]}
         }
         ibm_tyden = {
             "data": cenaI_tyden,
             "labels": datumI_tyden,
             "label": 'IBM',
+
         }
         microsoft_tyden = {
             "data": cenaM_tyden,
@@ -106,6 +99,12 @@ class ChartData(APIView):
             "AppleT": apple_tyden,
         }
 
+        realtime = {
+            "cena": cenaR,
+            "labels": datumR,
+            "label": "MSFT"
+        }
+
         mesic = {
              "IBMM": ibm_mesic,
              "MicrosoftM": microsoft_mesic,
@@ -113,7 +112,8 @@ class ChartData(APIView):
          }
         data = {
             "Tyden": tyden,
-             "Mesic": mesic,
+            "Mesic": mesic,
+            "Realtime": realtime,
         }
 
         return Response(data)

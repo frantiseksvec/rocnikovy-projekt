@@ -6,37 +6,38 @@ $.ajax({
     method: "GET",
     url: endpoint,
     success: function(data){
-            LabelsI = data.Tyden.IBMT.labels
-            LabelI = data.Tyden.IBMT.label
-            DataI = data.Tyden.IBMT.data
-            LabelsM = data.Tyden.MicrosoftT.labels
-            LabelM = data.Tyden.MicrosoftT.label
-            DataM = data.Tyden.MicrosoftT.data
-            LabelsA = data.Tyden.AppleT.labels
-            LabelA = data.Tyden.AppleT.label
-            DataA = data.Tyden.AppleT.data
-            LabelsMM = data.Mesic.MicrosoftM.labels
-            LabelMM = data.Mesic.MicrosoftM.label
-            DataMM = data.Mesic.MicrosoftM.data
+            LabelsR = data.Realtime.labels
+            LabelR = data.Realtime.label
+            DataR = data.Realtime.cena
+            LabelsI = data.Mesic.IBMM.labels
+            LabelI = data.Mesic.IBMM.label
+            DataI = data.Mesic.IBMM.data
+            ProcentaI = data.Mesic.IBMM.procenta
+            LabelsM = data.Mesic.MicrosoftM.labels
+            LabelM = data.Mesic.MicrosoftM.label
+            DataM = data.Mesic.MicrosoftM.data
+            ProcentaM = data.Mesic.MicrosoftM.procenta
+            LabelsA = data.Mesic.AppleM.labels
+            LabelA = data.Mesic.AppleM.label
+            DataA = data.Mesic.AppleM.data
+            ProcentaA = data.Mesic.AppleM.procenta
+            document.getElementById('IBM-procenta').innerHTML = ProcentaI + '%'
+            document.getElementById('Microsoft-procenta').innerHTML = ProcentaM + '%'
+            document.getElementById('Apple-procenta').innerHTML = ProcentaA + '%'
             nastavGraf()
-            Tydny()
     },
     error: function(error_data){
         console.log("error")
         console.log(error_data)
     }
 })
- function Tydny(){
-    LabelsM = LabelsMM
-    LabelM = LabelMM
-    DataM = DataMM
-    console.log(DataM)
-  }
 function nastavGraf(){
      var ibm = document.getElementById('IBM');
      var m = document.getElementById('MSFT');
      var a = document.getElementById('AAPL');
      var p = document.getElementById('prehled');
+     var po = document.getElementById('procenta');
+     var r = document.getElementById('Realtime');
      var myChart = new Chart(ibm, {
             type: 'line',
             data: {
@@ -91,6 +92,17 @@ function nastavGraf(){
         fill: false
       }]
     }});
+     var myChart = new Chart(r, {
+            type: 'line',
+            data: {
+        labels: LabelsR,
+    datasets: [{
+        data: DataR,
+        label: LabelR,
+        borderColor: "#8e5ea2",
+        fill: false
+      }]
+    }});
 }
 {% endblock %}
 </script>
@@ -98,36 +110,47 @@ function nastavGraf(){
 <div class="container">
     <h1>Akcie</h1>
     <hr>
+     <div class="chart-container">
+         <h2 align="center">Data v reálném čase</h2>
+         <hr>
+         <canvas id="Realtime" width="1000" height="600"></canvas>
+     </div>
      <button onclick="Hodiny()">Hodiny</button>
      <button onclick="Den()">Dny</button>
      <button onclick="Tydny()">Týdny</button>
         <div class="row">
             <div class="col-md-4">
                 <h2 align="center">Microsoft</h2>
+                <p align="center" id="Microsoft-procenta"></p>
                 <hr>
                 <canvas id="MSFT" width="600" height="400"></canvas>
             </div>
             <div class="col-md-4">
                 <h2 align="center">IBM</h2>
+                <p align="center" id="IBM-procenta"></p>
                 <hr>
                 <canvas id="IBM" width="600" height="400"></canvas>
             </div>
             <div class="col-md-4">
                 <h2 align="center">Apple</h2>
+                 <p align="center" id="Apple-procenta"></p>
                 <hr>
                 <canvas id="AAPL" width="600" height="400"></canvas>
             </div>
         </div>
-    <div class="chart-container">
-        <h2 align="center">Přehled</h2>
-        <hr>
-        <canvas id="prehled" width="600" height="400"></canvas>
-    </div>
-
+     <div class="row">
+         <h1 align="center">Přehled</h1>
+        <div class="col-md-6">
+            <h2 align="center">Srovnání</h2>
+            <hr>
+            <canvas id="prehled" width="800" height="600"></canvas>
+        </div>
+         <div class="col-md-6">
+            <h2 align="center">Procentuální růst</h2>
+            <hr>
+            <canvas id="procenta" width="800" height="600"></canvas>
+        </div>
+     </div>
 </div>
-
-
-
-
 {% endblock content %}
 
