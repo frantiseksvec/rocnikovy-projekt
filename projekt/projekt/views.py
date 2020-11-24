@@ -3,6 +3,7 @@ from django.views.generic import View
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from . import api1
+from . import api2
 
 import requests
 import pandas as pd
@@ -40,6 +41,7 @@ Apple_mesic = web.DataReader('AAPL','yahoo',start_m, konec_m)
 datumA_mesic = Apple_mesic.index
 cenaA_mesic = Apple_mesic['Close']
 
+
 procenta_I = cenaI_mesic.pct_change()
 procenta_I = procenta_I.iloc[1:]
 
@@ -52,6 +54,8 @@ procenta_A = procenta_A.iloc[1:]
 
 cenaR = api1.cena
 datumR = api1.date
+
+stock = 'MSFT'
 
 class ChartView(View):
     def get(self, request, *args, **kwargs):

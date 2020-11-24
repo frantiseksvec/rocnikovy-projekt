@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.conf.urls import url
+from django.urls import path
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.contrib.auth.views import LoginView
 
 
 from .views import ChartView, ChartData
@@ -24,7 +26,12 @@ urlpatterns = [
     url(r'^$', ChartView.as_view(), name='chart'),
     url(r'^api/data/$', ChartData.as_view()),
     url(r'^admin/', admin.site.urls),
-
+    path('login/',
+         LoginView.as_view(
+             template_name='login.html'
+         ),
+         name="login"
+         ),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
