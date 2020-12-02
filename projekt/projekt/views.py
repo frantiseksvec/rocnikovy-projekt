@@ -3,7 +3,6 @@ from django.views.generic import View
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from . import api1
-from . import api2
 
 import requests
 import pandas as pd
@@ -11,51 +10,60 @@ import pandas_datareader.data as web
 import datetime as dt
 import json
 
-start_t = dt.datetime(2020, 11, 11)
-konec_t = dt.datetime(2020, 11, 18)
-start_m = dt.datetime(2020, 10, 16)
-konec_m = dt.datetime(2020, 11, 18)
+procenta_I = '4,6'
 
 
-IBM = web.DataReader('IBM','yahoo',start_t, konec_t )
-datumI_tyden = IBM.index
-cenaI_tyden = IBM['Close']
+procenta_M ='3,2'
 
-Microsoft = web.DataReader('MSFT','yahoo',start_t , konec_t )
-datumM_tyden = Microsoft.index
-cenaM_tyden = Microsoft['Close']
+procenta_A = '5,2'
 
-Apple = web.DataReader('AAPL','yahoo',start_t, konec_t)
-datumA_tyden = Apple.index
-cenaA_tyden = Apple['Close']
-
-IBM_mesic = web.DataReader('IBM','yahoo',start_m, konec_m )
-datumI_mesic = IBM_mesic.index
-cenaI_mesic = IBM_mesic['Close']
-
-Microsoft_mesic = web.DataReader('MSFT','yahoo',start_m , konec_m )
-datumM_mesic = Microsoft_mesic.index
-cenaM_mesic = Microsoft_mesic['Close']
-
-Apple_mesic = web.DataReader('AAPL','yahoo',start_m, konec_m)
-datumA_mesic = Apple_mesic.index
-cenaA_mesic = Apple_mesic['Close']
-
-
-procenta_I = cenaI_mesic.pct_change()
-procenta_I = procenta_I.iloc[1:]
-
-
-procenta_M = cenaM_mesic.pct_change()
-procenta_M = procenta_M.iloc[1:]
-
-procenta_A = cenaA_mesic.pct_change()
-procenta_A = procenta_A.iloc[1:]
 
 cenaR = api1.cena
 datumR = api1.date
 
-stock = 'MSFT'
+list = ""
+def prumer(list = list):
+    return sum(list) / len(list)
+
+tyden1 = dt.datetime(2020, 11, 11)
+tyden2 = dt.datetime(2020, 11, 18)
+
+MSFT = 'MSFT'
+IBM = 'IBM'
+AAPL = 'AAPL'
+HOG = 'HOG'
+INTC = 'INTC'
+KO = 'KO'
+T = 'T'
+WMT = 'WMT'
+TSLA = 'TSLA'
+
+stock = ''
+def dataT(stock):
+    df = web.DataReader(stock, 'yahoo', tyden1, tyden2)
+    return df
+microsoftT = dataT(MSFT)
+IBMT = dataT(IBM)
+appleT = dataT(AAPL)
+harleyT = dataT(HOG)
+intelT = dataT(INTC)
+colaT = dataT(KO)
+ataT = dataT(T)
+walmartT = dataT(WMT)
+
+
+mesic1 = dt.datetime(2020, 11, 1)
+mesic2 = dt.datetime(2020, 12, 1)
+
+def dataM(stock):
+    df = web.DataReader(stock, 'yahoo', mesic1, mesic2)
+    return df
+microsoftM = dataM(MSFT)
+IBMM  = dataM(IBM)
+appleM = dataM(AAPL)
+
+
+print()
 
 class ChartView(View):
     def get(self, request, *args, **kwargs):
@@ -64,37 +72,40 @@ class ChartView(View):
 class ChartData(APIView):
     def get(self, request, format=None):
         ibm_mesic = {
-            "data": cenaI_mesic,
-            "labels": datumI_mesic,
+            "data": IBMM['Close'],
+            "labels": IBMM.index,
             "label": 'IBM',
-            "procenta": {procenta_I[0]}
+            "procenta": {procenta_I[2]},
+            "volume": prumer(IBMM['Volume']),
          }
         microsoft_mesic = {
-             "data": cenaM_mesic,
-             "labels": datumM_mesic,
+             "data": microsoftM['Close'],
+             "labels": microsoftM.index,
              "label": 'Microsoft',
-             "procenta": {procenta_M[0]}
+             "procenta": {procenta_M[2]},
+             "volume": prumer(microsoftM['Volume']),
          }
         apple_mesic = {
-             "data": cenaA_mesic,
-             "labels": datumA_mesic,
+             "data": appleM['Close'],
+             "labels": appleM.index,
              "label": 'Apple',
-             "procenta": {procenta_A[0]}
+             "procenta": {procenta_A[2]},
+             "volume": prumer(appleM['Volume']),
         }
         ibm_tyden = {
-            "data": cenaI_tyden,
-            "labels": datumI_tyden,
+            "data": IBMT['Close'],
+            "labels": IBMT.index,
             "label": 'IBM',
 
         }
         microsoft_tyden = {
-            "data": cenaM_tyden,
-            "labels": datumM_tyden,
+            "data": microsoftT['Close'],
+            "labels": microsoftT.index,
             "label": 'Microsoft',
         }
         apple_tyden = {
-            "data": cenaA_tyden,
-            "labels": datumA_tyden,
+            "data": appleT['Close'],
+            "labels": appleT.index,
             "label": 'Apple',
         }
         tyden = {
@@ -114,10 +125,43 @@ class ChartData(APIView):
              "MicrosoftM": microsoft_mesic,
              "AppleM": apple_mesic,
          }
+
+        intel_tyden = {
+            "data": intelT['Close'],
+            "labels": intelT.index,
+            "label": "Intel"
+        }
+
+        cola_tyden = {
+            "data": colaT['Close'],
+            "labels": colaT.index,
+            "label": "Coca Cola"
+        }
+
+        ata_tyden = {
+            "data": ataT['Close'],
+            "labels": ataT.index,
+            "label": "at&t"
+        }
+
+        walmart_tyden = {
+            "data": walmartT['Close'],
+            "labels": walmartT.index,
+            "label": "Walmart"
+        }
+
+        sez = {
+            "intelT": intel_tyden,
+            "colaT": cola_tyden,
+            "ataT": ata_tyden,
+            "walmartT": walmart_tyden,
+        }
+
         data = {
             "Tyden": tyden,
             "Mesic": mesic,
             "Realtime": realtime,
+            "Seznam": sez,
         }
 
         return Response(data)

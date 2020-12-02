@@ -1,7 +1,5 @@
 import pandas as pd
-import time
 from alpha_vantage.timeseries import TimeSeries
-from alpha_vantage.techindicators import TechIndicators
 
 stock = 'MSFT'
 def real(stock=stock):
@@ -17,6 +15,7 @@ real()
 data = real.data_ts
 date = real.datum
 cena = real.df['4. close'].iloc[::-1]
+
 
 
 
