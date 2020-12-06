@@ -1,20 +1,20 @@
 import pandas as pd
 from alpha_vantage.timeseries import TimeSeries
-
-stock = 'MSFT'
-def real(stock=stock):
+MSFT = 'MSFT'
+TSLA = 'TSLA'
+stock = ''
+def real(stock):
     api_key = 'GQ43JWXBO74Y0Z9N'
-    period = 60
     ts = TimeSeries(key=api_key, output_format='pandas')
-    real.data_ts = ts.get_intraday(stock.upper(), interval='30min', outputsize='compact')
-    real.df = real.data_ts[0][period::]
-    real.datum = pd.Index(map(lambda x: str(x)[:16], real.df.index))
-    return real.datum, real.df
-real()
-
-data = real.data_ts
-date = real.datum
-cena = real.df['4. close'].iloc[::-1]
+    df = ts.get_intraday(stock.upper(), interval='30min', outputsize='compact')
+    return df
+period = 60
+dataM = real(MSFT)
+dataT = real(TSLA)
+cenaM = dataM[0][period::]["4. close"]
+datumM = pd.Index(map(lambda x: str(x)[:16], cenaM.index))
+cenaT = dataM[0][period::]["4. close"]
+datumT = pd.Index(map(lambda x: str(x)[:16], cenaT.index))
 
 
 

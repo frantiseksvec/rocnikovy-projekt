@@ -18,8 +18,10 @@ procenta_M ='3,2'
 procenta_A = '5,2'
 
 
-cenaR = api1.cena
-datumR = api1.date
+cenaRM = api1.cenaM
+datumRM = api1.datumM
+cenaRT = api1.cenaT
+datumRT = api1.datumT
 
 list = ""
 def prumer(list = list):
@@ -62,8 +64,16 @@ microsoftM = dataM(MSFT)
 IBMM  = dataM(IBM)
 appleM = dataM(AAPL)
 
+rok1 = dt.datetime(2019, 11, 1)
+rok2 = dt.datetime(2020, 12, 1)
 
-print()
+def dataR(stock):
+    df = web.DataReader(stock, 'yahoo', rok1, rok2)
+    return df
+microsoftR = dataR(MSFT)
+IBMR  = dataR(IBM)
+appleR = dataR(AAPL)
+
 
 class ChartView(View):
     def get(self, request, *args, **kwargs):
@@ -108,16 +118,46 @@ class ChartData(APIView):
             "labels": appleT.index,
             "label": 'Apple',
         }
+        ibm_rok = {
+            "data": IBMR['Close'],
+            "labels": IBMR.index,
+            "label": 'IBM',
+
+        }
+        microsoft_rok = {
+            "data": microsoftR['Close'],
+            "labels": microsoftR.index,
+            "label": 'Microsoft',
+        }
+        apple_rok = {
+            "data": appleR['Close'],
+            "labels": appleR.index,
+            "label": 'Apple',
+        }
         tyden = {
             "IBMT": ibm_tyden,
             "MicrosoftT": microsoft_tyden,
             "AppleT": apple_tyden,
         }
 
+        rok = {
+            "IBMR": ibm_rok,
+            "MicrosoftR": microsoft_rok,
+            "AppleR": apple_rok,
+        }
+        mR = {
+            "data": cenaRM,
+            "labels": datumRM,
+            "label": 'Microsoft',
+        }
+        tR = {
+            "cena": cenaRT,
+            "labels": datumRT,
+            "label": 'Tesla',
+        }
         realtime = {
-            "cena": cenaR,
-            "labels": datumR,
-            "label": "MSFT"
+            "microsoftR": mR,
+            "teslaR": tR,
         }
 
         mesic = {
@@ -160,6 +200,7 @@ class ChartData(APIView):
         data = {
             "Tyden": tyden,
             "Mesic": mesic,
+            "Rok": rok,
             "Realtime": realtime,
             "Seznam": sez,
         }
