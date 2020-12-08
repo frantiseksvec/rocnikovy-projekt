@@ -5,79 +5,67 @@
   <div class="header-right">
     <a class="active" href="#home">Home</a>
     <a href="#login">Přihlášení</a>
+    <a href="#login">Kurzy</a>
+    <a href="#login">Zprávy</a>
   </div>
 </div>
+<div class="header2">
+    <h1>Akcie</h1>
+    <p class="header-text">Mějte své akcie pod kontrolou</p>
+</div>
 <div class="container">
-    <h1>Aktuálně z trhu</h1>
-    <hr>
+    <h2>Aktuálně z trhu</h2>
     <div class="row">
-          <div class="col-sm-8">
-             <canvas id="Realtime" width="1000" height="300"></canvas>
+          <div id="tlacika1" class="col-sm-8">
+              <button  class="buttonR" onclick="Tesla()">Tesla</button>
+              <button  class="buttonR" onclick="Microsoft()">Microsoft</button>
+              <button  class="buttonR" onclick="Zoom()">Zoom</button>
+              <button  class="buttonR" onclick="Agco()">Agco</button>
+              <button  class="buttonR" onclick="Intel()">Intel</button>
+             <canvas id="Realtime" width="1000" height="400"></canvas>
           </div>
           <div class="col-sm-4">
-              <table style="width:100%">
-              <tr>
-                <th>Firstname</th>
-                <th>Lastname</th>
-                <th>Age</th>
-              </tr>
-              <tr>
-                <td>Jill</td>
-                <td>Smith</td>
-                <td>50</td>
-              </tr>
-              <tr>
-                <td>Eve</td>
-                <td>Jackson</td>
-                <td>94</td>
-              </tr>
-              <tr>
-                <td>John</td>
-                <td>Doe</td>
-                <td>80</td>
-              </tr>
-            </table>
           </div>
      </div>
-    <h4>Historické data<h4>
-        <p>Zvolte formát:</p>
+
+    <h2>Historické data</h2>
+        <p class="format">Zvolte formát:</p>
      <div class="container">
-         <button onclick="Tydny()">Tydny</button>
-         <button onclick="Mesice()">Měsíce</button>
-         <button onclick="Roky()">Roky</button>
+         <button class="buttonF" onclick="Tydny()">Týdny</button>
+         <button class="buttonF" onclick="Mesice()">Měsíce</button>
+         <button class="buttonF" onclick="Roky()">Roky</button>
      </div>
         <div class="row">
             <div class="col-md-4">
-                <h2 align="center">Microsoft</h2>
+                <h3 align="center">Microsoft</h3>
                 <p align="center" id="Microsoft-procenta"></p>
-                <hr>
                 <canvas id="MSFT" width="600" height="400"></canvas>
             </div>
             <div class="col-md-4">
-                <h2 align="center">IBM</h2>
+                <h3 align="center">IBM</h3>
                 <p align="center" id="IBM-procenta"></p>
-                <hr>
                 <canvas id="IBM" width="600" height="400"></canvas>
             </div>
             <div class="col-md-4">
-                <h2 align="center">Apple</h2>
+                <h3 align="center">Apple</h3>
                  <p align="center" id="Apple-procenta"></p>
-                <hr>
                 <canvas id="AAPL" width="600" height="400"></canvas>
             </div>
         </div>
      <div class="row">
-         <h1 align="center">Přehled</h1>
         <div class="col-md-6">
-            <h2 align="center">Srovnání</h2>
+            <h3 align="center">Porovnání</h3>
             <hr>
             <canvas id="prehled" width="800" height="600"></canvas>
         </div>
          <div class="col-md-6">
-            <h2 align="center">Průměrný prodej akcií</h2>
+            <h3 align="center">Průměrný prodej akcií</h3>
             <hr>
             <canvas id="volume" width="800" height="600"></canvas>
         </div>
+     </div>
+     <div class="continer">
+
      </div>
 </div>
 {% endblock content %}

@@ -17,11 +17,15 @@ procenta_M ='3,2'
 
 procenta_A = '5,2'
 
+MSFT = 'MSFT'
+IBM = 'IBM'
+AAPL = 'AAPL'
+HOG = 'HOG'
+INTC = 'INTC'
+T = 'T'
+WMT = 'WMT'
+TSLA = 'TSLA'
 
-cenaRM = api1.cenaM
-datumRM = api1.datumM
-cenaRT = api1.cenaT
-datumRT = api1.datumT
 
 list = ""
 def prumer(list = list):
@@ -30,16 +34,6 @@ def prumer(list = list):
 tyden1 = dt.datetime(2020, 11, 11)
 tyden2 = dt.datetime(2020, 11, 18)
 
-MSFT = 'MSFT'
-IBM = 'IBM'
-AAPL = 'AAPL'
-HOG = 'HOG'
-INTC = 'INTC'
-KO = 'KO'
-T = 'T'
-WMT = 'WMT'
-TSLA = 'TSLA'
-
 stock = ''
 def dataT(stock):
     df = web.DataReader(stock, 'yahoo', tyden1, tyden2)
@@ -47,11 +41,6 @@ def dataT(stock):
 microsoftT = dataT(MSFT)
 IBMT = dataT(IBM)
 appleT = dataT(AAPL)
-harleyT = dataT(HOG)
-intelT = dataT(INTC)
-colaT = dataT(KO)
-ataT = dataT(T)
-walmartT = dataT(WMT)
 
 
 mesic1 = dt.datetime(2020, 11, 1)
@@ -73,7 +62,6 @@ def dataR(stock):
 microsoftR = dataR(MSFT)
 IBMR  = dataR(IBM)
 appleR = dataR(AAPL)
-
 
 class ChartView(View):
     def get(self, request, *args, **kwargs):
@@ -106,33 +94,37 @@ class ChartData(APIView):
             "data": IBMT['Close'],
             "labels": IBMT.index,
             "label": 'IBM',
-
+            "volume": prumer(IBMT['Volume']),
         }
         microsoft_tyden = {
             "data": microsoftT['Close'],
             "labels": microsoftT.index,
             "label": 'Microsoft',
+            "volume": prumer(microsoftT['Volume']),
         }
         apple_tyden = {
             "data": appleT['Close'],
             "labels": appleT.index,
             "label": 'Apple',
+            "volume": prumer(appleT['Volume']),
         }
         ibm_rok = {
             "data": IBMR['Close'],
             "labels": IBMR.index,
             "label": 'IBM',
-
+            "volume": prumer(IBMR['Volume']),
         }
         microsoft_rok = {
             "data": microsoftR['Close'],
             "labels": microsoftR.index,
             "label": 'Microsoft',
+            "volume": prumer(microsoftR['Volume']),
         }
         apple_rok = {
             "data": appleR['Close'],
             "labels": appleR.index,
             "label": 'Apple',
+            "volume": prumer(appleR['Volume']),
         }
         tyden = {
             "IBMT": ibm_tyden,
@@ -146,18 +138,36 @@ class ChartData(APIView):
             "AppleR": apple_rok,
         }
         mR = {
-            "data": cenaRM,
-            "labels": datumRM,
+            "data": api1.cenaM,
+            "labels": api1.datumM,
             "label": 'Microsoft',
         }
         tR = {
-            "cena": cenaRT,
-            "labels": datumRT,
+            "data": api1.cenaT,
+            "labels": api1.datumM,
             "label": 'Tesla',
+        }
+        zR = {
+            "data": api1.cenaZ,
+            "labels": api1.datumZ,
+            "label": 'Zoom',
+        }
+        aR = {
+            "data": api1.cenaA,
+            "labels": api1.datumA,
+            "label": 'AGCO',
+        }
+        iR = {
+            "data": api1.cenaI,
+            "labels": api1.datumI,
+            "label": 'Intel',
         }
         realtime = {
             "microsoftR": mR,
             "teslaR": tR,
+            "zoomR": zR,
+            "agcoR": aR,
+            "intelR": iR,
         }
 
         mesic = {
@@ -165,44 +175,11 @@ class ChartData(APIView):
              "MicrosoftM": microsoft_mesic,
              "AppleM": apple_mesic,
          }
-
-        intel_tyden = {
-            "data": intelT['Close'],
-            "labels": intelT.index,
-            "label": "Intel"
-        }
-
-        cola_tyden = {
-            "data": colaT['Close'],
-            "labels": colaT.index,
-            "label": "Coca Cola"
-        }
-
-        ata_tyden = {
-            "data": ataT['Close'],
-            "labels": ataT.index,
-            "label": "at&t"
-        }
-
-        walmart_tyden = {
-            "data": walmartT['Close'],
-            "labels": walmartT.index,
-            "label": "Walmart"
-        }
-
-        sez = {
-            "intelT": intel_tyden,
-            "colaT": cola_tyden,
-            "ataT": ata_tyden,
-            "walmartT": walmart_tyden,
-        }
-
         data = {
             "Tyden": tyden,
             "Mesic": mesic,
             "Rok": rok,
             "Realtime": realtime,
-            "Seznam": sez,
         }
 
         return Response(data)

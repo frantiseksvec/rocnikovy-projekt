@@ -46,5 +46,77 @@
 }
 h1 {
   font-size: 50px;
+  margin-left: 210px;
+  font-weight: bold;
+}
+
+footer {
+  text-align: center;
+  padding: 22px;
+  background-color: DarkSalmon;
+  color: white;
+  font-size: 20px;
+}
+
+.header2 {
+  padding: 15px;
+  background: #1abc9c;
+  color: black;
+  font-size: 3em;
+}
+
+.header-text {
+  font-size: 22px;
+  margin-left: 260px;
+}
+
+.row {
+   background-color: #F0F0F0;
+   padding 40px;
+}
+
+.container {
+  background-color: #F8F8F8;
+}
+
+.buttonR {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+}
+
+h2 {
+ font-size: 40px;
+}
+
+#Microsoft-procenta {
+  font-size: 30px;
+}
+
+#Apple-procenta {
+  font-size: 30px;
+}
+
+#IBM-procenta {
+  font-size: 30px;
+}
+
+.buttonF {
+  background-color: red;
+  color: black;
+  padding: 8px 48px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 19px;
+}
+
+.format {
+  font-size: 22px;
 }
 

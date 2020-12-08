@@ -40,6 +40,39 @@ $.ajax({
 })
 }
     fetch()
+    function Tesla(){
+        LabelsR = neco.Realtime.teslaR.labels
+        LabelR = neco.Realtime.teslaR.label
+        DataR = neco.Realtime.teslaR.data
+        nastavGraf()
+    }
+    function Microsoft(){
+        LabelsR = neco.Realtime.microsoftR.labels
+        LabelR = neco.Realtime.microsoftR.label
+        DataR = neco.Realtime.microsoftR.data
+        nastavGraf()
+    }
+    function Zoom(){
+        LabelsR = neco.Realtime.zoomR.labels
+        LabelR = neco.Realtime.zoomR.label
+        DataR = neco.Realtime.zoomR.data
+        nastavGraf()
+    }
+
+     function Intel(){
+        LabelsR = neco.Realtime.intelR.labels
+        LabelR = neco.Realtime.intelR.label
+        DataR = neco.Realtime.intelR.data
+        nastavGraf()
+    }
+
+     function Agco(){
+        LabelsR = neco.Realtime.agcoR.labels
+        LabelR = neco.Realtime.agcoRR.label
+        DataR = neco.Realtime.agcoRR.data
+        nastavGraf()
+    }
+
     function Tydny(){
             ILs = neco.Tyden.IBMT.labels
             IL = neco.Tyden.IBMT.label
@@ -162,6 +195,7 @@ $.ajax({
             fill: false
           }]
         }});
+        myChartR.update();
     }
 
 
