@@ -12,6 +12,14 @@
     {% include 'base/bootstrap_defaults.html' %}
   </head>
   <body>
+    <div class="header">
+      <a href="#default" class="Nadpis">Stránka o akciích</a>
+        <div class="header-right">
+        <a href="{% url 'login' %}">Přihlášení</a>
+        <a href="#login">Kurzy</a>
+        <a href="#login">Zprávy</a>
+        </div>
+    </div>
     {% block content %}
     {% endblock content %}
     {% include 'base/js.html' %}

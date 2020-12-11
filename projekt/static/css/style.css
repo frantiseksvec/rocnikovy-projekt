@@ -1,7 +1,11 @@
 .header {
   overflow: hidden;
   background-color: #f1f1f1;
-  padding: 11px 8px;
+  height:70px;
+  padding: 11px;
+  position: fixed;
+  top: 0;
+  width: 100%
 }
 
 .header a {
@@ -10,24 +14,19 @@
   text-align: center;
   padding: 14px;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 17px;
   line-height: 25px;
-  border-radius: 4px;
+  border-radius: 2px;
 }
 
 .header a.Nadpis {
-  font-size: 30px;
+  font-size: 32px;
   font-weight: bold;
 }
 
 .header a:hover {
   background-color: #ddd;
   color: black;
-}
-
-.header a.active {
-  background-color: dodgerblue;
-  color: white;
 }
 
 .header-right {
@@ -44,6 +43,12 @@
     float: none;
   }
 }
+
+.container {
+  margin-top:75px;
+  width: 1600px;
+}
+
 h1 {
   font-size: 50px;
   margin-left: 210px;
@@ -56,27 +61,6 @@ footer {
   background-color: DarkSalmon;
   color: white;
   font-size: 20px;
-}
-
-.header2 {
-  padding: 15px;
-  background: #1abc9c;
-  color: black;
-  font-size: 3em;
-}
-
-.header-text {
-  font-size: 22px;
-  margin-left: 260px;
-}
-
-.row {
-   background-color: #F0F0F0;
-   padding 40px;
-}
-
-.container {
-  background-color: #F8F8F8;
 }
 
 .buttonR {
@@ -107,16 +91,18 @@ h2 {
 }
 
 .buttonF {
-  background-color: red;
-  color: black;
-  padding: 8px 48px;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 25px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 19px;
+  font-size: 14px;
 }
 
 .format {
   font-size: 22px;
 }
+
 

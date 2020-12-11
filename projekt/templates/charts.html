@@ -1,18 +1,5 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="header">
-  <a href="#default" class="Nadpis">Stránka o akciích</a>
-  <div class="header-right">
-    <a class="active" href="#home">Home</a>
-    <a href="#login">Přihlášení</a>
-    <a href="#login">Kurzy</a>
-    <a href="#login">Zprávy</a>
-  </div>
-</div>
-<div class="header2">
-    <h1>Akcie</h1>
-    <p class="header-text">Mějte své akcie pod kontrolou</p>
-</div>
 <div class="container">
     <h2>Aktuálně z trhu</h2>
     <div class="row">
@@ -30,7 +17,7 @@
 
     <h2>Historické data</h2>
         <p class="format">Zvolte formát:</p>
-     <div class="container">
+     <div>
          <button class="buttonF" onclick="Tydny()">Týdny</button>
          <button class="buttonF" onclick="Mesice()">Měsíce</button>
          <button class="buttonF" onclick="Roky()">Roky</button>

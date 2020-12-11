@@ -63,6 +63,7 @@ microsoftR = dataR(MSFT)
 IBMR  = dataR(IBM)
 appleR = dataR(AAPL)
 
+
 class ChartView(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'charts.html')
