@@ -1,59 +1,68 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="container">
-    <h2>Aktuálně z trhu</h2>
     <div class="row">
-          <div id="tlacika1" class="col-sm-8">
-              <button  class="buttonR" onclick="Tesla()">Tesla</button>
-              <button  class="buttonR" onclick="Microsoft()">Microsoft</button>
-              <button  class="buttonR" onclick="Zoom()">Zoom</button>
-              <button  class="buttonR" onclick="Agco()">Agco</button>
-              <button  class="buttonR" onclick="Intel()">Intel</button>
-             <canvas id="Realtime" width="1000" height="400"></canvas>
-          </div>
-          <div class="col-sm-4">
-          </div>
-     </div>
-
-    <h2>Historické data</h2>
-        <p class="format">Zvolte formát:</p>
-     <div>
-         <button class="buttonF" onclick="Tydny()">Týdny</button>
-         <button class="buttonF" onclick="Mesice()">Měsíce</button>
-         <button class="buttonF" onclick="Roky()">Roky</button>
-     </div>
+        <div class="col-sm-9">
         <div class="row">
-            <div class="col-md-4">
-                <h3 align="center">Microsoft</h3>
-                <p align="center" id="Microsoft-procenta"></p>
-                <canvas id="MSFT" width="600" height="400"></canvas>
-            </div>
-            <div class="col-md-4">
-                <h3 align="center">IBM</h3>
-                <p align="center" id="IBM-procenta"></p>
-                <canvas id="IBM" width="600" height="400"></canvas>
-            </div>
-            <div class="col-md-4">
-                <h3 align="center">Apple</h3>
-                 <p align="center" id="Apple-procenta"></p>
-                <canvas id="AAPL" width="600" height="400"></canvas>
-            </div>
-        </div>
-     <div class="row">
-        <div class="col-md-6">
-            <h3 align="center">Porovnání</h3>
-            <hr>
-            <canvas id="prehled" width="800" height="600"></canvas>
-        </div>
-         <div class="col-md-6">
-            <h3 align="center">Průměrný prodej akcií</h3>
-            <hr>
-            <canvas id="volume" width="800" height="600"></canvas>
-        </div>
-     </div>
-     <div class="continer">
+            <h2>Aktuálně z trhu</h2>
+              <div id="tlacika1" class="col-sm-8">
+                  <button  class="buttonR" onclick="Tesla()">Tesla</button>
+                  <button  class="buttonR" onclick="Microsoft()">Microsoft</button>
+                  <button  class="buttonR" onclick="Zoom()">Zoom</button>
+                  <button  class="buttonR" onclick="Agco()">Agco</button>
+                  <button  class="buttonR" onclick="Intel()">Intel</button>
+                 <canvas id="Realtime" width="1000" height="400"></canvas>
+              </div>
+              <div class="col-sm-4">
 
-     </div>
+              </div>
+        </div>
+        <h2>Historické data</h2>
+            <p class="format">Zvolte formát:</p>
+         <div>
+             <button class="buttonF" onclick="Tydny()">Týdny</button>
+             <button class="buttonF" onclick="Mesice()">Měsíce</button>
+             <button class="buttonF" onclick="Roky()">Roky</button>
+         </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <h3 align="center">Microsoft</h3>
+                    <p align="center" id="Microsoft-procenta"></p>
+                    <canvas id="MSFT" width="600" height="400"></canvas>
+                </div>
+                <div class="col-md-4">
+                    <h3 align="center">IBM</h3>
+                    <p align="center" id="IBM-procenta"></p>
+                    <canvas id="IBM" width="600" height="400"></canvas>
+                </div>
+                <div class="col-md-4">
+                    <h3 align="center">Apple</h3>
+                     <p align="center" id="Apple-procenta"></p>
+                    <canvas id="AAPL" width="600" height="400"></canvas>
+                </div>
+            </div>
+        </div>
+            <div class="col-sm-3">
+                <h3 align="center">Žhavé akcie</h3>
+                <div class="ackie1">
+                    <h3 align="center">IBM</h3>
+                    <canvas id="sloupek1" width="300" height="200"></canvas>
+                </div>
+                <div class="ackie1">
+                    <h3 align="center">IBM</h3>
+                    <canvas id="sloupek2" width="300" height="200"></canvas>
+                </div>
+                <div class="ackie1">
+                    <h3 align="center">IBM</h3>
+                    <canvas id="sloupek3" width="300" height="200"></canvas>
+                </div>
+            </div>
+        </div>
 </div>
+<footer>
+<div class="footer-copyright text-center py-3">
+  © František Švec
+</div>
+</footer>
 {% endblock content %}
 

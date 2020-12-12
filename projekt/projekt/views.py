@@ -1,14 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import View
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from . import api1
-
-import requests
-import pandas as pd
+from django.contrib.auth.forms import UserCreationForm
 import pandas_datareader.data as web
 import datetime as dt
-import json
 
 procenta_I = '4,6'
 
@@ -63,6 +60,16 @@ microsoftR = dataR(MSFT)
 IBMR  = dataR(IBM)
 appleR = dataR(AAPL)
 
+def register(request):
+    if request.method =='POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect('uspech.html')
+    else:
+        form = UserCreationForm()
+        args = {'form': form}
+        return render(request, 'register.html', args)
 
 class ChartView(View):
     def get(self, request, *args, **kwargs):

@@ -31,6 +31,7 @@ $.ajax({
             Tydny()
             Mesice()
             Roky()
+            sloupek()
 
     },
     error: function(error_data){
@@ -68,8 +69,8 @@ $.ajax({
 
      function Agco(){
         LabelsR = neco.Realtime.agcoR.labels
-        LabelR = neco.Realtime.agcoRR.label
-        DataR = neco.Realtime.agcoRR.data
+        LabelR = neco.Realtime.agcoR.label
+        DataR = neco.Realtime.agcoR.data
         nastavGraf()
     }
 
@@ -148,39 +149,6 @@ $.ajax({
             fill: false
           }]
         }});
-        var myChartP = new Chart(p, {
-                type: 'line',
-                data: {
-            labels: MLs,
-        datasets: [{
-            data: MD,
-            label: ML,
-            borderColor: "#8e5ea2",
-            fill: false
-          },{
-            data: ID,
-            label: IL,
-            borderColor: "#3e95cd",
-            fill: false
-          },{
-            data: AD,
-            label: AL,
-            borderColor: "#c45850",
-            fill: false
-          }]
-        }});
-        var myChartV = new Chart(v, {
-                type: 'pie',
-                data: {
-            labels: [ML, AL, IL],
-        datasets: [{
-            data: [VolumeM, VolumeA, VolumeI],
-            label: "Volume",
-            backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f"],
-            borderColor: "#8e5ea2",
-            fill: false
-          }]
-        }});
     }
     function nastavGraf(){
          var r = document.getElementById('Realtime');
@@ -196,6 +164,45 @@ $.ajax({
           }]
         }});
         myChartR.update();
+    }
+
+    function sloupek(){
+         var s1 = document.getElementById('sloupek1');
+         var myChartR = new Chart(s1, {
+                type: 'line',
+                data: {
+            labels: LabelsR,
+        datasets: [{
+            data: DataR,
+            label: LabelR,
+            borderColor: "#8e5ea2",
+            fill: false
+          }]
+        }});
+        var s2 = document.getElementById('sloupek2');
+         var myChartR = new Chart(s2, {
+                type: 'line',
+                data: {
+            labels: LabelsR,
+        datasets: [{
+            data: DataR,
+            label: LabelR,
+            borderColor: "#8e5ea2",
+            fill: false
+          }]
+        }});
+        var s3 = document.getElementById('sloupek3');
+         var myChartR = new Chart(s3, {
+                type: 'line',
+                data: {
+            labels: LabelsR,
+        datasets: [{
+            data: DataR,
+            label: LabelR,
+            borderColor: "#8e5ea2",
+            fill: false
+          }]
+        }});
     }
 
 

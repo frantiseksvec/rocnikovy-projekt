@@ -13,7 +13,7 @@
   </head>
   <body>
     <div class="header">
-      <a href="#default" class="Nadpis">Stránka o akciích</a>
+      <a href="{% url 'chart' %}" class="Nadpis">Stránka o akciích</a>
         <div class="header-right">
         <a href="{% url 'login' %}">Přihlášení</a>
         <a href="#login">Kurzy</a>
@@ -25,7 +25,4 @@
     {% include 'base/js.html' %}
     <script src="{%static '/js/script.js' %}"></script>
   </body>
-  <footer>
-  <p align="center">František Švec</p>
- </footer>
 </html>

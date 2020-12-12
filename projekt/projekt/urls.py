@@ -17,9 +17,9 @@ from django.contrib import admin
 from django.conf.urls import url
 from django.urls import path
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LoginView, LogoutView
 
-
+from . import views
 from .views import ChartView, ChartData
 
 urlpatterns = [
@@ -32,6 +32,13 @@ urlpatterns = [
          ),
          name="login"
          ),
+    path('logout/',
+         LogoutView.as_view(
+             template_name='logout.html'
+         ),
+         name="logout"
+         ),
+    url(r'^register/$', views.register, name='register')
 ]
 
 urlpatterns += staticfiles_urlpatterns()

@@ -47,6 +47,7 @@
 .container {
   margin-top:75px;
   width: 1600px;
+  padding-bottom: 30px;
 }
 
 h1 {
@@ -57,10 +58,11 @@ h1 {
 
 footer {
   text-align: center;
-  padding: 22px;
-  background-color: DarkSalmon;
-  color: white;
+  padding: 10px;
+  background-color: #f1f1f1;
+  color: black;
   font-size: 20px;
+  height: 70px
 }
 
 .buttonR {
@@ -103,6 +105,12 @@ h2 {
 
 .format {
   font-size: 22px;
+}
+
+.footer-login {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 
