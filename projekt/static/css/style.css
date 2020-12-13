@@ -1,6 +1,6 @@
 .header {
   overflow: hidden;
-  background-color: #f1f1f1;
+  background-color:	#202020;
   height:70px;
   padding: 11px;
   position: fixed;
@@ -10,7 +10,7 @@
 
 .header a {
   float: left;
-  color: black;
+  color: white;
   text-align: center;
   padding: 14px;
   text-decoration: none;
@@ -44,9 +44,18 @@
   }
 }
 
+#sloupek {
+  background-color: #f1f1f1;
+  margin-top: 40px;
+}
+
+#hlavni{
+ background-color: #f1f1f1;
+}
+
 .container {
   margin-top:75px;
-  width: 1600px;
+  width: 1650px;
   padding-bottom: 30px;
 }
 
@@ -59,8 +68,8 @@ h1 {
 footer {
   text-align: center;
   padding: 10px;
-  background-color: #f1f1f1;
-  color: black;
+  background-color:#202020;
+  color: white;
   font-size: 20px;
   height: 70px
 }
@@ -92,6 +101,18 @@ h2 {
   font-size: 30px;
 }
 
+#prvni {
+    padding: 30px;
+}
+
+#druhy {
+    padding: 30px;
+}
+
+#treti {
+    padding: 30px;
+}
+
 .buttonF {
   background-color: #4CAF50;
   border: none;
@@ -112,5 +133,35 @@ h2 {
   bottom: 0;
   width: 100%;
 }
+
+#hlavni-kurzy {
+    margin-left: 230px;
+    margin-top: 140px;
+}
+
+#kurzy {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 1200px;
+}
+
+#kurzy td, #customers th {
+  padding: 8px;
+}
+
+#kurzy tr:nth-child(even){background-color: #f2f2f2;}
+
+#kurzy tr:hover {background-color: #ddd;}
+
+#kurzy th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+  text-indent: 20px;
+}
+
+
 
 

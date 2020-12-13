@@ -171,10 +171,10 @@ $.ajax({
          var myChartR = new Chart(s1, {
                 type: 'line',
                 data: {
-            labels: LabelsR,
+            labels: neco.Mesic.ZoomM.labels,
         datasets: [{
-            data: DataR,
-            label: LabelR,
+            data: neco.Mesic.ZoomM.data,
+            label: neco.Mesic.ZoomM.label,
             borderColor: "#8e5ea2",
             fill: false
           }]
@@ -183,10 +183,10 @@ $.ajax({
          var myChartR = new Chart(s2, {
                 type: 'line',
                 data: {
-            labels: LabelsR,
+            labels: neco.Mesic.AGCOM.labels,
         datasets: [{
-            data: DataR,
-            label: LabelR,
+            data: neco.Mesic.AGCOM.data,
+            label: neco.Mesic.AGCOM.label,
             borderColor: "#8e5ea2",
             fill: false
           }]
@@ -195,10 +195,10 @@ $.ajax({
          var myChartR = new Chart(s3, {
                 type: 'line',
                 data: {
-            labels: LabelsR,
+            labels: neco.Mesic.TeslaM.labels,
         datasets: [{
-            data: DataR,
-            label: LabelR,
+            data: neco.Mesic.TeslaM.data,
+            label: neco.Mesic.TeslaM.label,
             borderColor: "#8e5ea2",
             fill: false
           }]

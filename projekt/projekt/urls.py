@@ -20,11 +20,12 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib.auth.views import LoginView, LogoutView
 
 from . import views
-from .views import ChartView, ChartData
+from .views import ChartView, ChartData, Kurzy
 
 urlpatterns = [
     url(r'^$', ChartView.as_view(), name='chart'),
     url(r'^api/data/$', ChartData.as_view()),
+    url(r'^kurzy/$', Kurzy.as_view(), name='kurzy'),
     url(r'^admin/', admin.site.urls),
     path('login/',
          LoginView.as_view(

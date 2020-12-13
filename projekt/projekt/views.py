@@ -3,6 +3,7 @@ from django.views.generic import View
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from . import api1
+from . import yahoo_finance
 from django.contrib.auth.forms import UserCreationForm
 import pandas_datareader.data as web
 import datetime as dt
@@ -39,7 +40,6 @@ microsoftT = dataT(MSFT)
 IBMT = dataT(IBM)
 appleT = dataT(AAPL)
 
-
 mesic1 = dt.datetime(2020, 11, 1)
 mesic2 = dt.datetime(2020, 12, 1)
 
@@ -70,69 +70,79 @@ def register(request):
         form = UserCreationForm()
         args = {'form': form}
         return render(request, 'register.html', args)
-
 class ChartView(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'charts.html')
 
+class Kurzy(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, 'kurzy.html')
+
 class ChartData(APIView):
     def get(self, request, format=None):
         ibm_mesic = {
-            "data": IBMM['Close'],
-            "labels": IBMM.index,
+            "data": yahoo_finance.dfM['IBM'],
+            "labels": yahoo_finance.dfM.index,
             "label": 'IBM',
             "procenta": {procenta_I[2]},
-            "volume": prumer(IBMM['Volume']),
          }
         microsoft_mesic = {
-             "data": microsoftM['Close'],
-             "labels": microsoftM.index,
+             "data": yahoo_finance.dfM['MSFT'],
+             "labels": yahoo_finance.dfM.index,
              "label": 'Microsoft',
              "procenta": {procenta_M[2]},
-             "volume": prumer(microsoftM['Volume']),
          }
         apple_mesic = {
-             "data": appleM['Close'],
-             "labels": appleM.index,
-             "label": 'Apple',
-             "procenta": {procenta_A[2]},
-             "volume": prumer(appleM['Volume']),
+            "data": yahoo_finance.dfM['AAPL'],
+            "labels": yahoo_finance.dfM.index,
+            "label": 'Apple',
+            "procenta": {procenta_M[2]},
+        }
+        agco_mesic = {
+             "data": yahoo_finance.dfM['AGCO'],
+             "labels": yahoo_finance.dfM.index,
+             "label": 'AGCO',
+        }
+        tesla_mesic = {
+            "data": yahoo_finance.dfM['TSLA'],
+            "labels": yahoo_finance.dfM.index,
+            "label": 'Tesla',
+        }
+        zoom_mesic = {
+            "data": yahoo_finance.dfM['ZM'],
+            "labels": yahoo_finance.dfM.index,
+            "label": 'Zoom',
+            "procenta": {procenta_A[2]},
         }
         ibm_tyden = {
-            "data": IBMT['Close'],
-            "labels": IBMT.index,
+            "data": yahoo_finance.dfT['IBM'],
+            "labels": yahoo_finance.dfT.index,
             "label": 'IBM',
-            "volume": prumer(IBMT['Volume']),
         }
         microsoft_tyden = {
-            "data": microsoftT['Close'],
-            "labels": microsoftT.index,
+            "data": yahoo_finance.dfT['MSFT'],
+            "labels": yahoo_finance.dfT.index,
             "label": 'Microsoft',
-            "volume": prumer(microsoftT['Volume']),
         }
         apple_tyden = {
-            "data": appleT['Close'],
-            "labels": appleT.index,
+            "data": yahoo_finance.dfT['AAPL'],
+            "labels": yahoo_finance.dfT.index,
             "label": 'Apple',
-            "volume": prumer(appleT['Volume']),
         }
         ibm_rok = {
-            "data": IBMR['Close'],
-            "labels": IBMR.index,
+            "data": yahoo_finance.dfR['IBM'],
+            "labels": yahoo_finance.dfR.index,
             "label": 'IBM',
-            "volume": prumer(IBMR['Volume']),
         }
         microsoft_rok = {
-            "data": microsoftR['Close'],
-            "labels": microsoftR.index,
+            "data": yahoo_finance.dfR['MSFT'],
+            "labels": yahoo_finance.dfR.index,
             "label": 'Microsoft',
-            "volume": prumer(microsoftR['Volume']),
         }
         apple_rok = {
-            "data": appleR['Close'],
-            "labels": appleR.index,
+            "data": yahoo_finance.dfR['AAPL'],
+            "labels": yahoo_finance.dfR.index,
             "label": 'Apple',
-            "volume": prumer(appleR['Volume']),
         }
         tyden = {
             "IBMT": ibm_tyden,
@@ -182,6 +192,9 @@ class ChartData(APIView):
              "IBMM": ibm_mesic,
              "MicrosoftM": microsoft_mesic,
              "AppleM": apple_mesic,
+             "AGCOM": agco_mesic,
+             "ZoomM": zoom_mesic,
+             "TeslaM": tesla_mesic,
          }
         data = {
             "Tyden": tyden,
