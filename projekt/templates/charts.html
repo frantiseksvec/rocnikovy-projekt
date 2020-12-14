@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div id="main" class="col-sm-9">
-            <div class="row">
+            <div id="real" class="row">
                 <h2>Aktuálně z trhu</h2>
                   <div id="tlacika1" class="col-sm-8">
                       <button  class="buttonR" onclick="Tesla()">Tesla</button>
@@ -25,7 +25,7 @@
                  <button class="buttonF" onclick="Mesice()">Měsíce</button>
                  <button class="buttonF" onclick="Roky()">Roky</button>
              </div>
-                <div class="row">
+             <div id="historie" class="row">
                     <div class="col-md-4">
                         <h3 align="center">Microsoft</h3>
                         <p align="center" id="Microsoft-procenta"></p>
@@ -42,19 +42,73 @@
                         <canvas id="AAPL" width="600" height="400"></canvas>
                     </div>
                 </div>
+                <div id="tabule">
+                   <h2>Další akcie</h2>
+                   <table id="tabulka">
+                      <tr>
+                        <th>Symbol</th>
+                        <th>Cena(Interday)</th>
+                        <th>Změna</th>
+                        <th>Změna(%)</th>
+                        <th>Volume</th>
+                      </tr>
+                      <tr>
+                        <td id="radek1-1"></td>
+                        <td id="radek1-2"></td>
+                        <td id="radek1-3"></td>
+                        <td id="radek1-4"></td>
+                        <td id="radek1-5"></td>
+                      </tr>
+                      <tr>
+                        <td id="radek2-1"></td>
+                        <td id="radek2-2"></td>
+                        <td id="radek2-3"></td>
+                        <td id="radek2-4"></td>
+                        <td id="radek2-5"></td>
+                      </tr>
+                      <tr>
+                        <td id="radek3-1"></td>
+                        <td id="radek3-2"></td>
+                        <td id="radek3-3"></td>
+                        <td id="radek3-4"></td>
+                        <td id="radek3-5"></td>
+                      </tr>
+                      <tr>
+                        <td id="radek4-1"></td>
+                        <td id="radek4-2"></td>
+                        <td id="radek4-3"></td>
+                        <td id="radek4-4"></td>
+                        <td id="radek4-5"></td>
+                      </tr>
+                      <tr>
+                        <td id="radek5-1"></td>
+                        <td id="radek5-2"></td>
+                        <td id="radek5-3"></td>
+                        <td id="radek5-4"></td>
+                        <td id="radek5-5"></td>
+                      </tr>
+                      <tr>
+                        <td id="radek6-1"></td>
+                        <td id="radek6-2"></td>
+                        <td id="radek6-3"></td>
+                        <td id="radek6-4"></td>
+                        <td id="radek6-5"></td>
+                      </tr>
+                    </table>
+                </div>
             </div>
                 <div id="sloupek" class="col-sm-3">
                     <h3 align="center">Žhavé akcie</h3>
                     <div id="prvni">
-                        <h3 align="center"></h3>
+                        <h3 align="center" id="prv"></h3>
                         <canvas id="sloupek1" width="230" height="140"></canvas>
                     </div>
                     <div id="druhy">
-                        <h3 align="center"></h3>
+                        <h3 align="center" id="druh"></h3>
                         <canvas id="sloupek2" width="230" height="140"></canvas>
                     </div>
                     <div id="treti">
-                        <h3 align="center"></h3>
+                        <h3 align="center" id="tret"></h3>
                         <canvas id="sloupek3" width="230" height="140"></canvas>
                     </div>
                 </div>

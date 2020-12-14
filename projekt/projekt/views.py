@@ -6,7 +6,6 @@ from . import api1
 from . import yahoo_finance
 from django.contrib.auth.forms import UserCreationForm
 import pandas_datareader.data as web
-import datetime as dt
 
 procenta_I = '4,6'
 
@@ -14,51 +13,6 @@ procenta_I = '4,6'
 procenta_M ='3,2'
 
 procenta_A = '5,2'
-
-MSFT = 'MSFT'
-IBM = 'IBM'
-AAPL = 'AAPL'
-HOG = 'HOG'
-INTC = 'INTC'
-T = 'T'
-WMT = 'WMT'
-TSLA = 'TSLA'
-
-
-list = ""
-def prumer(list = list):
-    return sum(list) / len(list)
-
-tyden1 = dt.datetime(2020, 11, 11)
-tyden2 = dt.datetime(2020, 11, 18)
-
-stock = ''
-def dataT(stock):
-    df = web.DataReader(stock, 'yahoo', tyden1, tyden2)
-    return df
-microsoftT = dataT(MSFT)
-IBMT = dataT(IBM)
-appleT = dataT(AAPL)
-
-mesic1 = dt.datetime(2020, 11, 1)
-mesic2 = dt.datetime(2020, 12, 1)
-
-def dataM(stock):
-    df = web.DataReader(stock, 'yahoo', mesic1, mesic2)
-    return df
-microsoftM = dataM(MSFT)
-IBMM  = dataM(IBM)
-appleM = dataM(AAPL)
-
-rok1 = dt.datetime(2019, 11, 1)
-rok2 = dt.datetime(2020, 12, 1)
-
-def dataR(stock):
-    df = web.DataReader(stock, 'yahoo', rok1, rok2)
-    return df
-microsoftR = dataR(MSFT)
-IBMR  = dataR(IBM)
-appleR = dataR(AAPL)
 
 def register(request):
     if request.method =='POST':
@@ -74,9 +28,11 @@ class ChartView(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'charts.html')
 
+
 class Kurzy(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'kurzy.html')
+
 
 class ChartData(APIView):
     def get(self, request, format=None):
@@ -84,19 +40,19 @@ class ChartData(APIView):
             "data": yahoo_finance.dfM['IBM'],
             "labels": yahoo_finance.dfM.index,
             "label": 'IBM',
-            "procenta": {procenta_I[2]},
+            "procenta": yahoo_finance.rozdil_procenta(yahoo_finance.dfM['IBM']),
          }
         microsoft_mesic = {
              "data": yahoo_finance.dfM['MSFT'],
              "labels": yahoo_finance.dfM.index,
              "label": 'Microsoft',
-             "procenta": {procenta_M[2]},
+             "procenta": yahoo_finance.rozdil_procenta(yahoo_finance.dfM['MSFT']),
          }
         apple_mesic = {
             "data": yahoo_finance.dfM['AAPL'],
             "labels": yahoo_finance.dfM.index,
             "label": 'Apple',
-            "procenta": {procenta_M[2]},
+            "procenta": yahoo_finance.rozdil_procenta(yahoo_finance.dfM['AAPL']),
         }
         agco_mesic = {
              "data": yahoo_finance.dfM['AGCO'],
@@ -180,6 +136,62 @@ class ChartData(APIView):
             "labels": api1.datumI,
             "label": 'Intel',
         }
+
+        tabulkaM = {
+            "symbol": 'MSFT',
+            "cena": yahoo_finance.prumer(yahoo_finance.dfM['MSFT']),
+            "zmena": yahoo_finance.rozdil(yahoo_finance.dfM['MSFT']),
+            "zmena_p": yahoo_finance.rozdil_procenta(yahoo_finance.dfM['MSFT']),
+            "volume": yahoo_finance.prumer(yahoo_finance.dfM_V['MSFT']),
+        }
+        tabulkaZ = {
+            "symbol": 'ZM',
+            "cena": yahoo_finance.prumer(yahoo_finance.dfM['ZM']),
+            "zmena": yahoo_finance.rozdil(yahoo_finance.dfM['ZM']),
+            "zmena_p": yahoo_finance.rozdil_procenta(yahoo_finance.dfM['ZM']),
+            "volume": yahoo_finance.prumer(yahoo_finance.dfM_V['ZM']),
+        }
+        tabulkaC = {
+            "symbol": 'CSCO',
+            "cena": yahoo_finance.prumer(yahoo_finance.dfM['CSCO']),
+            "zmena": yahoo_finance.rozdil(yahoo_finance.dfM['CSCO']),
+            "zmena_p": yahoo_finance.rozdil_procenta(yahoo_finance.dfM['CSCO']),
+            "volume": yahoo_finance.prumer(yahoo_finance.dfM_V['CSCO']),
+        }
+
+        tabulkaD = {
+            "symbol": 'DAL',
+            "cena": yahoo_finance.prumer(yahoo_finance.dfM['DAL']),
+            "zmena": yahoo_finance.rozdil(yahoo_finance.dfM['DAL']),
+            "zmena_p": yahoo_finance.rozdil_procenta(yahoo_finance.dfM['DAL']),
+            "volume": yahoo_finance.prumer(yahoo_finance.dfM_V['DAL']),
+        }
+
+        tabulkaHM = {
+            "symbol": 'HMC',
+            "cena": yahoo_finance.prumer(yahoo_finance.dfM['HMC']),
+            "zmena": yahoo_finance.rozdil(yahoo_finance.dfM['HMC']),
+            "zmena_p": yahoo_finance.rozdil_procenta(yahoo_finance.dfM['HMC']),
+            "volume": yahoo_finance.prumer(yahoo_finance.dfM_V['HMC']),
+        }
+
+        tabulkaG = {
+            "symbol": 'GOOG',
+            "cena": yahoo_finance.prumer(yahoo_finance.dfM['GOOG']),
+            "zmena": yahoo_finance.rozdil(yahoo_finance.dfM['GOOG']),
+            "zmena_p": yahoo_finance.rozdil_procenta(yahoo_finance.dfM['GOOG']),
+            "volume": yahoo_finance.prumer(yahoo_finance.dfM_V['GOOG']),
+        }
+
+        tabulka = {
+            "microsoft": tabulkaM,
+            "zoom": tabulkaZ,
+            "cisco": tabulkaC,
+            "delta": tabulkaD,
+            "honda": tabulkaHM,
+            "google": tabulkaG,
+        }
+
         realtime = {
             "microsoftR": mR,
             "teslaR": tR,
@@ -201,6 +213,7 @@ class ChartData(APIView):
             "Mesic": mesic,
             "Rok": rok,
             "Realtime": realtime,
+            "Tabulka": tabulka,
         }
 
         return Response(data)

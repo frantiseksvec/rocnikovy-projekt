@@ -54,7 +54,7 @@
 }
 
 .container {
-  margin-top:75px;
+  margin-top:70px;
   width: 1650px;
   padding-bottom: 30px;
 }
@@ -113,6 +113,14 @@ h2 {
     padding: 30px;
 }
 
+#real {
+    padding: 20x;
+}
+
+#historie {
+    padding: 20px;
+}
+
 .buttonF {
   background-color: #4CAF50;
   border: none;
@@ -160,6 +168,34 @@ h2 {
   background-color: #4CAF50;
   color: white;
   text-indent: 20px;
+}
+
+#tabulka {
+  border-collapse: collapse;
+  width: 1200px;
+}
+
+#tabulka td, #customers th {
+  padding: 8px;
+}
+
+#tabulka tr:nth-child(even){background-color: #f2f2f2;}
+
+#tabulka tr:hover {background-color: #ddd;}
+
+#tabulka th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+  text-indent: 20px;
+  font-size: 25px
+}
+
+#tabulka td {
+  text-indent: 20px;
+  font-size: 20px
 }
 
 

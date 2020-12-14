@@ -23,16 +23,14 @@ $.ajax({
             VolumeI = data.Mesic.IBMM.volume
             VolumeA = data.Mesic.MicrosoftM.volume
             VolumeM = data.Mesic.AppleM.volume
-            document.getElementById('IBM-procenta').innerHTML = ProcentaI + '%'
-            document.getElementById('Microsoft-procenta').innerHTML = ProcentaM + '%'
-            document.getElementById('Apple-procenta').innerHTML = ProcentaA + '%'
             nastavGraf()
             prehled()
             Tydny()
             Mesice()
             Roky()
             sloupek()
-
+            Texty()
+            Tabulka()
     },
     error: function(error_data){
         console.log("error")
@@ -41,6 +39,54 @@ $.ajax({
 })
 }
     fetch()
+    function Texty(){
+        document.getElementById('IBM-procenta').innerHTML = ProcentaI + '%'
+        document.getElementById('Microsoft-procenta').innerHTML = ProcentaM + '%'
+        document.getElementById('Apple-procenta').innerHTML = ProcentaA + '%'
+        document.getElementById('prv').innerHTML = neco.Mesic.ZoomM.label
+        document.getElementById('druh').innerHTML = neco.Mesic.TeslaM.label
+        document.getElementById('tret').innerHTML = neco.Mesic.AGCOM.label
+    }
+
+    function Tabulka(){
+        document.getElementById('radek1-1').innerHTML = neco.Tabulka.microsoft.symbol
+        document.getElementById('radek1-2').innerHTML = neco.Tabulka.microsoft.cena
+        document.getElementById('radek1-3').innerHTML = neco.Tabulka.microsoft.zmena
+        document.getElementById('radek1-4').innerHTML = neco.Tabulka.microsoft.zmena_p  + '%'
+        document.getElementById('radek1-5').innerHTML = neco.Tabulka.microsoft.volume
+
+        document.getElementById('radek2-1').innerHTML = neco.Tabulka.zoom.symbol
+        document.getElementById('radek2-2').innerHTML = neco.Tabulka.zoom.cena
+        document.getElementById('radek2-3').innerHTML = neco.Tabulka.zoom.zmena
+        document.getElementById('radek2-4').innerHTML = neco.Tabulka.zoom.zmena_p  + '%'
+        document.getElementById('radek2-5').innerHTML = neco.Tabulka.zoom.volume
+
+        document.getElementById('radek3-1').innerHTML = neco.Tabulka.cisco.symbol
+        document.getElementById('radek3-2').innerHTML = neco.Tabulka.cisco.cena
+        document.getElementById('radek3-3').innerHTML = neco.Tabulka.cisco.zmena
+        document.getElementById('radek3-4').innerHTML = neco.Tabulka.cisco.zmena_p  + '%'
+        document.getElementById('radek3-5').innerHTML = neco.Tabulka.cisco.volume
+
+        document.getElementById('radek4-1').innerHTML = neco.Tabulka.delta.symbol
+        document.getElementById('radek4-2').innerHTML = neco.Tabulka.delta.cena
+        document.getElementById('radek4-3').innerHTML = neco.Tabulka.delta.zmena
+        document.getElementById('radek4-4').innerHTML = neco.Tabulka.delta.zmena_p  + '%'
+        document.getElementById('radek4-5').innerHTML = neco.Tabulka.delta.volume
+
+        document.getElementById('radek5-1').innerHTML = neco.Tabulka.honda.symbol
+        document.getElementById('radek5-2').innerHTML = neco.Tabulka.honda.cena
+        document.getElementById('radek5-3').innerHTML = neco.Tabulka.honda.zmena
+        document.getElementById('radek5-4').innerHTML = neco.Tabulka.honda.zmena_p  + '%'
+        document.getElementById('radek5-5').innerHTML = neco.Tabulka.honda.volume
+
+        document.getElementById('radek6-1').innerHTML = neco.Tabulka.google.symbol
+        document.getElementById('radek6-2').innerHTML = neco.Tabulka.google.cena
+        document.getElementById('radek6-3').innerHTML = neco.Tabulka.google.zmena
+        document.getElementById('radek6-4').innerHTML = neco.Tabulka.google.zmena_p  + '%'
+        document.getElementById('radek6-5').innerHTML = neco.Tabulka.google.volume
+
+    }
+
     function Tesla(){
         LabelsR = neco.Realtime.teslaR.labels
         LabelR = neco.Realtime.teslaR.label
