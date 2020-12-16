@@ -28,9 +28,10 @@ $.ajax({
             Tydny()
             Mesice()
             Roky()
-            sloupek()
             Texty()
             Tabulka()
+            TabulkaR()
+//            sloupek()
     },
     error: function(error_data){
         console.log("error")
@@ -43,9 +44,9 @@ $.ajax({
         document.getElementById('IBM-procenta').innerHTML = ProcentaI + '%'
         document.getElementById('Microsoft-procenta').innerHTML = ProcentaM + '%'
         document.getElementById('Apple-procenta').innerHTML = ProcentaA + '%'
-        document.getElementById('prv').innerHTML = neco.Mesic.ZoomM.label
-        document.getElementById('druh').innerHTML = neco.Mesic.TeslaM.label
-        document.getElementById('tret').innerHTML = neco.Mesic.AGCOM.label
+//        document.getElementById('prv').innerHTML = neco.Mesic.ZoomM.label
+//        document.getElementById('druh').innerHTML = neco.Mesic.TeslaM.label
+//        document.getElementById('tret').innerHTML = neco.Mesic.AGCOM.label
     }
 
     function Tabulka(){
@@ -85,6 +86,33 @@ $.ajax({
         document.getElementById('radek6-4').innerHTML = neco.Tabulka.google.zmena_p  + '%'
         document.getElementById('radek6-5').innerHTML = neco.Tabulka.google.volume
 
+    }
+
+    function TabulkaR(){
+        document.getElementById('r2-1').innerHTML = neco.Realtime.teslaR.label
+        document.getElementById('r2-2').innerHTML = neco.Realtime.teslaR.zmena
+        document.getElementById('r2-3').innerHTML = neco.Realtime.teslaR.cena
+        document.getElementById('r2-4').innerHTML = neco.Realtime.teslaR.volume
+
+        document.getElementById('r1-1').innerHTML = neco.Realtime.microsoftR.label
+        document.getElementById('r1-2').innerHTML = neco.Realtime.microsoftR.zmena
+        document.getElementById('r1-3').innerHTML = neco.Realtime.microsoftR.cena
+        document.getElementById('r1-4').innerHTML = neco.Realtime.microsoftR.volume
+
+        document.getElementById('r3-1').innerHTML = neco.Realtime.zoomR.label
+        document.getElementById('r3-2').innerHTML = neco.Realtime.zoomR.zmena
+        document.getElementById('r3-3').innerHTML = neco.Realtime.zoomR.cena
+        document.getElementById('r3-4').innerHTML = neco.Realtime.zoomR.volume
+
+        document.getElementById('r4-1').innerHTML = neco.Realtime.agcoR.label
+        document.getElementById('r4-2').innerHTML = neco.Realtime.agcoR.zmena
+        document.getElementById('r4-3').innerHTML = neco.Realtime.agcoR.cena
+        document.getElementById('r4-4').innerHTML = neco.Realtime.agcoR.volume
+
+        document.getElementById('r5-1').innerHTML = neco.Realtime.intelR.label
+        document.getElementById('r5-2').innerHTML = neco.Realtime.intelR.zmena
+        document.getElementById('r5-3').innerHTML = neco.Realtime.intelR.cena
+        document.getElementById('r5-4').innerHTML = neco.Realtime.intelR.volume
     }
 
     function Tesla(){
@@ -212,44 +240,44 @@ $.ajax({
         myChartR.update();
     }
 
-    function sloupek(){
-         var s1 = document.getElementById('sloupek1');
-         var myChartR = new Chart(s1, {
-                type: 'line',
-                data: {
-            labels: neco.Mesic.ZoomM.labels,
-        datasets: [{
-            data: neco.Mesic.ZoomM.data,
-            label: neco.Mesic.ZoomM.label,
-            borderColor: "#8e5ea2",
-            fill: false
-          }]
-        }});
-        var s2 = document.getElementById('sloupek2');
-         var myChartR = new Chart(s2, {
-                type: 'line',
-                data: {
-            labels: neco.Mesic.AGCOM.labels,
-        datasets: [{
-            data: neco.Mesic.AGCOM.data,
-            label: neco.Mesic.AGCOM.label,
-            borderColor: "#8e5ea2",
-            fill: false
-          }]
-        }});
-        var s3 = document.getElementById('sloupek3');
-         var myChartR = new Chart(s3, {
-                type: 'line',
-                data: {
-            labels: neco.Mesic.TeslaM.labels,
-        datasets: [{
-            data: neco.Mesic.TeslaM.data,
-            label: neco.Mesic.TeslaM.label,
-            borderColor: "#8e5ea2",
-            fill: false
-          }]
-        }});
-    }
+//    function sloupek(){
+//         var s1 = document.getElementById('sloupek1');
+//         var myChartR = new Chart(s1, {
+//                type: 'line',
+//                data: {
+//            labels: neco.Mesic.ZoomM.labels,
+//        datasets: [{
+//            data: neco.Mesic.ZoomM.data,
+//            label: neco.Mesic.ZoomM.label,
+//            borderColor: "#8e5ea2",
+//            fill: false
+//          }]
+//        }});
+//        var s2 = document.getElementById('sloupek2');
+//         var myChartR = new Chart(s2, {
+//                type: 'line',
+//                data: {
+//            labels: neco.Mesic.AGCOM.labels,
+//        datasets: [{
+//            data: neco.Mesic.AGCOM.data,
+//            label: neco.Mesic.AGCOM.label,
+//            borderColor: "#8e5ea2",
+//            fill: false
+//          }]
+//        }});
+//        var s3 = document.getElementById('sloupek3');
+//         var myChartR = new Chart(s3, {
+//                type: 'line',
+//                data: {
+//            labels: neco.Mesic.TeslaM.labels,
+//        datasets: [{
+//            data: neco.Mesic.TeslaM.data,
+//            label: neco.Mesic.TeslaM.label,
+//            borderColor: "#8e5ea2",
+//            fill: false
+//          }]
+//        }});
+//    }
 
 
 

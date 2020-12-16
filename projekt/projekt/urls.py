@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.conf.urls import url
 from django.urls import path
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.views import LogoutView
 
 from . import views
 from .views import ChartView, ChartData, Kurzy
@@ -27,19 +27,14 @@ urlpatterns = [
     url(r'^api/data/$', ChartData.as_view()),
     url(r'^kurzy/$', Kurzy.as_view(), name='kurzy'),
     url(r'^admin/', admin.site.urls),
-    path('login/',
-         LoginView.as_view(
-             template_name='login.html'
-         ),
-         name="login"
-         ),
     path('logout/',
          LogoutView.as_view(
              template_name='logout.html'
          ),
          name="logout"
          ),
-    url(r'^register/$', views.register, name='register')
+    url(r'^register/$', views.register, name='register'),
+    url(r'^login/$', views.login_page, name='login'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

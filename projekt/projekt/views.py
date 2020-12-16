@@ -4,26 +4,39 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from . import api1
 from . import yahoo_finance
-from django.contrib.auth.forms import UserCreationForm
-import pandas_datareader.data as web
+from .forms import CreateUserForm
+from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
 
-procenta_I = '4,6'
-
-
-procenta_M ='3,2'
-
-procenta_A = '5,2'
 
 def register(request):
     if request.method =='POST':
-        form = UserCreationForm(request.POST)
+        form = CreateUserForm(request.POST)
         if form.is_valid():
             form.save()
-        return redirect('uspech.html')
+        return redirect('login')
     else:
-        form = UserCreationForm()
+        form = CreateUserForm()
         args = {'form': form}
         return render(request, 'register.html', args)
+
+def login_page(reqeust):
+    if reqeust.method == 'POST':
+        username = reqeust.POST.get('username')
+        password = reqeust.POST.get('password')
+        user = authenticate(reqeust, username=username, password=password)
+        if user is not None:
+            login(reqeust, user)
+            return redirect('chart')
+        else:
+            messages.info(reqeust, 'Špatné jméno nebo heslo!!')
+    context = {}
+    return render(reqeust, 'login.html', context)
+
+def logoutUser(request):
+    logout(request)
+    return redirect('login')
+
 class ChartView(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'charts.html')
@@ -68,7 +81,6 @@ class ChartData(APIView):
             "data": yahoo_finance.dfM['ZM'],
             "labels": yahoo_finance.dfM.index,
             "label": 'Zoom',
-            "procenta": {procenta_A[2]},
         }
         ibm_tyden = {
             "data": yahoo_finance.dfT['IBM'],
@@ -115,26 +127,41 @@ class ChartData(APIView):
             "data": api1.cenaM,
             "labels": api1.datumM,
             "label": 'Microsoft',
+            "zmena": yahoo_finance.rozdil_procenta(api1.cenaM),
+            "cena": yahoo_finance.prumer(api1.cenaM),
+            "volume": yahoo_finance.prumer(api1.volumeM)
         }
         tR = {
             "data": api1.cenaT,
             "labels": api1.datumM,
             "label": 'Tesla',
+            "zmena": yahoo_finance.rozdil_procenta(api1.cenaT),
+            "cena": yahoo_finance.prumer(api1.cenaT),
+            "volume": yahoo_finance.prumer(api1.volumeT),
         }
         zR = {
             "data": api1.cenaZ,
             "labels": api1.datumZ,
             "label": 'Zoom',
+            "zmena": yahoo_finance.rozdil_procenta(api1.cenaZ),
+            "cena": yahoo_finance.prumer(api1.cenaZ),
+            "volume": yahoo_finance.prumer(api1.volumeZ)
         }
         aR = {
             "data": api1.cenaA,
             "labels": api1.datumA,
             "label": 'AGCO',
+            "zmena": yahoo_finance.rozdil_procenta(api1.cenaA),
+            "cena": yahoo_finance.prumer(api1.cenaA),
+            "volume": yahoo_finance.prumer(api1.volumeA)
         }
         iR = {
             "data": api1.cenaI,
             "labels": api1.datumI,
             "label": 'Intel',
+            "zmena": yahoo_finance.rozdil_procenta(api1.cenaA),
+            "cena": yahoo_finance.prumer(api1.cenaA),
+            "volume": yahoo_finance.prumer(api1.volumeI)
         }
 
         tabulkaM = {
