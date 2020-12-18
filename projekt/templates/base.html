@@ -12,14 +12,18 @@
     {% include 'base/bootstrap_defaults.html' %}
   </head>
   <body>
-    <div class="header">
-      <a href="{% url 'chart' %}" class="Nadpis">Stránka o akciích</a>
-        <div class="header-right">
-        <a href="{% url 'kurzy' %}">Kurzovní lístek</a>
-        <a href="#login">Vlastní portfolio</a>
-        <a href="{% url 'login' %}">Přihlášení</a>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Stránka o akciích</a>
         </div>
-    </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="{% url 'chart' %}">Home</a></li>
+          <li><a href="{% url 'kurzy' %}">Kurzovní lístek</a></li>
+          <li><a href="{% url 'login' %}">Přihlášení</a></li>
+        </ul>
+      </div>
+    </nav>
     {% block content %}
     {% endblock content %}
     {% include 'base/js.html' %}

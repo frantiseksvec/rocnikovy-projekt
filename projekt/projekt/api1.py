@@ -5,13 +5,14 @@ TSLA = 'TSLA'
 ZM = 'ZM'
 AGCO = 'AGCO'
 INTC = 'INTC'
-
 stock = ''
+
 def real(stock):
     api_key = 'GQ43JWXBO74Y0Z9N'
     ts = TimeSeries(key=api_key, output_format='pandas')
     df = ts.get_intraday(stock.upper(), interval='30min', outputsize='compact')
     return df
+
 period = 60
 dataM = real(MSFT)
 dataT = real(TSLA)

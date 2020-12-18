@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from . import api1
 from . import yahoo_finance
+from . import kurzy
 from .forms import CreateUserForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
@@ -112,17 +113,6 @@ class ChartData(APIView):
             "labels": yahoo_finance.dfR.index,
             "label": 'Apple',
         }
-        tyden = {
-            "IBMT": ibm_tyden,
-            "MicrosoftT": microsoft_tyden,
-            "AppleT": apple_tyden,
-        }
-
-        rok = {
-            "IBMR": ibm_rok,
-            "MicrosoftR": microsoft_rok,
-            "AppleR": apple_rok,
-        }
         mR = {
             "data": api1.cenaM,
             "labels": api1.datumM,
@@ -170,6 +160,9 @@ class ChartData(APIView):
             "zmena": yahoo_finance.rozdil(yahoo_finance.dfM['MSFT']),
             "zmena_p": yahoo_finance.rozdil_procenta(yahoo_finance.dfM['MSFT']),
             "volume": yahoo_finance.prumer(yahoo_finance.dfM_V['MSFT']),
+            "label": 'Microsoft',
+            "datum": yahoo_finance.dfM.index,
+            "data": yahoo_finance.dfM['MSFT'],
         }
         tabulkaZ = {
             "symbol": 'ZM',
@@ -177,6 +170,9 @@ class ChartData(APIView):
             "zmena": yahoo_finance.rozdil(yahoo_finance.dfM['ZM']),
             "zmena_p": yahoo_finance.rozdil_procenta(yahoo_finance.dfM['ZM']),
             "volume": yahoo_finance.prumer(yahoo_finance.dfM_V['ZM']),
+            "label": 'Zoom',
+            "datum": yahoo_finance.dfM.index,
+            "data": yahoo_finance.dfM['ZM'],
         }
         tabulkaC = {
             "symbol": 'CSCO',
@@ -184,6 +180,9 @@ class ChartData(APIView):
             "zmena": yahoo_finance.rozdil(yahoo_finance.dfM['CSCO']),
             "zmena_p": yahoo_finance.rozdil_procenta(yahoo_finance.dfM['CSCO']),
             "volume": yahoo_finance.prumer(yahoo_finance.dfM_V['CSCO']),
+            "label": 'Cisco',
+            "datum": yahoo_finance.dfM.index,
+            "data": yahoo_finance.dfM['CSCO'],
         }
 
         tabulkaD = {
@@ -192,6 +191,9 @@ class ChartData(APIView):
             "zmena": yahoo_finance.rozdil(yahoo_finance.dfM['DAL']),
             "zmena_p": yahoo_finance.rozdil_procenta(yahoo_finance.dfM['DAL']),
             "volume": yahoo_finance.prumer(yahoo_finance.dfM_V['DAL']),
+            "label": 'Delta Air Lines',
+            "datum": yahoo_finance.dfM.index,
+            "data": yahoo_finance.dfM['DAL'],
         }
 
         tabulkaHM = {
@@ -200,6 +202,9 @@ class ChartData(APIView):
             "zmena": yahoo_finance.rozdil(yahoo_finance.dfM['HMC']),
             "zmena_p": yahoo_finance.rozdil_procenta(yahoo_finance.dfM['HMC']),
             "volume": yahoo_finance.prumer(yahoo_finance.dfM_V['HMC']),
+            "label": 'Honda Motor Company',
+            "datum": yahoo_finance.dfM.index,
+            "data": yahoo_finance.dfM['HMC'],
         }
 
         tabulkaG = {
@@ -208,6 +213,9 @@ class ChartData(APIView):
             "zmena": yahoo_finance.rozdil(yahoo_finance.dfM['GOOG']),
             "zmena_p": yahoo_finance.rozdil_procenta(yahoo_finance.dfM['GOOG']),
             "volume": yahoo_finance.prumer(yahoo_finance.dfM_V['GOOG']),
+            "label": 'Google',
+            "datum": yahoo_finance.dfM.index,
+            "data": yahoo_finance.dfM['GOOG'],
         }
 
         tabulka = {
@@ -218,7 +226,57 @@ class ChartData(APIView):
             "honda": tabulkaHM,
             "google": tabulkaG,
         }
-
+        eur = {
+           "mena": 'EUR',
+           "zeme": 'EMS',
+           "mnostvi": '1',
+           "kurz": kurzy.kurz('EUR'),
+        }
+        usd = {
+            "mena": 'USD',
+            "zeme": 'USA',
+            "mnostvi": '1',
+            "kurz": kurzy.kurz('USD')
+        }
+        pln = {
+            "mena": 'PLN',
+            "zeme": 'Polsko',
+            "mnostvi": '1',
+            "kurz": kurzy.kurz('PLN')
+        }
+        rub = {
+            "mena": 'RUB',
+            "zeme": 'Rusko',
+            "mnostvi": '1',
+            "kurz": kurzy.kurz('RUB')
+        }
+        nok = {
+            "mena": 'NOK',
+            "zeme": 'Norsko',
+            "mnostvi": '1',
+            "kurz": kurzy.kurz('NOK')
+        }
+        huf = {
+            "mena": 'HUF',
+            "zeme": 'Maďarsko',
+            "mnostvi": '100',
+            "kurz": 100 * kurzy.kurz('HUF')
+        }
+        dkk = {
+            "mena": 'DKK',
+            "zeme": 'Dánsko',
+            "mnostvi": '1',
+            "kurz": kurzy.kurz('DKK')
+        }
+        kur = {
+            "EUR": eur,
+            "USD": usd,
+            "PLN": pln,
+            "RUB": rub,
+            "NOK": nok,
+            "HUF": huf,
+            "DKK": dkk,
+        }
         realtime = {
             "microsoftR": mR,
             "teslaR": tR,
@@ -235,12 +293,25 @@ class ChartData(APIView):
              "ZoomM": zoom_mesic,
              "TeslaM": tesla_mesic,
          }
+        tyden = {
+            "IBMT": ibm_tyden,
+            "MicrosoftT": microsoft_tyden,
+            "AppleT": apple_tyden,
+        }
+
+        rok = {
+            "IBMR": ibm_rok,
+            "MicrosoftR": microsoft_rok,
+            "AppleR": apple_rok,
+        }
+
         data = {
             "Tyden": tyden,
             "Mesic": mesic,
             "Rok": rok,
             "Realtime": realtime,
             "Tabulka": tabulka,
+            "Kurzy": kur,
         }
 
         return Response(data)

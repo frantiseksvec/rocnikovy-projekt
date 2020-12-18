@@ -10,6 +10,7 @@ rok = cas_dnes - dt.timedelta(days=365)
 
 tickers = ['SPY', 'AAPL', 'MSFT', 'HOG', 'INTC', 'T', 'WMT', 'TSLA', 'IBM', 'AGCO', 'ZM', 'TM' , 'CSCO'
             , 'DAL', 'HMC', 'GOOG']
+
 def data(strt, end, tick_list, this_price):
     adj_close = pd.DataFrame([])
     for idx, i in enumerate(tick_list):

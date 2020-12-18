@@ -31,6 +31,8 @@ $.ajax({
             Texty()
             Tabulka()
             TabulkaR()
+            tabulkaGrafy()
+            tabulkaKurzy()
 //            sloupek()
     },
     error: function(error_data){
@@ -44,9 +46,12 @@ $.ajax({
         document.getElementById('IBM-procenta').innerHTML = ProcentaI + '%'
         document.getElementById('Microsoft-procenta').innerHTML = ProcentaM + '%'
         document.getElementById('Apple-procenta').innerHTML = ProcentaA + '%'
-//        document.getElementById('prv').innerHTML = neco.Mesic.ZoomM.label
-//        document.getElementById('druh').innerHTML = neco.Mesic.TeslaM.label
-//        document.getElementById('tret').innerHTML = neco.Mesic.AGCOM.label
+        document.getElementById('nadpis-okno1').innerHTML = neco.Tabulka.microsoft.label
+        document.getElementById('nadpis-okno2').innerHTML = neco.Tabulka.zoom.label
+        document.getElementById('nadpis-okno3').innerHTML = neco.Tabulka.cisco.label
+        document.getElementById('nadpis-okno4').innerHTML = neco.Tabulka.delta.label
+        document.getElementById('nadpis-okno5').innerHTML = neco.Tabulka.honda.label
+        document.getElementById('nadpis-okno6').innerHTML = neco.Tabulka.google.label
     }
 
     function Tabulka(){
@@ -240,44 +245,86 @@ $.ajax({
         myChartR.update();
     }
 
-//    function sloupek(){
-//         var s1 = document.getElementById('sloupek1');
-//         var myChartR = new Chart(s1, {
-//                type: 'line',
-//                data: {
-//            labels: neco.Mesic.ZoomM.labels,
-//        datasets: [{
-//            data: neco.Mesic.ZoomM.data,
-//            label: neco.Mesic.ZoomM.label,
-//            borderColor: "#8e5ea2",
-//            fill: false
-//          }]
-//        }});
-//        var s2 = document.getElementById('sloupek2');
-//         var myChartR = new Chart(s2, {
-//                type: 'line',
-//                data: {
-//            labels: neco.Mesic.AGCOM.labels,
-//        datasets: [{
-//            data: neco.Mesic.AGCOM.data,
-//            label: neco.Mesic.AGCOM.label,
-//            borderColor: "#8e5ea2",
-//            fill: false
-//          }]
-//        }});
-//        var s3 = document.getElementById('sloupek3');
-//         var myChartR = new Chart(s3, {
-//                type: 'line',
-//                data: {
-//            labels: neco.Mesic.TeslaM.labels,
-//        datasets: [{
-//            data: neco.Mesic.TeslaM.data,
-//            label: neco.Mesic.TeslaM.label,
-//            borderColor: "#8e5ea2",
-//            fill: false
-//          }]
-//        }});
-//    }
+     function tabulkaGrafy(){
+         var a = document.getElementById('canvas-okno1');
+         var myChartR = new Chart(a, {
+                type: 'line',
+                data: {
+            labels: neco.Tabulka.microsoft.datum,
+        datasets: [{
+            data:neco.Tabulka.microsoft.data,
+            label: neco.Tabulka.microsoft.label,
+            borderColor: "#8e5ea2",
+            fill: false
+          }]
+        }});
+        var b = document.getElementById('canvas-okno2');
+         var myChartR = new Chart(b, {
+                type: 'line',
+                data: {
+            labels: neco.Tabulka.zoom.datum,
+        datasets: [{
+            data:neco.Tabulka.zoom.data,
+            label: neco.Tabulka.zoom.label,
+            borderColor: "#8e5ea2",
+            fill: false
+          }]
+        }});
+        var c = document.getElementById('canvas-okno3');
+         var myChartR = new Chart(c, {
+                type: 'line',
+                data: {
+            labels: neco.Tabulka.cisco.datum,
+        datasets: [{
+            data:neco.Tabulka.cisco.data,
+            label: neco.Tabulka.cisco.label,
+            borderColor: "#8e5ea2",
+            fill: false
+          }]
+        }});
+        var d = document.getElementById('canvas-okno4');
+         var myChartR = new Chart(d, {
+                type: 'line',
+                data: {
+            labels: neco.Tabulka.delta.datum,
+        datasets: [{
+            data:neco.Tabulka.delta.data,
+            label: neco.Tabulka.delta.label,
+            borderColor: "#8e5ea2",
+            fill: false
+          }]
+        }});
+        var e = document.getElementById('canvas-okno5');
+         var myChartR = new Chart(e, {
+                type: 'line',
+                data: {
+            labels: neco.Tabulka.honda.datum,
+        datasets: [{
+            data:neco.Tabulka.honda.data,
+            label: neco.Tabulka.honda.label,
+            borderColor: "#8e5ea2",
+            fill: false
+          }]
+        }});
+         var f = document.getElementById('canvas-okno6');
+         var myChartR = new Chart(f, {
+                type: 'line',
+                data: {
+            labels: neco.Tabulka.google.datum,
+        datasets: [{
+            data:neco.Tabulka.google.data,
+            label: neco.Tabulka.google.label,
+            borderColor: "#8e5ea2",
+            fill: false
+          }]
+        }});
+    }
+    function tabulkaKurzy(){
+        document.getElementById('rad1-1').innerHTML = neco.Kurzy.EUR.mena
+        document.getElementById('rad1-2').innerHTML = neco.Kurzy.EUR.zeme
+        document.getElementById('rad1-3').innerHTML = neco.Kurzy.EUR.mnozstvi
+        document.getElementById('rad2-4').innerHTML = neco.Kurzy.EUR.kurz
+    }
 
 
 

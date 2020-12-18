@@ -88,6 +88,7 @@
                         <th>Změna</th>
                         <th>Změna(%)</th>
                         <th>Volume</th>
+                        <th>Detail</th>
                       </tr>
                       <tr>
                         <td id="radek1-1"></td>
@@ -95,6 +96,7 @@
                         <td id="radek1-3"></td>
                         <td id="radek1-4"></td>
                         <td id="radek1-5"></td>
+                        <td><button type="button" data-toggle="modal" data-target="#okno1" class="detail">Graf</button></td>
                       </tr>
                       <tr>
                         <td id="radek2-1"></td>
@@ -102,6 +104,7 @@
                         <td id="radek2-3"></td>
                         <td id="radek2-4"></td>
                         <td id="radek2-5"></td>
+                         <td><button type="button" data-toggle="modal" data-target="#okno2" class="detail">Graf</button></td>
                       </tr>
                       <tr>
                         <td id="radek3-1"></td>
@@ -109,6 +112,7 @@
                         <td id="radek3-3"></td>
                         <td id="radek3-4"></td>
                         <td id="radek3-5"></td>
+                         <td><button type="button" data-toggle="modal" data-target="#okno3" class="detail">Graf</button></td>
                       </tr>
                       <tr>
                         <td id="radek4-1"></td>
@@ -116,6 +120,7 @@
                         <td id="radek4-3"></td>
                         <td id="radek4-4"></td>
                         <td id="radek4-5"></td>
+                         <td><button type="button" data-toggle="modal" data-target="#okno4" class="detail">Graf</button></td>
                       </tr>
                       <tr>
                         <td id="radek5-1"></td>
@@ -123,6 +128,7 @@
                         <td id="radek5-3"></td>
                         <td id="radek5-4"></td>
                         <td id="radek5-5"></td>
+                         <td><button type="button" data-toggle="modal" data-target="#okno5" class="detail">Graf</button></td>
                       </tr>
                       <tr>
                         <td id="radek6-1"></td>
@@ -130,9 +136,106 @@
                         <td id="radek6-3"></td>
                         <td id="radek6-4"></td>
                         <td id="radek6-5"></td>
+                         <td><button type="button" data-toggle="modal" data-target="#okno6" class="detail">Graf</button></td>
                       </tr>
                     </table>
                 </div>
+              <div class="modal fade" id="okno1" role="dialog">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h3 id="nadpis-okno1" class="modal-title"></h3>
+                    </div>
+                    <div class="modal-body">
+                        <canvas id="canvas-okno1" width="600" height="400"></canvas>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Zavřít</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal fade" id="okno2" role="dialog">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h3 id="nadpis-okno2" class="modal-title"></h3>
+                    </div>
+                    <div class="modal-body">
+                        <canvas id="canvas-okno2" width="600" height="400"></canvas>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Zavřít</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal fade" id="okno3" role="dialog">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h3 id="nadpis-okno3" class="modal-title"></h3>
+                    </div>
+                    <div class="modal-body">
+                        <canvas id="canvas-okno3" width="600" height="400"></canvas>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Zavřít</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal fade" id="okno4" role="dialog">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h3 id="nadpis-okno4" class="modal-title"></h3>
+                    </div>
+                    <div class="modal-body">
+                        <canvas id="canvas-okno4" width="600" height="400"></canvas>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Zavřít</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal fade" id="okno5" role="dialog">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h3 id="nadpis-okno5" class="modal-title"></h3>
+                    </div>
+                    <div class="modal-body">
+                        <canvas id="canvas-okno5" width="600" height="400"></canvas>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Zavřít</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal fade" id="okno6" role="dialog">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h3 id="nadpis-okno6" class="modal-title"></h3>
+                    </div>
+                    <div class="modal-body">
+                        <canvas id="canvas-okno6" width="600" height="400"></canvas>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Zavřít</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 <!--                <div id="sloupek" class="col-sm-3">-->
 <!--                    <h3 align="center">Žhavé akcie</h3>-->
