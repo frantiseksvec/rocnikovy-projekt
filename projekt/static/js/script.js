@@ -32,8 +32,7 @@ $.ajax({
             Tabulka()
             TabulkaR()
             tabulkaGrafy()
-            tabulkaKurzy()
-//            sloupek()
+            Clanky()
     },
     error: function(error_data){
         console.log("error")
@@ -319,11 +318,16 @@ $.ajax({
           }]
         }});
     }
-    function tabulkaKurzy(){
-        document.getElementById('rad1-1').innerHTML = neco.Kurzy.EUR.mena
-        document.getElementById('rad1-2').innerHTML = neco.Kurzy.EUR.zeme
-        document.getElementById('rad1-3').innerHTML = neco.Kurzy.EUR.mnozstvi
-        document.getElementById('rad2-4').innerHTML = neco.Kurzy.EUR.kurz
+
+    function Clanky(){
+       document.getElementById('h3-1').innerHTML = neco.Clanek.nadpis1
+       document.getElementById('h3-2').innerHTML = neco.Clanek.nadpis2
+       document.getElementById('h3-3').innerHTML = neco.Clanek.nadpis3
+       document.getElementById('h3-4').innerHTML = neco.Clanek.nadpis4
+       document.getElementById('text1').innerHTML = neco.Clanek.text1
+       document.getElementById('text2').innerHTML = neco.Clanek.text2
+       document.getElementById('text3').innerHTML = neco.Clanek.text3
+       document.getElementById('text4').innerHTML = neco.Clanek.text4
     }
 
 

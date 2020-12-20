@@ -1,5 +1,5 @@
 #sloupek {
-  margin-top: 40px;
+  margin-top: 10px;
 }
 
 #tabuleR{
@@ -9,7 +9,7 @@
 
 .container {
   margin-top:70px;
-  width: 1700px;
+  width: 1760px;
   padding-bottom: 30px;
 }
 
@@ -155,7 +155,7 @@ h2 {
 
 #real-tabulka {
   border-collapse: collapse;
-  width: 500px;
+  width: 220px;
   align: center;
 }
 
@@ -275,6 +275,21 @@ h2 {
   font-size: 16px;
 }
 
+.clanek {
+  padding: 18px;
+  margin-top: 20px;
+  background-color: #90EE90;
+}
+
+.nadpis-clanek {
+  font-size: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.text-clanek {
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
 
 

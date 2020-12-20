@@ -5,6 +5,7 @@ from rest_framework.views import APIView
 from . import api1
 from . import yahoo_finance
 from . import kurzy
+from . import web_scraper
 from .forms import CreateUserForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
@@ -277,6 +278,16 @@ class ChartData(APIView):
             "HUF": huf,
             "DKK": dkk,
         }
+        clanek = {
+            "nadpis1": web_scraper.heading1,
+            "nadpis2": web_scraper.heading2,
+            "nadpis3": web_scraper.heading3,
+            "nadpis4": web_scraper.heading4,
+            "text1": web_scraper.clanek1["texty"],
+            "text2": web_scraper.clanek2["texty"],
+            "text3": web_scraper.clanek3["texty"],
+            "text4": web_scraper.clanek4["texty"],
+        }
         realtime = {
             "microsoftR": mR,
             "teslaR": tR,
@@ -312,7 +323,7 @@ class ChartData(APIView):
             "Realtime": realtime,
             "Tabulka": tabulka,
             "Kurzy": kur,
+            "Clanek":clanek,
         }
-
         return Response(data)
 

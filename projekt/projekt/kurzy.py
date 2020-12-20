@@ -8,7 +8,6 @@ def kurz(mena):
     return data
 
 
-pd.DataFrame(data={'Date':['2017-4-15','2017-6-12','2017-2-25'],'Amount':[5,10,15],'Currency':['USD','SEK','EUR']})
 
 
 
