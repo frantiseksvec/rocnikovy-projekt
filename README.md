@@ -5,3 +5,9 @@ Cílem projektu je vytvořit funkční webovou aplikaci ve frameworku django, kt
 
 ## Využívané technologie
 Plánuji využívat knihovnu Chart.js , která má spoustu možností vytváření různých grafů.Pro získávání dat plánuju využívat API Alpha-vantage , které umí zobrazovat data v reálném čase, ale také historické data.Data plánuju zpracovávat ve formátu pandas, který ma spoustu zabudovaných funkcí. 
+
+### Momentální práce
+Momentálně pracuji na na tabulce kurzů, do této tabulky budu získavat data pomocí metodi webscrape, ze stránky ČNB, až bude
+tahle tabulka hotová bych chtěl začít pracovat na možnosti vytvoření vlastního portfolia
+
+
