@@ -27,6 +27,10 @@
 				   			</div>
 					</form>
 				</div>
+
+				{% for message in messages %}
+					<p id="messages">{{message}}</p>
+				{% endfor %}
 				<div class="mt-4">
 					<div class="d-flex justify-content-center links">
 						Nemáte účet? <a href="{% url 'register' %}" class="ml-2">Zaregistrujte se</a>

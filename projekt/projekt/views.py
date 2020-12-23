@@ -16,6 +16,8 @@ def register(request):
         form = CreateUserForm(request.POST)
         if form.is_valid():
             form.save()
+        user = form.cleaned_data.get('username')
+        messages.success(request, 'Účet byl úspěšně vytvořen pro uživatele: ' + user)
         return redirect('login')
     else:
         form = CreateUserForm()
@@ -34,6 +36,10 @@ def login_page(reqeust):
             messages.info(reqeust, 'Špatné jméno nebo heslo!!')
     context = {}
     return render(reqeust, 'login.html', context)
+
+def logout_user(request):
+    logout(request)
+    return redirect('logout.html')
 
 def logoutUser(request):
     logout(request)

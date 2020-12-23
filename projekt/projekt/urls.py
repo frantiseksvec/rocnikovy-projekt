@@ -27,14 +27,9 @@ urlpatterns = [
     url(r'^api/data/$', ChartData.as_view()),
     url(r'^kurzy/$', Kurzy.as_view(), name='kurzy'),
     url(r'^admin/', admin.site.urls),
-    path('logout/',
-         LogoutView.as_view(
-             template_name='logout.html'
-         ),
-         name="logout"
-         ),
     url(r'^register/$', views.register, name='register'),
     url(r'^login/$', views.login_page, name='login'),
+    url(r'^login/$', views.logout, name='logout'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

@@ -291,6 +291,32 @@ h2 {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.form-div{
+  text-align: center;
+  padding-top: 30px;
+}
+
+#stock {
+    width: 30%;
+    padding: 10px;
+    border: 2px solid black;
+    margin-bottom: 5px;
+    margin-top: 10px
+}
+
+#tlacitko-vyhledavac{
+  width: 30%;
+  padding: 10px;
+  background-color: #4CAF50;
+  font-size: 14px;
+  text-align: center;
+}
+
+#vitej {
+    text-color: white;
+}
+
+
 
 
 
