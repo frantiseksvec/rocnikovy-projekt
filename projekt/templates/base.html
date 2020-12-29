@@ -26,9 +26,8 @@
         </ul>
       </div>
     </nav>
+    {% include 'base/js.html' %}
     {% block content %}
     {% endblock content %}
-    {% include 'base/js.html' %}
-    <script src="{%static '/js/script.js' %}"></script>
   </body>
 </html>

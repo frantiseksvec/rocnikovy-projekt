@@ -1,4 +1,4 @@
-var endpoint = 'api/data'
+var endpoint = 'api/akcie-data'
 function fetch(){
 $.ajax({
     method: "GET",

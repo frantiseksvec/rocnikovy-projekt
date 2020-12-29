@@ -10,7 +10,6 @@ from .forms import CreateUserForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
-
 def register(request):
     if request.method =='POST':
         form = CreateUserForm(request.POST)
@@ -49,11 +48,9 @@ class ChartView(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'charts.html')
 
-
 class Kurzy(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'kurzy.html')
-
 
 class ChartData(APIView):
     def get(self, request, format=None):
@@ -233,57 +230,6 @@ class ChartData(APIView):
             "honda": tabulkaHM,
             "google": tabulkaG,
         }
-        eur = {
-           "mena": 'EUR',
-           "zeme": 'EMS',
-           "mnostvi": '1',
-           "kurz": kurzy.kurz('EUR'),
-        }
-        usd = {
-            "mena": 'USD',
-            "zeme": 'USA',
-            "mnostvi": '1',
-            "kurz": kurzy.kurz('USD')
-        }
-        pln = {
-            "mena": 'PLN',
-            "zeme": 'Polsko',
-            "mnostvi": '1',
-            "kurz": kurzy.kurz('PLN')
-        }
-        rub = {
-            "mena": 'RUB',
-            "zeme": 'Rusko',
-            "mnostvi": '1',
-            "kurz": kurzy.kurz('RUB')
-        }
-        nok = {
-            "mena": 'NOK',
-            "zeme": 'Norsko',
-            "mnostvi": '1',
-            "kurz": kurzy.kurz('NOK')
-        }
-        huf = {
-            "mena": 'HUF',
-            "zeme": 'Maďarsko',
-            "mnostvi": '100',
-            "kurz": 100 * kurzy.kurz('HUF')
-        }
-        dkk = {
-            "mena": 'DKK',
-            "zeme": 'Dánsko',
-            "mnostvi": '1',
-            "kurz": kurzy.kurz('DKK')
-        }
-        kur = {
-            "EUR": eur,
-            "USD": usd,
-            "PLN": pln,
-            "RUB": rub,
-            "NOK": nok,
-            "HUF": huf,
-            "DKK": dkk,
-        }
         clanek = {
             "nadpis1": web_scraper.heading1,
             "nadpis2": web_scraper.heading2,
@@ -328,8 +274,147 @@ class ChartData(APIView):
             "Rok": rok,
             "Realtime": realtime,
             "Tabulka": tabulka,
-            "Kurzy": kur,
             "Clanek":clanek,
         }
         return Response(data)
 
+class KurzyData(APIView):
+    def get(self, request, format=None):
+        aud = {
+            "nazev": kurzy.list[0]["nazev_meny"],
+            "zkratka": kurzy.list[0]["zkratka"],
+            "pocet": kurzy.list[0]["pocet"],
+            "datum1": kurzy.list[0]["datum1"],
+            "kurz": kurzy.list[0]["kurz"],
+            "datum2": kurzy.list[0]["datum2"],
+        }
+        gbp = {
+            "nazev": kurzy.list[1]["nazev_meny"],
+            "zkratka": kurzy.list[1]["zkratka"],
+            "pocet": kurzy.list[1]["pocet"],
+            "datum1": kurzy.list[1]["datum1"],
+            "kurz": kurzy.list[1]["kurz"],
+            "datum2": kurzy.list[1]["datum2"],
+        }
+        cny = {
+            "nazev": kurzy.list[2]["nazev_meny"],
+            "zkratka": kurzy.list[2]["zkratka"],
+            "pocet": kurzy.list[2]["pocet"],
+            "datum1": kurzy.list[2]["datum1"],
+            "kurz": kurzy.list[2]["kurz"],
+            "datum2": kurzy.list[2]["datum2"],
+        }
+        eur = {
+            "nazev": kurzy.list[3]["nazev_meny"],
+            "zkratka": kurzy.list[3]["zkratka"],
+            "pocet": kurzy.list[3]["pocet"],
+            "datum1": kurzy.list[3]["datum1"],
+            "kurz": kurzy.list[3]["kurz"],
+            "datum2": kurzy.list[3]["datum2"],
+        }
+        hkd = {
+            "nazev": kurzy.list[4]["nazev_meny"],
+            "zkratka": kurzy.list[4]["zkratka"],
+            "pocet": kurzy.list[4]["pocet"],
+            "datum1": kurzy.list[4]["datum1"],
+            "kurz": kurzy.list[4]["kurz"],
+            "datum2": kurzy.list[4]["datum2"],
+        }
+        inr = {
+            "nazev": kurzy.list[5]["nazev_meny"],
+            "zkratka": kurzy.list[5]["zkratka"],
+            "pocet": kurzy.list[5]["pocet"],
+            "datum1": kurzy.list[5]["datum1"],
+            "kurz": kurzy.list[5]["kurz"],
+            "datum2": kurzy.list[5]["datum2"],
+        }
+        isk = {
+            "nazev": kurzy.list[6]["nazev_meny"],
+            "zkratka": kurzy.list[6]["zkratka"],
+            "pocet": kurzy.list[6]["pocet"],
+            "datum1": kurzy.list[6]["datum1"],
+            "kurz": kurzy.list[6]["kurz"],
+            "datum2": kurzy.list[6]["datum2"],
+        }
+        jpy = {
+            "nazev": kurzy.list[7]["nazev_meny"],
+            "zkratka": kurzy.list[7]["zkratka"],
+            "pocet": kurzy.list[7]["pocet"],
+            "datum1": kurzy.list[7]["datum1"],
+            "kurz": kurzy.list[7]["kurz"],
+            "datum2": kurzy.list[7]["datum2"],
+        }
+        krw = {
+            "nazev": kurzy.list[8]["nazev_meny"],
+            "zkratka": kurzy.list[8]["zkratka"],
+            "pocet": kurzy.list[8]["pocet"],
+            "datum1": kurzy.list[8]["datum1"],
+            "kurz": kurzy.list[8]["kurz"],
+            "datum2": kurzy.list[8]["datum2"],
+        }
+        huf = {
+            "nazev": kurzy.list[9]["nazev_meny"],
+            "zkratka": kurzy.list[9]["zkratka"],
+            "pocet": kurzy.list[9]["pocet"],
+            "datum1": kurzy.list[9]["datum1"],
+            "kurz": kurzy.list[9]["kurz"],
+            "datum2": kurzy.list[9]["datum2"],
+        }
+        mxn = {
+            "nazev": kurzy.list[10]["nazev_meny"],
+            "zkratka": kurzy.list[10]["zkratka"],
+            "pocet": kurzy.list[10]["pocet"],
+            "datum1": kurzy.list[10]["datum1"],
+            "kurz": kurzy.list[10]["kurz"],
+            "datum2": kurzy.list[10]["datum2"],
+        }
+        nok = {
+            "nazev": kurzy.list[11]["nazev_meny"],
+            "zkratka": kurzy.list[11]["zkratka"],
+            "pocet": kurzy.list[11]["pocet"],
+            "datum1": kurzy.list[11]["datum1"],
+            "kurz": kurzy.list[11]["kurz"],
+            "datum2": kurzy.list[11]["datum2"],
+        }
+        pln = {
+            "nazev": kurzy.list[12]["nazev_meny"],
+            "zkratka": kurzy.list[12]["zkratka"],
+            "pocet": kurzy.list[12]["pocet"],
+            "datum1": kurzy.list[12]["datum1"],
+            "kurz": kurzy.list[12]["kurz"],
+            "datum2": kurzy.list[12]["datum2"],
+        }
+        rub = {
+            "nazev": kurzy.list[13]["nazev_meny"],
+            "zkratka": kurzy.list[13]["zkratka"],
+            "pocet": kurzy.list[13]["pocet"],
+            "datum1": kurzy.list[13]["datum1"],
+            "kurz": kurzy.list[13]["kurz"],
+            "datum2": kurzy.list[13]["datum2"],
+        }
+        sek = {
+            "nazev": kurzy.list[14]["nazev_meny"],
+            "zkratka": kurzy.list[14]["zkratka"],
+            "pocet": kurzy.list[14]["pocet"],
+            "datum1": kurzy.list[14]["datum1"],
+            "kurz": kurzy.list[14]["kurz"],
+            "datum2": kurzy.list[14]["datum2"],
+        }
+        kurz = {
+            "AUD": aud,
+            "GBP": gbp,
+            "CNY": cny,
+            "EUR": eur,
+            "HKD": hkd,
+            "INR": inr,
+            "ISK": isk,
+            "KRW": krw,
+            "JPY": jpy,
+            "HUF": huf,
+            "MXN": mxn,
+            "NOK": nok,
+            "PLN": pln,
+            "RUB": rub,
+            "SEK": sek,
+        }
+        return Response(kurz)

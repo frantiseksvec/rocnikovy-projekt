@@ -24,7 +24,6 @@ for article in soup.find_all('article',class_='story'):
     except Exception as e:
         pass
 
-
 clanek1 = list[0]
 clanek2 = list[3]
 clanek3 = list[2]

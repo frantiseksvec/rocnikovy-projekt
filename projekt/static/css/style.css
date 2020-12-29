@@ -97,18 +97,23 @@ h2 {
 }
 
 #hlavni-kurzy {
-    margin-left: 230px;
-    margin-top: 140px;
+    width: 1000px;
 }
 
 #kurzy {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-  width: 1200px;
+  width: 1100px;
+  align: center;
 }
 
 #kurzy td, #customers th {
   padding: 8px;
+}
+
+#kurzy td {
+  text-indent: 20px;
+  font-size: 18px
 }
 
 #kurzy tr:nth-child(even){background-color: #f2f2f2;}
@@ -122,6 +127,7 @@ h2 {
   background-color: #4CAF50;
   color: white;
   text-indent: 20px;
+  font-size: 24px
 }
 
 #tabulka {
