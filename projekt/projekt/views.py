@@ -400,6 +400,136 @@ class KurzyData(APIView):
             "kurz": kurzy.list[14]["kurz"],
             "datum2": kurzy.list[14]["datum2"],
         }
+        usd = {
+            "nazev": kurzy.list2[0]["nazev_meny"],
+            "zkratka": kurzy.list2[0]["zkratka"],
+            "pocet": kurzy.list2[0]["pocet"],
+            "datum1": kurzy.list2[0]["datum1"],
+            "kurz": kurzy.list2[0]["kurz"],
+            "datum2": kurzy.list2[0]["datum2"],
+        }
+        brl = {
+            "nazev": kurzy.list2[1]["nazev_meny"],
+            "zkratka": kurzy.list2[1]["zkratka"],
+            "pocet": kurzy.list2[1]["pocet"],
+            "datum1": kurzy.list2[1]["datum1"],
+            "kurz": kurzy.list2[1]["kurz"],
+            "datum2": kurzy.list2[1]["datum2"],
+        }
+        dkk = {
+            "nazev": kurzy.list2[3]["nazev_meny"],
+            "zkratka": kurzy.list2[3]["zkratka"],
+            "pocet": kurzy.list2[3]["pocet"],
+            "datum1": kurzy.list2[3]["datum1"],
+            "kurz": kurzy.list2[3]["kurz"],
+            "datum2": kurzy.list2[3]["datum2"],
+        }
+        hrk = {
+            "nazev": kurzy.list2[5]["nazev_meny"],
+            "zkratka": kurzy.list2[5]["zkratka"],
+            "pocet": kurzy.list2[5]["pocet"],
+            "datum1": kurzy.list2[5]["datum1"],
+            "kurz": kurzy.list2[5]["kurz"],
+            "datum2": kurzy.list2[5]["datum2"],
+        }
+        ils = {
+            "nazev": kurzy.list2[7]["nazev_meny"],
+            "zkratka": kurzy.list2[7]["zkratka"],
+            "pocet": kurzy.list2[7]["pocet"],
+            "datum1": kurzy.list2[7]["datum1"],
+            "kurz": kurzy.list2[7]["kurz"],
+            "datum2": kurzy.list2[7]["datum2"],
+        }
+        cad = {
+            "nazev": kurzy.list2[9]["nazev_meny"],
+            "zkratka": kurzy.list2[9]["zkratka"],
+            "pocet": kurzy.list2[9]["pocet"],
+            "datum1": kurzy.list2[9]["datum1"],
+            "kurz": kurzy.list2[9]["kurz"],
+            "datum2": kurzy.list2[9]["datum2"],
+        }
+        chf = {
+            "nazev": kurzy.list2[15]["nazev_meny"],
+            "zkratka": kurzy.list2[15]["zkratka"],
+            "pocet": kurzy.list2[15]["pocet"],
+            "datum1": kurzy.list2[15]["datum1"],
+            "kurz": kurzy.list2[15]["kurz"],
+            "datum2": kurzy.list2[15]["datum2"],
+        }
+        ars = {
+            "nazev": kurzy.list3[0]["nazev_meny"].replace('\n', '')[:9],
+            "pocet": kurzy.list3[0]["pocet"],
+            "datum1": kurzy.list3[0]["datum1"],
+            "kurz": kurzy.list3[0]["kurz"],
+            "datum2": kurzy.list3[0]["datum2"],
+        }
+        bam = {
+            "nazev": kurzy.list3[1]["nazev_meny"].replace('\n', '')[:14],
+            "pocet": kurzy.list3[1]["pocet"],
+            "datum1": kurzy.list3[1]["datum1"],
+            "kurz": kurzy.list3[1]["kurz"],
+            "datum2": kurzy.list3[1]["datum2"],
+        }
+        kwd = {
+            "nazev": kurzy.list3[2]["nazev_meny"].replace('\n', '')[:6],
+            "pocet": kurzy.list3[2]["pocet"],
+            "datum1": kurzy.list3[2]["datum1"],
+            "kurz": kurzy.list3[2]["kurz"],
+            "datum2": kurzy.list3[2]["datum2"],
+        }
+        mdl = {
+            "nazev": kurzy.list3[3]["nazev_meny"].replace('\n', '')[:9],
+            "pocet": kurzy.list3[3]["pocet"],
+            "datum1": kurzy.list3[3]["datum1"],
+            "kurz": kurzy.list3[3]["kurz"],
+            "datum2": kurzy.list3[3]["datum2"],
+        }
+        rsd = {
+            "nazev": kurzy.list3[4]["nazev_meny"].replace('\n', '')[:6],
+            "pocet": kurzy.list3[4]["pocet"],
+            "datum1": kurzy.list3[4]["datum1"],
+            "kurz": kurzy.list3[4]["kurz"],
+            "datum2": kurzy.list3[4]["datum2"],
+        }
+        byr = {
+            "nazev": kurzy.list4[0]["nazev_meny"].replace('\n', '')[:9],
+            "pocet": kurzy.list4[0]["pocet"],
+            "datum1": kurzy.list4[0]["datum1"],
+            "kurz": kurzy.list4[0]["kurz"],
+            "datum2": kurzy.list4[0]["datum2"],
+        }
+        egp = {
+            "nazev": kurzy.list4[1]["nazev_meny"].replace('\n', '')[:5],
+            "pocet": kurzy.list4[1]["pocet"],
+            "datum1": kurzy.list4[1]["datum1"],
+            "kurz": kurzy.list4[1]["kurz"],
+            "datum2": kurzy.list4[1]["datum2"],
+        }
+        mad = {
+            "nazev": kurzy.list4[2]["nazev_meny"].replace('\n', '')[:6],
+            "pocet": kurzy.list4[2]["pocet"],
+            "datum1": kurzy.list4[2]["datum1"],
+            "kurz": kurzy.list4[2]["kurz"],
+            "datum2": kurzy.list4[2]["datum2"],
+        }
+        mnt = {
+            "nazev": kurzy.list4[3]["nazev_meny"].replace('\n', '')[:9],
+            "pocet": kurzy.list4[3]["pocet"],
+            "datum1": kurzy.list4[3]["datum1"],
+            "kurz": kurzy.list4[3]["kurz"],
+            "datum2": kurzy.list4[3]["datum2"],
+        }
+        uah = {
+            "nazev": kurzy.list4[4]["nazev_meny"].replace('\n', '')[:8],
+            "pocet": kurzy.list4[4]["pocet"],
+            "datum1": kurzy.list4[4]["datum1"],
+            "kurz": kurzy.list4[4]["kurz"],
+            "datum2": kurzy.list4[4]["datum2"],
+        }
+        datumy = {
+            "datum1": kurzy.datum1,
+            "datum2": kurzy.datum2,
+        }
         kurz = {
             "AUD": aud,
             "GBP": gbp,
@@ -416,5 +546,23 @@ class KurzyData(APIView):
             "PLN": pln,
             "RUB": rub,
             "SEK": sek,
+            "USD": usd,
+            "BRL": brl,
+            "DKK": dkk,
+            "HRK": hrk,
+            "ILS": ils,
+            "CAD": cad,
+            "CHF": chf,
+            "ARS": ars,
+            "BAM": bam,
+            "KWD": kwd,
+            "MDL": mdl,
+            "RSD": rsd,
+            "BYR": byr,
+            "EGP": egp,
+            "MAD": mad,
+            "MNT": mnt,
+            "UAH": uah,
+            "datum": datumy,
         }
         return Response(kurz)

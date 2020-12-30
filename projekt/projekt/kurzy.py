@@ -11,8 +11,13 @@ url = 'https://www.kurzy.cz/kurzy-men/'
 source = session.get(url)
 soup = BeautifulSoup(source.text, 'html.parser')
 
-div = soup.find('div', class_='ecb')
 list = []
+list2 = []
+list3 = []
+list4 = []
+
+datum1 = soup.find_all('th',class_='pf')[6].text
+datum2 = soup.find_all('th',class_='pf')[8].text
 
 for tabulka in  soup.find_all('table',class_='pd pdw'):
     rows = tabulka.find_all('tr',class_='ps')
@@ -27,13 +32,41 @@ for tabulka in  soup.find_all('table',class_='pd pdw'):
         }
         list.append(data)
 
+for tabulka in  soup.find_all('table',class_='pd pdw'):
+    rows = tabulka.find_all('tr',class_='pl')
+    for row in rows:
+        data = {
+        'nazev_meny':row.find_all('td')[0].text,
+        'zkratka':row.find_all('td')[2].text,
+        'pocet':row.find_all('td')[3].text,
+        'datum1':row.find_all('td')[4].text,
+        'kurz':row.find_all('td')[5].text,
+        'datum2':row.find_all('td')[6].text,
+        }
+        list2.append(data)
 
+for exo_tabulka in  soup.find_all('table',class_='pd pdw rowcl leftcolumnwidth'):
+    rows = exo_tabulka.find_all('tr',class_='pl')
+    for row in rows:
+        data = {
+        'nazev_meny':row.find_all('td')[0].text,
+        'pocet':row.find_all('td')[3].text,
+        'datum1':row.find_all('td')[4].text,
+        'kurz':row.find_all('td')[5].text,
+        'datum2': row.find_all('td')[6].text,
+        }
+        list3.append(data)
 
-
-
-
-
-
-
+for exo_tabulka in  soup.find_all('table',class_='pd pdw rowcl leftcolumnwidth'):
+    rows = exo_tabulka.find_all('tr',class_='ps')
+    for row in rows:
+        data = {
+        'nazev_meny':row.find_all('td')[0].text,
+        'pocet':row.find_all('td')[3].text,
+        'datum1':row.find_all('td')[4].text,
+        'kurz':row.find_all('td')[5].text,
+        'datum2': row.find_all('td')[6].text,
+        }
+        list4.append(data)
 
 

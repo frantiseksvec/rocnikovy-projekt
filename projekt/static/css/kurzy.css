@@ -1,0 +1,82 @@
+.container {
+  margin-top:70px;
+  width: 1760px;
+  padding-bottom: 30px;
+}
+
+h2 {
+ font-size: 40px;
+}
+
+#hlavni-kurzy {
+    width: 1000px;
+}
+
+#kurzy {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 1100px;
+  align: center;
+}
+
+#kurzy td, #customers th {
+  padding: 8px;
+}
+
+#kurzy td {
+  text-indent: 20px;
+  font-size: 18px
+}
+
+#kurzy tr:nth-child(even){background-color: #f2f2f2;}
+
+#kurzy tr:hover {background-color: #ddd;}
+
+#kurzy th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+  text-indent: 20px;
+  font-size: 24px
+}
+
+#exoticke_kurzy {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 1100px;
+  align: center;
+}
+
+#exoticke_kurzy td, #customers th {
+  padding: 8px;
+}
+
+#exoticke_kurzy td {
+  text-indent: 20px;
+  font-size: 18px
+}
+
+#exoticke_kurzy tr:nth-child(even){background-color: #f2f2f2;}
+
+#exoticke_kurzy tr:hover {background-color: #ddd;}
+
+#exoticke_kurzy th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+  text-indent: 20px;
+  font-size: 24px
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color:#202020;
+  color: white;
+  font-size: 20px;
+  height: 70px
+}

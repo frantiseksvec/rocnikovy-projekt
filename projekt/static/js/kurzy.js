@@ -6,6 +6,7 @@ $.ajax({
     success: function(data){
        mena = data
        tabulka()
+       exo_tabulka()
     },
     error: function(error_data){
         console.log("error")
@@ -15,7 +16,74 @@ $.ajax({
 }
 
 fetch()
+function exo_tabulka(){
+    document.getElementById('datum_1').innerHTML = mena.datum.datum1
+    document.getElementById('datum_2').innerHTML = mena.datum.datum2
+
+    document.getElementById('ra1-1').innerHTML = mena.ARS.nazev
+    document.getElementById('ra1-3').innerHTML = mena.ARS.pocet
+    document.getElementById('ra1-4').innerHTML = mena.ARS.datum1
+    document.getElementById('ra1-5').innerHTML = mena.ARS.kurz
+    document.getElementById('ra1-6').innerHTML = mena.ARS.datum2
+
+    document.getElementById('ra2-1').innerHTML = mena.BYR.nazev
+    document.getElementById('ra2-3').innerHTML = mena.BYR.pocet
+    document.getElementById('ra2-4').innerHTML = mena.BYR.datum1
+    document.getElementById('ra2-5').innerHTML = mena.BYR.kurz
+    document.getElementById('ra2-6').innerHTML = mena.BYR.datum2
+
+    document.getElementById('ra3-1').innerHTML = mena.BAM.nazev
+    document.getElementById('ra3-3').innerHTML = mena.BAM.pocet
+    document.getElementById('ra3-4').innerHTML = mena.BAM.datum1
+    document.getElementById('ra3-5').innerHTML = mena.BAM.kurz
+    document.getElementById('ra3-6').innerHTML = mena.BAM.datum2
+
+    document.getElementById('ra4-1').innerHTML = mena.EGP.nazev
+    document.getElementById('ra4-3').innerHTML = mena.EGP.pocet
+    document.getElementById('ra4-4').innerHTML = mena.EGP.datum1
+    document.getElementById('ra4-5').innerHTML = mena.EGP.kurz
+    document.getElementById('ra4-6').innerHTML = mena.EGP.datum2
+
+    document.getElementById('ra5-1').innerHTML = mena.KWD.nazev
+    document.getElementById('ra5-3').innerHTML = mena.KWD.pocet
+    document.getElementById('ra5-4').innerHTML = mena.KWD.datum1
+    document.getElementById('ra5-5').innerHTML = mena.KWD.kurz
+    document.getElementById('ra5-6').innerHTML = mena.KWD.datum2
+
+    document.getElementById('ra6-1').innerHTML = mena.MAD.nazev
+    document.getElementById('ra6-3').innerHTML = mena.MAD.pocet
+    document.getElementById('ra6-4').innerHTML = mena.MAD.datum1
+    document.getElementById('ra6-5').innerHTML = mena.MAD.kurz
+    document.getElementById('ra6-6').innerHTML = mena.MAD.datum2
+
+    document.getElementById('ra7-1').innerHTML = mena.MDL.nazev
+    document.getElementById('ra7-3').innerHTML = mena.MDL.pocet
+    document.getElementById('ra7-4').innerHTML = mena.MDL.datum1
+    document.getElementById('ra7-5').innerHTML = mena.MDL.kurz
+    document.getElementById('ra7-6').innerHTML = mena.MDL.datum2
+
+    document.getElementById('ra8-1').innerHTML = mena.MNT.nazev
+    document.getElementById('ra8-3').innerHTML = mena.MNT.pocet
+    document.getElementById('ra8-4').innerHTML = mena.MNT.datum1
+    document.getElementById('ra8-5').innerHTML = mena.MNT.kurz
+    document.getElementById('ra8-6').innerHTML = mena.MNT.datum2
+
+    document.getElementById('ra9-1').innerHTML = mena.RSD.nazev
+    document.getElementById('ra9-3').innerHTML = mena.RSD.pocet
+    document.getElementById('ra9-4').innerHTML = mena.RSD.datum1
+    document.getElementById('ra9-5').innerHTML = mena.RSD.kurz
+    document.getElementById('ra9-6').innerHTML = mena.RSD.datum2
+
+    document.getElementById('ra10-1').innerHTML = mena.UAH.nazev
+    document.getElementById('ra10-3').innerHTML = mena.UAH.pocet
+    document.getElementById('ra10-4').innerHTML = mena.UAH.datum1
+    document.getElementById('ra10-5').innerHTML = mena.UAH.kurz
+    document.getElementById('ra10-6').innerHTML = mena.UAH.datum2
+}
 function tabulka(){
+    document.getElementById('datum1').innerHTML = mena.datum.datum1
+    document.getElementById('datum2').innerHTML = mena.datum.datum2
+
     document.getElementById('rad1-1').innerHTML = mena.AUD.nazev
     document.getElementById('rad1-2').innerHTML = mena.AUD.zkratka
     document.getElementById('rad1-3').innerHTML = mena.AUD.pocet
@@ -106,6 +174,48 @@ function tabulka(){
     document.getElementById('rad13-4').innerHTML = mena.RUB.datum1
     document.getElementById('rad13-5').innerHTML = mena.RUB.kurz
     document.getElementById('rad13-6').innerHTML = mena.RUB.datum2
+
+    document.getElementById('rad14-1').innerHTML = mena.USD.nazev
+    document.getElementById('rad14-2').innerHTML = mena.USD.zkratka
+    document.getElementById('rad14-3').innerHTML = mena.USD.pocet
+    document.getElementById('rad14-4').innerHTML = mena.USD.datum1
+    document.getElementById('rad14-5').innerHTML = mena.USD.kurz
+    document.getElementById('rad14-6').innerHTML = mena.USD.datum2
+
+    document.getElementById('rad15-1').innerHTML = mena.BRL.nazev
+    document.getElementById('rad15-2').innerHTML = mena.BRL.zkratka
+    document.getElementById('rad15-3').innerHTML = mena.BRL.pocet
+    document.getElementById('rad15-4').innerHTML = mena.BRL.datum1
+    document.getElementById('rad15-5').innerHTML = mena.BRL.kurz
+    document.getElementById('rad15-6').innerHTML = mena.BRL.datum2
+
+    document.getElementById('rad16-1').innerHTML = mena.DKK.nazev
+    document.getElementById('rad16-2').innerHTML = mena.DKK.zkratka
+    document.getElementById('rad16-3').innerHTML = mena.DKK.pocet
+    document.getElementById('rad16-4').innerHTML = mena.DKK.datum1
+    document.getElementById('rad16-5').innerHTML = mena.DKK.kurz
+    document.getElementById('rad16-6').innerHTML = mena.DKK.datum2
+
+    document.getElementById('rad17-1').innerHTML = mena.DKK.nazev
+    document.getElementById('rad17-2').innerHTML = mena.DKK.zkratka
+    document.getElementById('rad17-3').innerHTML = mena.DKK.pocet
+    document.getElementById('rad17-4').innerHTML = mena.DKK.datum1
+    document.getElementById('rad17-5').innerHTML = mena.DKK.kurz
+    document.getElementById('rad17-6').innerHTML = mena.DKK.datum2
+
+    document.getElementById('rad18-1').innerHTML = mena.ILS.nazev
+    document.getElementById('rad18-2').innerHTML = mena.ILS.zkratka
+    document.getElementById('rad18-3').innerHTML = mena.ILS.pocet
+    document.getElementById('rad18-4').innerHTML = mena.ILS.datum1
+    document.getElementById('rad18-5').innerHTML = mena.ILS.kurz
+    document.getElementById('rad18-6').innerHTML = mena.ILS.datum2
+
+    document.getElementById('rad19-1').innerHTML = mena.CHF.nazev
+    document.getElementById('rad19-2').innerHTML = mena.CHF.zkratka
+    document.getElementById('rad19-3').innerHTML = mena.CHF.pocet
+    document.getElementById('rad19-4').innerHTML = mena.CHF.datum1
+    document.getElementById('rad19-5').innerHTML = mena.CHF.kurz
+    document.getElementById('rad19-6').innerHTML = mena.CHF.datum2
 }
 
 
