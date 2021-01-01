@@ -5,6 +5,7 @@ from rest_framework.views import APIView
 from . import api1
 from . import yahoo_finance
 from . import kurzy
+from . import komodity
 from . import web_scraper
 from .forms import CreateUserForm
 from django.contrib.auth import authenticate, login, logout
@@ -566,3 +567,324 @@ class KurzyData(APIView):
             "datum": datumy,
         }
         return Response(kurz)
+
+class KomodityData(APIView):
+    def get(self, request, format=None):
+        benzinCZ = {
+            "nazev": komodity.list2[0]["energie"],
+            "datum1": komodity.list2[0]["datum1"],
+            "cena1": komodity.list2[0]["cena1"],
+            "datum2": komodity.list2[0]["datum2"],
+            "cena2": komodity.list2[0]["cena2"],
+            "ceska_cena": komodity.list2[0]["ceska_cena"],
+        }
+        benzinRBOB = {
+            "nazev": komodity.list2[1]["energie"],
+            "datum1": komodity.list2[1]["datum1"],
+            "cena1": komodity.list2[1]["cena1"],
+            "datum2": komodity.list2[1]["datum2"],
+            "cena2": komodity.list2[1]["cena2"],
+            "ceska_cena": komodity.list2[1]["ceska_cena"],
+        }
+        elektrina = {
+            "nazev": komodity.list2[2]["energie"],
+            "datum1": komodity.list2[2]["datum1"],
+            "cena1": komodity.list2[2]["cena1"],
+            "datum2": komodity.list2[2]["datum2"],
+            "cena2": komodity.list2[2]["cena2"],
+            "ceska_cena": komodity.list2[2]["ceska_cena"],
+        }
+        naftaLS = {
+            "nazev": komodity.list2[3]["energie"],
+            "datum1": komodity.list2[3]["datum1"],
+            "cena1": komodity.list2[3]["cena1"],
+            "datum2": komodity.list2[3]["datum2"],
+            "cena2": komodity.list2[3]["cena2"],
+            "ceska_cena": komodity.list2[3]["ceska_cena"],
+        }
+        naftaCZ = {
+            "nazev": komodity.list2[4]["energie"],
+            "datum1": komodity.list2[4]["datum1"],
+            "cena1": komodity.list2[4]["cena1"],
+            "datum2": komodity.list2[4]["datum2"],
+            "cena2": komodity.list2[4]["cena2"],
+            "ceska_cena": komodity.list2[4]["ceska_cena"],
+        }
+        zemniplynPXE = {
+            "nazev": komodity.list2[5]["energie"],
+            "datum1": komodity.list2[5]["datum1"],
+            "cena1": komodity.list2[5]["cena1"],
+            "datum2": komodity.list2[5]["datum2"],
+            "cena2": komodity.list2[5]["cena2"],
+            "ceska_cena": komodity.list2[5]["ceska_cena"],
+        }
+        ropaBrent = {
+            "nazev": komodity.list2[6]["energie"],
+            "datum1": komodity.list2[6]["datum1"],
+            "cena1": komodity.list2[6]["cena1"],
+            "datum2": komodity.list2[6]["datum2"],
+            "cena2": komodity.list2[6]["cena2"],
+            "ceska_cena": komodity.list2[6]["ceska_cena"],
+        }
+        ropaWTI = {
+            "nazev": komodity.list2[7]["energie"],
+            "datum1": komodity.list2[7]["datum1"],
+            "cena1": komodity.list2[7]["cena1"],
+            "datum2": komodity.list2[7]["datum2"],
+            "cena2": komodity.list2[7]["cena2"],
+            "ceska_cena": komodity.list2[7]["ceska_cena"],
+        }
+        topnyolej = {
+            "nazev": komodity.list2[8]["energie"],
+            "datum1": komodity.list2[8]["datum1"],
+            "cena1": komodity.list2[8]["cena1"],
+            "datum2": komodity.list2[8]["datum2"],
+            "cena2": komodity.list2[8]["cena2"],
+            "ceska_cena": komodity.list2[8]["ceska_cena"],
+        }
+        uhliUS = {
+            "nazev": komodity.list2[9]["energie"],
+            "datum1": komodity.list2[9]["datum1"],
+            "cena1": komodity.list2[9]["cena1"],
+            "datum2": komodity.list2[9]["datum2"],
+            "cena2": komodity.list2[9]["cena2"],
+            "ceska_cena": komodity.list2[9]["ceska_cena"],
+        }
+        zemniplyn = {
+            "nazev": komodity.list2[10]["energie"],
+            "datum1": komodity.list2[10]["datum1"],
+            "cena1": komodity.list2[10]["cena1"],
+            "datum2": komodity.list2[10]["datum2"],
+            "cena2": komodity.list2[10]["cena2"],
+            "ceska_cena": komodity.list2[10]["ceska_cena"],
+        }
+        hlinik = {
+            "nazev": komodity.list4[0]["energie"],
+            "datum1": komodity.list4[0]["datum1"],
+            "cena1": komodity.list4[0]["cena1"],
+            "datum2": komodity.list4[0]["datum2"],
+            "cena2": komodity.list4[0]["cena2"],
+            "ceska_cena": komodity.list4[0]["ceska_cena"],
+        }
+        med = {
+            "nazev": komodity.list4[1]["energie"],
+            "datum1": komodity.list4[1]["datum1"],
+            "cena1": komodity.list4[1]["cena1"],
+            "datum2": komodity.list4[1]["datum2"],
+            "cena2": komodity.list4[1]["cena2"],
+            "ceska_cena": komodity.list4[1]["ceska_cena"],
+        }
+        nikl = {
+            "nazev": komodity.list4[2]["energie"],
+            "datum1": komodity.list4[2]["datum1"],
+            "cena1": komodity.list4[2]["cena1"],
+            "datum2": komodity.list4[2]["datum2"],
+            "cena2": komodity.list4[2]["cena2"],
+            "ceska_cena": komodity.list4[2]["ceska_cena"],
+        }
+        palladium = {
+            "nazev": komodity.list4[3]["energie"],
+            "datum1": komodity.list4[3]["datum1"],
+            "cena1": komodity.list4[3]["cena1"],
+            "datum2": komodity.list4[3]["datum2"],
+            "cena2": komodity.list4[3]["cena2"],
+            "ceska_cena": komodity.list4[3]["ceska_cena"],
+        }
+        platina = {
+            "nazev": komodity.list4[4]["energie"],
+            "datum1": komodity.list4[4]["datum1"],
+            "cena1": komodity.list4[4]["cena1"],
+            "datum2": komodity.list4[4]["datum2"],
+            "cena2": komodity.list4[4]["cena2"],
+            "ceska_cena": komodity.list4[4]["ceska_cena"],
+        }
+        stribro = {
+            "nazev": komodity.list4[5]["energie"],
+            "datum1": komodity.list4[5]["datum1"],
+            "cena1": komodity.list4[5]["cena1"],
+            "datum2": komodity.list4[5]["datum2"],
+            "cena2": komodity.list4[5]["cena2"],
+            "ceska_cena": komodity.list4[5]["ceska_cena"],
+        }
+        zlato = {
+            "nazev": komodity.list4[5]["energie"],
+            "datum1": komodity.list4[5]["datum1"],
+            "cena1": komodity.list4[5]["cena1"],
+            "datum2": komodity.list4[5]["datum2"],
+            "cena2": komodity.list4[5]["cena2"],
+            "ceska_cena": komodity.list4[5]["ceska_cena"],
+        }
+        kukurice = {
+            "nazev": komodity.list5[0]["energie"],
+            "datum1": komodity.list5[0]["datum1"],
+            "cena1": komodity.list5[0]["cena1"],
+            "datum2": komodity.list5[0]["datum2"],
+            "cena2": komodity.list5[0]["cena2"],
+            "ceska_cena": komodity.list5[0]["ceska_cena"],
+        }
+        psenice = {
+            "nazev": komodity.list5[1]["energie"],
+            "datum1": komodity.list5[1]["datum1"],
+            "cena1": komodity.list5[1]["cena1"],
+            "datum2": komodity.list5[1]["datum2"],
+            "cena2": komodity.list5[1]["cena2"],
+            "ceska_cena": komodity.list5[1]["ceska_cena"],
+        }
+        ryze = {
+            "nazev": komodity.list5[2]["energie"],
+            "datum1": komodity.list5[2]["datum1"],
+            "cena1": komodity.list5[2]["cena1"],
+            "datum2": komodity.list5[2]["datum2"],
+            "cena2": komodity.list5[2]["cena2"],
+            "ceska_cena": komodity.list5[2]["ceska_cena"],
+        }
+        soja = {
+            "nazev": komodity.list5[3]["energie"],
+            "datum1": komodity.list5[3]["datum1"],
+            "cena1": komodity.list5[3]["cena1"],
+            "datum2": komodity.list5[3]["datum2"],
+            "cena2": komodity.list5[3]["cena2"],
+            "ceska_cena": komodity.list5[3]["ceska_cena"],
+        }
+        cukrB = {
+            "nazev": komodity.list6[0]["energie"],
+            "datum1": komodity.list6[0]["datum1"],
+            "cena1": komodity.list6[0]["cena1"],
+            "datum2": komodity.list6[0]["datum2"],
+            "cena2": komodity.list6[0]["cena2"],
+            "ceska_cena": komodity.list6[0]["ceska_cena"],
+        }
+        cukr11 = {
+            "nazev": komodity.list6[1]["energie"],
+            "datum1": komodity.list6[1]["datum1"],
+            "cena1": komodity.list6[1]["cena1"],
+            "datum2": komodity.list6[1]["datum2"],
+            "cena2": komodity.list6[1]["cena2"],
+            "ceska_cena": komodity.list6[1]["ceska_cena"],
+        }
+        kakao = {
+            "nazev": komodity.list6[2]["energie"],
+            "datum1": komodity.list6[2]["datum1"],
+            "cena1": komodity.list6[2]["cena1"],
+            "datum2": komodity.list6[2]["datum2"],
+            "cena2": komodity.list6[2]["cena2"],
+            "ceska_cena": komodity.list6[2]["ceska_cena"],
+        }
+        kava = {
+            "nazev": komodity.list6[3]["energie"],
+            "datum1": komodity.list6[3]["datum1"],
+            "cena1": komodity.list6[3]["cena1"],
+            "datum2": komodity.list6[3]["datum2"],
+            "cena2": komodity.list6[3]["cena2"],
+            "ceska_cena": komodity.list6[3]["ceska_cena"],
+        }
+        kavaR = {
+            "nazev": komodity.list6[4]["energie"],
+            "datum1": komodity.list6[4]["datum1"],
+            "cena1": komodity.list6[4]["cena1"],
+            "datum2": komodity.list6[4]["datum2"],
+            "cena2": komodity.list6[4]["cena2"],
+            "ceska_cena": komodity.list6[4]["ceska_cena"],
+        }
+        suroviny = {
+            "nazev": komodity.list7[0]["energie"],
+            "datum1": komodity.list7[0]["datum1"],
+            "cena1": komodity.list7[0]["cena1"],
+            "datum2": komodity.list7[0]["datum2"],
+            "cena2": komodity.list7[0]["cena2"],
+            "ceska_cena": komodity.list7[0]["ceska_cena"],
+        }
+        potraviny = {
+            "cukrB": cukrB,
+            "cukr11": cukr11,
+            "kakao": kakao,
+            "kava": kava,
+            "kavaR": kavaR,
+        }
+        obilniny = {
+            "kukurice": kukurice,
+            "psenice": psenice,
+            "ryze": ryze,
+            "soja": soja,
+        }
+        kovy = {
+            "hlinik": hlinik,
+            "med": med,
+            "nikl": nikl,
+            "palladium": palladium,
+            "platina": platina,
+            "stribro": stribro,
+            "zlato": zlato,
+        }
+        zvirata = {
+            "nazev": komodity.list3[0]["energie"],
+            "datum1": komodity.list3[0]["datum1"],
+            "cena1": komodity.list3[0]["cena1"],
+            "datum2": komodity.list3[0]["datum2"],
+            "cena2": komodity.list3[0]["cena2"],
+            "ceska_cena": komodity.list3[0]["ceska_cena"],
+        }
+        energie = {
+            "benzinCZ":benzinRBOB,
+            "benzinRBOB": benzinRBOB,
+            "elektrina": elektrina,
+            "naftaLS": naftaLS,
+            "naftaCZ": naftaCZ,
+            "zemniplynPXE": zemniplynPXE,
+            "ropaBrent": ropaBrent,
+            "ropaWTI": ropaWTI,
+            "topnyolej": topnyolej,
+            "uhliUS": uhliUS,
+            "zemniplyn": zemniplyn,
+        }
+        plus1 = {
+            'komodita': komodity.list1[0]["komodita"].replace('\n', ''),
+            'aktualni': komodity.list1[0]["aktualni"],
+            'zmena': komodity.list1[0]["zmena"],
+        }
+        plus2 = {
+            'komodita': komodity.list1[1]["komodita"].replace('\n', ''),
+            'aktualni': komodity.list1[1]["aktualni"],
+            'zmena': komodity.list1[1]["zmena"],
+        }
+        plus3 = {
+            'komodita': komodity.list1[2]["komodita"].replace('\n', ''),
+            'aktualni': komodity.list1[2]["aktualni"],
+            'zmena': komodity.list1[2]["zmena"],
+        }
+        minus1 = {
+            'komodita': komodity.list1[3]["komodita"].replace('\n', ''),
+            'aktualni': komodity.list1[3]["aktualni"],
+            'zmena': komodity.list1[3]["zmena"],
+        }
+        minus2 = {
+            'komodita': komodity.list1[4]["komodita"].replace('\n', ''),
+            'aktualni': komodity.list1[4]["aktualni"],
+            'zmena': komodity.list1[4]["zmena"],
+        }
+        minus3 = {
+            'komodita': komodity.list1[5]["komodita"].replace('\n', ''),
+            'aktualni': komodity.list1[5]["aktualni"],
+            'zmena': komodity.list1[5]["zmena"],
+        }
+        vzestup = {
+            "plus1": plus1,
+            "plus2": plus2,
+            "plus3": plus3,
+        }
+        pokles = {
+            "minus1": minus1,
+            "minus2": minus2,
+            "minus3": minus3,
+        }
+        komodita = {
+            "energie":energie,
+            "vzestup": vzestup,
+            "pokles": pokles,
+            "zvirata": zvirata,
+            "kovy": kovy,
+            "obilniny": obilniny,
+            "potraviny": potraviny,
+            "suroviny": suroviny,
+        }
+        return Response(komodita)
