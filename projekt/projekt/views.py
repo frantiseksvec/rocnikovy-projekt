@@ -7,6 +7,7 @@ from . import yahoo_finance
 from . import kurzy
 from . import komodity
 from . import web_scraper
+from . import ceske
 from .forms import CreateUserForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
@@ -52,6 +53,10 @@ class ChartView(View):
 class Kurzy(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'kurzy.html')
+
+class Komodity(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, 'komodity.html')
 
 class ChartData(APIView):
     def get(self, request, format=None):
@@ -825,7 +830,7 @@ class KomodityData(APIView):
             "ceska_cena": komodity.list3[0]["ceska_cena"],
         }
         energie = {
-            "benzinCZ":benzinRBOB,
+            "benzinCZ":benzinCZ,
             "benzinRBOB": benzinRBOB,
             "elektrina": elektrina,
             "naftaLS": naftaLS,
@@ -888,3 +893,156 @@ class KomodityData(APIView):
             "suroviny": suroviny,
         }
         return Response(komodita)
+
+class CeskeAkcieData(APIView):
+    def get(self, request, format=None):
+        avast = {
+            "nazev": ceske.list1[0]["nazev"],
+            "kurz": ceske.list1[0]["kurz"],
+            "zmena": ceske.list1[0]["zmena"],
+            "objem": ceske.list1[0]["objem"],
+        }
+        cez = {
+            "nazev": ceske.list1[1]["nazev"],
+            "kurz": ceske.list1[1]["kurz"],
+            "zmena": ceske.list1[1]["zmena"],
+            "objem": ceske.list1[1]["objem"],
+        }
+        cz_group = {
+            "nazev": ceske.list1[2]["nazev"],
+            "kurz": ceske.list1[2]["kurz"],
+            "zmena": ceske.list1[2]["zmena"],
+            "objem": ceske.list1[2]["objem"],
+        }
+        erste = {
+            "nazev": ceske.list1[3]["nazev"],
+            "kurz": ceske.list1[3]["kurz"],
+            "zmena": ceske.list1[3]["zmena"],
+            "objem": ceske.list1[3]["objem"],
+        }
+        e4u = {
+            "nazev": ceske.list1[4]["nazev"],
+            "kurz": ceske.list1[4]["kurz"],
+            "zmena": ceske.list1[4]["zmena"],
+            "objem": ceske.list1[4]["objem"],
+        }
+        kb = {
+            "nazev": ceske.list1[5]["nazev"],
+            "kurz": ceske.list1[5]["kurz"],
+            "zmena": ceske.list1[5]["zmena"],
+            "objem": ceske.list1[5]["objem"],
+        }
+        kofola = {
+            "nazev": ceske.list1[6]["nazev"],
+            "kurz": ceske.list1[6]["kurz"],
+            "zmena": ceske.list1[6]["zmena"],
+            "objem": ceske.list1[6]["objem"],
+        }
+        moneta = {
+            "nazev": ceske.list1[7]["nazev"],
+            "kurz": ceske.list1[7]["kurz"],
+            "zmena": ceske.list1[7]["zmena"],
+            "objem": ceske.list1[7]["objem"],
+        }
+        nokia = {
+            "nazev": ceske.list1[8]["nazev"],
+            "kurz": ceske.list1[8]["kurz"],
+            "zmena": ceske.list1[8]["zmena"],
+            "objem": ceske.list1[8]["objem"],
+        }
+        o2 = {
+            "nazev": ceske.list1[9]["nazev"],
+            "kurz": ceske.list1[9]["kurz"],
+            "zmena": ceske.list1[9]["zmena"],
+            "objem": ceske.list1[9]["objem"],
+        }
+        stock = {
+            "nazev": ceske.list1[14]["nazev"],
+            "kurz": ceske.list1[14]["kurz"],
+            "zmena": ceske.list1[14]["zmena"],
+            "objem": ceske.list1[14]["objem"],
+        }
+        plus1 = {
+            "nazev": ceske.list2[0]["nazev"],
+            "cena": ceske.list2[0]["cena"],
+            "zmena": ceske.list2[0]["zmena"],
+        }
+        plus2 = {
+            "nazev": ceske.list2[1]["nazev"],
+            "cena": ceske.list2[1]["cena"],
+            "zmena": ceske.list2[1]["zmena"],
+        }
+        plus3 = {
+            "nazev": ceske.list2[2]["nazev"],
+            "cena": ceske.list2[2]["cena"],
+            "zmena": ceske.list2[2]["zmena"],
+        }
+        plus4 = {
+            "nazev": ceske.list2[3]["nazev"],
+            "cena": ceske.list2[3]["cena"],
+            "zmena": ceske.list2[3]["zmena"],
+        }
+        plus5 = {
+            "nazev": ceske.list2[4]["nazev"],
+            "cena": ceske.list2[4]["cena"],
+            "zmena": ceske.list2[4]["zmena"],
+        }
+        minus1 = {
+            "nazev": ceske.list3[0]["nazev"],
+            "cena": ceske.list3[0]["cena"],
+            "zmena": ceske.list3[0]["zmena"],
+        }
+        minus2 = {
+            "nazev": ceske.list3[1]["nazev"],
+            "cena": ceske.list3[1]["cena"],
+            "zmena": ceske.list3[1]["zmena"],
+        }
+        minus3 = {
+            "nazev": ceske.list3[2]["nazev"],
+            "cena": ceske.list3[2]["cena"],
+            "zmena": ceske.list3[2]["zmena"],
+        }
+        minus4 = {
+            "nazev": ceske.list3[3]["nazev"],
+            "cena": ceske.list3[3]["cena"],
+            "zmena": ceske.list3[3]["zmena"],
+        }
+        minus5 = {
+            "nazev": ceske.list3[4]["nazev"],
+            "cena": ceske.list3[4]["cena"],
+            "zmena": ceske.list3[4]["zmena"],
+        }
+        vzestupy = {
+            "plus1": plus1,
+            "plus2": plus2,
+            "plus3": plus3,
+            "plus4": plus4,
+            "plus5": plus5,
+        }
+        poklesy = {
+            "minus1":minus1,
+            "minus2":minus2,
+            "minus3":minus3,
+            "minus4":minus4,
+            "minus5":minus5,
+        }
+        akcie = {
+            "avast": avast,
+            "cez": cez,
+            "cz_group": cz_group,
+            "erste": erste,
+            "e4u": e4u,
+            "kb": kb,
+            "kofola": kofola,
+            "moneta": moneta,
+            "nokia": nokia,
+            "o2": o2,
+            "stock": stock
+        }
+        ceske_ackie = {
+            "akcie":akcie,
+            "poklesy":poklesy,
+            "vzestupy":vzestupy,
+        }
+        return Response(ceske_ackie)
+
