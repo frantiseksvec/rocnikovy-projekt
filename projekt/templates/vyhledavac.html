@@ -2,6 +2,16 @@
 {% block content %}
 {% load static %}
 <link  href="{%static '/css/style.css' %}" rel="stylesheet" type="text/css"  media="screen" >
+<div class="container">
+  <div class="vyhledavac">
+      <h1>Zadejte symbol akcie kterou chcete vyhledat</h1>
+      <form method="GET">
+        <label for="symbol"></label>
+        <input type="text" name="symbol" id="symbol" placeholder="symbol....">
+        <input type="submit" id="tlacitko-vyhledavac" value="Submit" />
+      </form>
+  </div>
+</div>
 <footer class="footer-login">
 <div class="footer-copyright text-center py-3">
   © František Švec

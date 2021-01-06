@@ -11,6 +11,7 @@ from . import ceske
 from .forms import CreateUserForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+import requests
 
 def register(request):
     if request.method =='POST':
@@ -46,6 +47,10 @@ def logoutUser(request):
     logout(request)
     return redirect('login')
 
+class AkcieCeske(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, 'akcie.html')
+
 class ChartView(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'charts.html')
@@ -57,6 +62,24 @@ class Kurzy(View):
 class Komodity(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'komodity.html')
+
+def data_vyhledavac(symbol):
+    USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
+    LANGUAGE = "en-US,en;q=0.5"
+    session = requests.Session()
+    session.headers['User-Agent'] = USER_AGENT
+    session.headers['Accept-Language'] = LANGUAGE
+    session.headers['Content-Language'] = LANGUAGE
+    source = session.get(f'https://www.nasdaq.com/market-activity/stocks/{symbol}')
+    return source
+
+def Vyhledavac(request):
+    if 'symbol' in request.GET:
+        symbol = request.GET.get('symbol')
+        source = data_vyhledavac(symbol)
+        print(source)
+        pass
+    return render(request, 'vyhledavac.html')
 
 class ChartData(APIView):
     def get(self, request, format=None):

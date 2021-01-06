@@ -17,10 +17,9 @@ from django.contrib import admin
 from django.conf.urls import url
 from django.urls import path
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-from django.contrib.auth.views import LogoutView
 
 from . import views
-from .views import ChartView, ChartData, Kurzy, KurzyData, KomodityData, Komodity, CeskeAkcieData
+from .views import ChartView, ChartData, Kurzy, KurzyData, KomodityData, Komodity, CeskeAkcieData, AkcieCeske
 
 urlpatterns = [
     url(r'^$', ChartView.as_view(), name='chart'),
@@ -29,7 +28,9 @@ urlpatterns = [
     url(r'^api/komodity-data/$', KomodityData.as_view()),
     url(r'^api/ceske-data/$', CeskeAkcieData.as_view()),
     url(r'^kurzy/$', Kurzy.as_view(), name='kurzy'),
+    path('vyhledavac', views.Vyhledavac, name='vyhledavac'),
     url(r'^komodity/$', Komodity.as_view(), name='komodity'),
+    url(r'^ceske/$', AkcieCeske.as_view(), name='ceske'),
     url(r'^admin/', admin.site.urls),
     url(r'^register/$', views.register, name='register'),
     url(r'^login/$', views.login_page, name='login'),

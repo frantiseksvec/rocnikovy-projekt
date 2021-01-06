@@ -8,25 +8,25 @@ mesic = cas_dnes - dt.timedelta(days=30)
 pulrok = cas_dnes - dt.timedelta(days=181)
 rok = cas_dnes - dt.timedelta(days=365)
 
-tickers = ['SPY', 'AAPL', 'MSFT', 'HOG', 'INTC', 'T', 'WMT', 'TSLA', 'IBM', 'AGCO', 'ZM', 'TM' , 'CSCO'
+symboly = ['SPY', 'AAPL', 'MSFT', 'HOG', 'INTC', 'T', 'WMT', 'TSLA', 'IBM', 'AGCO', 'ZM', 'TM' , 'CSCO'
             , 'DAL', 'HMC', 'GOOG']
 
-def data(strt, end, tick_list, this_price):
-    adj_close = pd.DataFrame([])
-    for idx, i in enumerate(tick_list):
+def data(strt, end, symboly_list, this_price):
+    data_ackie = pd.DataFrame([])
+    for idx, i in enumerate(symboly_list):
         try:
             total = web.DataReader(i, 'yahoo', strt, end)
-            adj_close[i] = total[this_price]
-        except RemoteDataError:
+            data_ackie[i] = total[this_price]
+        except Exception as e:
             pass
-    return adj_close
+    return data_ackie
 
-dfT = data(tyden, cas_dnes, tickers, 'Close')
-dfM = data(mesic, cas_dnes, tickers, 'Close')
-dfP = data(pulrok, cas_dnes, tickers, 'Close')
-dfR = data(rok, cas_dnes, tickers, 'Close')
+dfT = data(tyden, cas_dnes, symboly, 'Close')
+dfM = data(mesic, cas_dnes, symboly, 'Close')
+dfP = data(pulrok, cas_dnes, symboly, 'Close')
+dfR = data(rok, cas_dnes, symboly, 'Close')
 
-dfM_V = data(mesic, cas_dnes, tickers, 'Volume')
+dfM_V = data(mesic, cas_dnes, symboly, 'Volume')
 
 def rozdil(data):
     cislo1 = data[0]
@@ -49,5 +49,6 @@ def prumer(list):
 
 
 
-
+print(cas_dnes)
+print(tyden)
 

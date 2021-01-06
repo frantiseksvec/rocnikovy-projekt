@@ -30,7 +30,7 @@ for row in rows:
     data = {
         "nazev":row.find_all('td')[0].text,
         "cena":row.find_all('td')[1].text,
-        "zmena": row.find_all('td')[1].text,
+        "zmena": row.find_all('td')[2].text,
     }
     list2.append(data)
 
@@ -39,6 +39,6 @@ for row in rows:
     data = {
         "nazev":row.find_all('td')[0].text,
         "cena":row.find_all('td')[1].text,
-        "zmena": row.find_all('td')[1].text,
+        "zmena": row.find_all('td')[2].text,
     }
     list3.append(data)

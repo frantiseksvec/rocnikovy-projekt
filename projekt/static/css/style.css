@@ -277,15 +277,29 @@ h2 {
 }
 
 #tlacitko-vyhledavac{
-  width: 30%;
-  padding: 10px;
   background-color: #4CAF50;
-  font-size: 14px;
+  border: none;
+  color: white;
+  padding: 10px 25px;
   text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
 }
 
 #vitej {
     text-color: white;
+}
+
+.vyhledavac {
+    text-align: center;
+    padding: 20 px;
+}
+
+#symbol{
+    width: 300px;
+    padding: 8px;
+    border: 2px solid black;
 }
 
 

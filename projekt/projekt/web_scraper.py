@@ -12,7 +12,6 @@ source = session.get('https://www.reuters.com/news/archive/businessNews').text
 soup = BeautifulSoup(source, 'lxml')
 
 list = []
-
 for article in soup.find_all('article',class_='story'):
     zaklad = article.find('div',class_= 'story-content')
     try:
