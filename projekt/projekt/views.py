@@ -2,12 +2,14 @@ from django.shortcuts import render, redirect
 from django.views.generic import View
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from bs4 import BeautifulSoup
 from . import api1
 from . import yahoo_finance
 from . import kurzy
 from . import komodity
 from . import web_scraper
 from . import ceske
+from . import neco
 from .forms import CreateUserForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
@@ -70,15 +72,18 @@ def data_vyhledavac(symbol):
     session.headers['User-Agent'] = USER_AGENT
     session.headers['Accept-Language'] = LANGUAGE
     session.headers['Content-Language'] = LANGUAGE
-    source = session.get(f'https://www.nasdaq.com/market-activity/stocks/{symbol}')
+    source = session.get(f'https://www.nasdaq.com/market-activity/stocks/{symbol}').text
     return source
 
 def Vyhledavac(request):
     if 'symbol' in request.GET:
         symbol = request.GET.get('symbol')
         source = data_vyhledavac(symbol)
-        print(source)
-        pass
+        soup = BeautifulSoup(source, 'lxml')
+        rows = soup.find_all('tr', class_ = 'summary-data__row')
+        for row in rows:
+            neco = row.find_all('td')[0].text
+            print(neco)
     return render(request, 'vyhledavac.html')
 
 class ChartData(APIView):
