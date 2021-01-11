@@ -9,7 +9,7 @@ from . import kurzy
 from . import komodity
 from . import web_scraper
 from . import ceske
-from . import neco
+from . import zpravy_ceske
 from .forms import CreateUserForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
@@ -1040,6 +1040,43 @@ class CeskeAkcieData(APIView):
             "cena": ceske.list3[4]["cena"],
             "zmena": ceske.list3[4]["zmena"],
         }
+        clanek1 = {
+            "nadpis": zpravy_ceske.list[0]["nadpis"],
+            "text": zpravy_ceske.list[0]["text"],
+            "odkaz": zpravy_ceske.list[0]["odkaz"],
+            "obrazek": zpravy_ceske.list[0]["obrazek"],
+        }
+        clanek2 = {
+            "nadpis": zpravy_ceske.list[1]["nadpis"],
+            "text": zpravy_ceske.list[1]["text"],
+            "odkaz": zpravy_ceske.list[1]["odkaz"],
+            "obrazek": zpravy_ceske.list[1]["obrazek"],
+        }
+        clanek3 = {
+            "nadpis": zpravy_ceske.list[2]["nadpis"],
+            "text": zpravy_ceske.list[2]["text"],
+            "odkaz": zpravy_ceske.list[2]["odkaz"],
+            "obrazek": zpravy_ceske.list[2]["obrazek"],
+        }
+        clanek4 = {
+            "nadpis": zpravy_ceske.list[3]["nadpis"],
+            "text": zpravy_ceske.list[3]["text"],
+            "odkaz": zpravy_ceske.list[3]["odkaz"],
+            "obrazek": zpravy_ceske.list[3]["obrazek"],
+        }
+        clanek5 = {
+            "nadpis": zpravy_ceske.list[4]["nadpis"],
+            "text": zpravy_ceske.list[4]["text"],
+            "odkaz": zpravy_ceske.list[4]["odkaz"],
+            "obrazek": zpravy_ceske.list[4]["obrazek"],
+        }
+        clanky = {
+            "clanek1": clanek1,
+            "clanek2": clanek2,
+            "clanek3": clanek3,
+            "clanek4": clanek4,
+            "clanek5": clanek5,
+        }
         vzestupy = {
             "plus1": plus1,
             "plus2": plus2,
@@ -1071,6 +1108,7 @@ class CeskeAkcieData(APIView):
             "akcie":akcie,
             "poklesy":poklesy,
             "vzestupy":vzestupy,
+            "clanky": clanky,
         }
         return Response(ceske_ackie)
 

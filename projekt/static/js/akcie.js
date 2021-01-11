@@ -8,6 +8,12 @@ $.ajax({
         tabulka_akcie()
         tabulka_poklesy()
         tabulka_vzestupy()
+        obrazek1()
+        obrazek2()
+        obrazek3()
+        obrazek4()
+        obrazek5()
+        texty()
     },
     error: function(error_data){
         console.log("error")
@@ -112,6 +118,74 @@ function tabulka_akcie(){
     document.getElementById('r5-2').innerHTML = cisla.poklesy.minus5.cena
     document.getElementById('r5-3').innerHTML = cisla.poklesy.minus5.zmena
     }
+
+function obrazek1(){
+    img = document.createElement("img");
+    img.src = cisla.clanky.clanek1.obrazek;
+    src = document.getElementById('obrazek1');
+    src.appendChild(img);
+
+    a = document.getElementById('odkaz1');
+    a.href = cisla.clanky.clanek1.odkaz
+}
+
+function obrazek2(){
+    img = document.createElement("img");
+    img.src = cisla.clanky.clanek2.obrazek;
+    src = document.getElementById('obrazek2');
+    src.appendChild(img);
+
+    a = document.getElementById('odkaz2');
+    a.href = cisla.clanky.clanek2.odkaz
+}
+
+function obrazek3(){
+    img = document.createElement("img");
+    img.src = cisla.clanky.clanek3.obrazek;
+    src = document.getElementById('obrazek3');
+    src.appendChild(img);
+
+    a = document.getElementById('odkaz3');
+    a.href = cisla.clanky.clanek3.odkaz
+}
+
+function obrazek4(){
+    img = document.createElement("img");
+    img.src = cisla.clanky.clanek4.obrazek;
+    src = document.getElementById('obrazek4');
+    src.appendChild(img);
+
+    a = document.getElementById('odkaz4');
+    a.href = cisla.clanky.clanek4.odkaz
+}
+
+function obrazek5(){
+    img = document.createElement("img");
+    img.src = cisla.clanky.clanek5.obrazek;
+    src = document.getElementById('obrazek5');
+    src.appendChild(img);
+
+    a = document.getElementById('odkaz5');
+    a.href = cisla.clanky.clanek5.odkaz
+}
+
+function texty(){
+    document.getElementById('nadpis1').innerHTML = cisla.clanky.clanek1.nadpis
+    document.getElementById('text1').innerHTML = cisla.clanky.clanek1.text
+
+    document.getElementById('nadpis2').innerHTML = cisla.clanky.clanek2.nadpis
+    document.getElementById('text2').innerHTML = cisla.clanky.clanek2.text
+
+    document.getElementById('nadpis3').innerHTML = cisla.clanky.clanek3.nadpis
+    document.getElementById('text3').innerHTML = cisla.clanky.clanek3.text
+
+    document.getElementById('nadpis4').innerHTML = cisla.clanky.clanek4.nadpis
+    document.getElementById('text4').innerHTML = cisla.clanky.clanek4.text
+
+    document.getElementById('nadpis5').innerHTML = cisla.clanky.clanek5.nadpis
+    document.getElementById('text5').innerHTML = cisla.clanky.clanek5.text
+
+}
 
 
 
