@@ -98,12 +98,6 @@ function tabulka_energie(){
     document.getElementById('ra10-5').innerHTML = komodita.energie.uhliUS.cena2
     document.getElementById('ra10-6').innerHTML = komodita.energie.uhliUS.ceska_cena
 
-    document.getElementById('ra11-1').innerHTML = komodita.energie.zemniplyn.nazev
-    document.getElementById('ra11-2').innerHTML = komodita.energie.zemniplyn.datum1
-    document.getElementById('ra11-3').innerHTML = komodita.energie.zemniplyn.cena1
-    document.getElementById('ra11-4').innerHTML = komodita.energie.zemniplyn.datum2
-    document.getElementById('ra11-5').innerHTML = komodita.energie.zemniplyn.cena2
-    document.getElementById('ra11-6').innerHTML = komodita.energie.zemniplyn.ceska_cena
 }
 
 function tabulka_zvirata() {

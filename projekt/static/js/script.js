@@ -24,14 +24,12 @@ $.ajax({
             VolumeA = data.Mesic.MicrosoftM.volume
             VolumeM = data.Mesic.AppleM.volume
             nastavGraf()
-            prehled()
-            Tydny()
-            Mesice()
-            Roky()
+            vzestupGrafy()
             Texty()
             Tabulka()
             TabulkaR()
             tabulkaGrafy()
+            Tabulka_vzestup()
             Clanky()
     },
     error: function(error_data){
@@ -42,15 +40,23 @@ $.ajax({
 }
     fetch()
     function Texty(){
-        document.getElementById('IBM-procenta').innerHTML = ProcentaI + '%'
-        document.getElementById('Microsoft-procenta').innerHTML = ProcentaM + '%'
-        document.getElementById('Apple-procenta').innerHTML = ProcentaA + '%'
         document.getElementById('nadpis-okno1').innerHTML = neco.Tabulka.microsoft.label
         document.getElementById('nadpis-okno2').innerHTML = neco.Tabulka.zoom.label
         document.getElementById('nadpis-okno3').innerHTML = neco.Tabulka.cisco.label
         document.getElementById('nadpis-okno4').innerHTML = neco.Tabulka.delta.label
         document.getElementById('nadpis-okno5').innerHTML = neco.Tabulka.honda.label
         document.getElementById('nadpis-okno6').innerHTML = neco.Tabulka.google.label
+
+        document.getElementById('nadpis-ok1').innerHTML = neco.Vzestup.top1.nazev
+        document.getElementById('nadpis-ok2').innerHTML = neco.Vzestup.top2.nazev
+        document.getElementById('nadpis-ok3').innerHTML = neco.Vzestup.top3.nazev
+        document.getElementById('nadpis-ok4').innerHTML = neco.Vzestup.top4.nazev
+        document.getElementById('nadpis-ok5').innerHTML = neco.Vzestup.top5.nazev
+        document.getElementById('nadpis-ok6').innerHTML = neco.Vzestup.top6.nazev
+        document.getElementById('nadpis-ok7').innerHTML = neco.Vzestup.top7.nazev
+        document.getElementById('nadpis-ok8').innerHTML = neco.Vzestup.top8.nazev
+        document.getElementById('nadpis-ok9').innerHTML = neco.Vzestup.top9.nazev
+        document.getElementById('nadpis-ok10').innerHTML = neco.Vzestup.top10.nazev
     }
 
     function Tabulka(){
@@ -90,6 +96,108 @@ $.ajax({
         document.getElementById('radek6-4').innerHTML = neco.Tabulka.google.zmena_p  + '%'
         document.getElementById('radek6-5').innerHTML = neco.Tabulka.google.volume
 
+    }
+
+    function Tabulka_vzestup(){
+        document.getElementById('ra1-1').innerHTML = neco.Vzestup.top1.symbol
+        document.getElementById('ra1-2').innerHTML = neco.Vzestup.top1.nazev
+        document.getElementById('ra1-3').innerHTML = neco.Vzestup.top1.cena
+        document.getElementById('ra1-4').innerHTML = neco.Vzestup.top1.zmena_procenta
+        document.getElementById('ra1-5').innerHTML = neco.Vzestup.top1.zmena_cena
+        document.getElementById('ra1-6').innerHTML = neco.Vzestup.top1.doporuceni
+        document.getElementById('ra1-7').innerHTML = neco.Vzestup.top1.volume
+        document.getElementById('ra1-8').innerHTML = neco.Vzestup.top1.zamestnanci
+        document.getElementById('ra1-9').innerHTML = neco.Vzestup.top1.sektor
+
+        document.getElementById('ra2-1').innerHTML = neco.Vzestup.top2.symbol
+        document.getElementById('ra2-2').innerHTML = neco.Vzestup.top2.nazev
+        document.getElementById('ra2-3').innerHTML = neco.Vzestup.top2.cena
+        document.getElementById('ra2-4').innerHTML = neco.Vzestup.top2.zmena_procenta
+        document.getElementById('ra2-5').innerHTML = neco.Vzestup.top2.zmena_cena
+        document.getElementById('ra2-6').innerHTML = neco.Vzestup.top2.doporuceni
+        document.getElementById('ra2-7').innerHTML = neco.Vzestup.top2.volume
+        document.getElementById('ra2-8').innerHTML = neco.Vzestup.top2.zamestnanci
+        document.getElementById('ra2-9').innerHTML = neco.Vzestup.top2.sektor
+
+        document.getElementById('ra3-1').innerHTML = neco.Vzestup.top3.symbol
+        document.getElementById('ra3-2').innerHTML = neco.Vzestup.top3.nazev
+        document.getElementById('ra3-3').innerHTML = neco.Vzestup.top3.cena
+        document.getElementById('ra3-4').innerHTML = neco.Vzestup.top3.zmena_procenta
+        document.getElementById('ra3-5').innerHTML = neco.Vzestup.top3.zmena_cena
+        document.getElementById('ra3-6').innerHTML = neco.Vzestup.top3.doporuceni
+        document.getElementById('ra3-7').innerHTML = neco.Vzestup.top3.volume
+        document.getElementById('ra3-8').innerHTML = neco.Vzestup.top3.zamestnanci
+        document.getElementById('ra3-9').innerHTML = neco.Vzestup.top3.sektor
+
+        document.getElementById('ra4-1').innerHTML = neco.Vzestup.top4.symbol
+        document.getElementById('ra4-2').innerHTML = neco.Vzestup.top4.nazev
+        document.getElementById('ra4-3').innerHTML = neco.Vzestup.top4.cena
+        document.getElementById('ra4-4').innerHTML = neco.Vzestup.top4.zmena_procenta
+        document.getElementById('ra4-5').innerHTML = neco.Vzestup.top4.zmena_cena
+        document.getElementById('ra4-6').innerHTML = neco.Vzestup.top4.doporuceni
+        document.getElementById('ra4-7').innerHTML = neco.Vzestup.top4.volume
+        document.getElementById('ra4-8').innerHTML = neco.Vzestup.top4.zamestnanci
+        document.getElementById('ra4-9').innerHTML = neco.Vzestup.top4.sektor
+
+        document.getElementById('ra5-1').innerHTML = neco.Vzestup.top5.symbol
+        document.getElementById('ra5-2').innerHTML = neco.Vzestup.top5.nazev
+        document.getElementById('ra5-3').innerHTML = neco.Vzestup.top5.cena
+        document.getElementById('ra5-4').innerHTML = neco.Vzestup.top5.zmena_procenta
+        document.getElementById('ra5-5').innerHTML = neco.Vzestup.top5.zmena_cena
+        document.getElementById('ra5-6').innerHTML = neco.Vzestup.top5.doporuceni
+        document.getElementById('ra5-7').innerHTML = neco.Vzestup.top5.volume
+        document.getElementById('ra5-8').innerHTML = neco.Vzestup.top5.zamestnanci
+        document.getElementById('ra5-9').innerHTML = neco.Vzestup.top5.sektor
+
+        document.getElementById('ra6-1').innerHTML = neco.Vzestup.top6.symbol
+        document.getElementById('ra6-2').innerHTML = neco.Vzestup.top6.nazev
+        document.getElementById('ra6-3').innerHTML = neco.Vzestup.top6.cena
+        document.getElementById('ra6-4').innerHTML = neco.Vzestup.top6.zmena_procenta
+        document.getElementById('ra6-5').innerHTML = neco.Vzestup.top6.zmena_cena
+        document.getElementById('ra6-6').innerHTML = neco.Vzestup.top6.doporuceni
+        document.getElementById('ra6-7').innerHTML = neco.Vzestup.top6.volume
+        document.getElementById('ra6-8').innerHTML = neco.Vzestup.top6.zamestnanci
+        document.getElementById('ra6-9').innerHTML = neco.Vzestup.top6.sektor
+
+        document.getElementById('ra7-1').innerHTML = neco.Vzestup.top7.symbol
+        document.getElementById('ra7-2').innerHTML = neco.Vzestup.top7.nazev
+        document.getElementById('ra7-3').innerHTML = neco.Vzestup.top7.cena
+        document.getElementById('ra7-4').innerHTML = neco.Vzestup.top7.zmena_procenta
+        document.getElementById('ra7-5').innerHTML = neco.Vzestup.top7.zmena_cena
+        document.getElementById('ra7-6').innerHTML = neco.Vzestup.top7.doporuceni
+        document.getElementById('ra7-7').innerHTML = neco.Vzestup.top7.volume
+        document.getElementById('ra7-8').innerHTML = neco.Vzestup.top7.zamestnanci
+        document.getElementById('ra7-9').innerHTML = neco.Vzestup.top7.sektor
+
+        document.getElementById('ra8-1').innerHTML = neco.Vzestup.top8.symbol
+        document.getElementById('ra8-2').innerHTML = neco.Vzestup.top8.nazev
+        document.getElementById('ra8-3').innerHTML = neco.Vzestup.top8.cena
+        document.getElementById('ra8-4').innerHTML = neco.Vzestup.top8.zmena_procenta
+        document.getElementById('ra8-5').innerHTML = neco.Vzestup.top8.zmena_cena
+        document.getElementById('ra8-6').innerHTML = neco.Vzestup.top8.doporuceni
+        document.getElementById('ra8-7').innerHTML = neco.Vzestup.top8.volume
+        document.getElementById('ra8-8').innerHTML = neco.Vzestup.top8.zamestnanci
+        document.getElementById('ra8-9').innerHTML = neco.Vzestup.top8.sektor
+
+        document.getElementById('ra9-1').innerHTML = neco.Vzestup.top9.symbol
+        document.getElementById('ra9-2').innerHTML = neco.Vzestup.top9.nazev
+        document.getElementById('ra9-3').innerHTML = neco.Vzestup.top9.cena
+        document.getElementById('ra9-4').innerHTML = neco.Vzestup.top9.zmena_procenta
+        document.getElementById('ra9-5').innerHTML = neco.Vzestup.top9.zmena_cena
+        document.getElementById('ra9-6').innerHTML = neco.Vzestup.top9.doporuceni
+        document.getElementById('ra9-7').innerHTML = neco.Vzestup.top9.volume
+        document.getElementById('ra9-8').innerHTML = neco.Vzestup.top9.zamestnanci
+        document.getElementById('ra9-9').innerHTML = neco.Vzestup.top9.sektor
+
+        document.getElementById('ra10-1').innerHTML = neco.Vzestup.top10.symbol
+        document.getElementById('ra10-2').innerHTML = neco.Vzestup.top10.nazev
+        document.getElementById('ra10-3').innerHTML = neco.Vzestup.top10.cena
+        document.getElementById('ra10-4').innerHTML = neco.Vzestup.top10.zmena_procenta
+        document.getElementById('ra10-5').innerHTML = neco.Vzestup.top10.zmena_cena
+        document.getElementById('ra10-6').innerHTML = neco.Vzestup.top10.doporuceni
+        document.getElementById('ra10-7').innerHTML = neco.Vzestup.top10.volume
+        document.getElementById('ra10-8').innerHTML = neco.Vzestup.top10.zamestnanci
+        document.getElementById('ra10-9').innerHTML = neco.Vzestup.top10.sektor
     }
 
     function TabulkaR(){
@@ -151,83 +259,6 @@ $.ajax({
         DataR = neco.Realtime.agcoR.data
         nastavGraf()
     }
-
-    function Tydny(){
-            ILs = neco.Tyden.IBMT.labels
-            IL = neco.Tyden.IBMT.label
-            ID = neco.Tyden.IBMT.data
-            ALs = neco.Tyden.AppleT.labels
-            AL =  neco.Tyden.AppleT.label
-            AD =  neco.Tyden.AppleT.data
-            MLs =  neco.Tyden.MicrosoftT.labels
-            ML =  neco.Tyden.MicrosoftT.label
-            MD =  neco.Tyden.MicrosoftT.data
-            prehled()
-    }
-    function Mesice(){
-            ILs =  neco.Mesic.IBMM.labels
-            IL =  neco.Mesic.IBMM.label
-            ID =  neco.Mesic.IBMM.data
-            ALs =  neco.Mesic.AppleM.labels
-            AL =  neco.Mesic.AppleM.label
-            AD =  neco.Mesic.AppleM.data
-            MLs =  neco.Mesic.MicrosoftM.labels
-            ML =  neco.Mesic.MicrosoftM.label
-            MD =  neco.Mesic.MicrosoftM.data
-            prehled()
-    }
-    function Roky(){
-            ILs =  neco.Rok.IBMR.labels
-            IL =  neco.Rok.IBMR.label
-            ID =  neco.Rok.IBMR.data
-            ALs =  neco.Rok.AppleR.labels
-            AL =  neco.Rok.AppleR.label
-            AD =  neco.Rok.AppleR.data
-            MLs =  neco.Rok.MicrosoftR.labels
-            ML =  neco.Rok.MicrosoftR.label
-            MD =  neco.Rok.MicrosoftR.data
-            prehled()
-    }
-    function prehled(){
-         var ibm = document.getElementById('IBM');
-         var m = document.getElementById('MSFT');
-         var a = document.getElementById('AAPL');
-         var p = document.getElementById('prehled');
-         var v = document.getElementById('volume');
-         var myChartI = new Chart(ibm, {
-                type: 'line',
-                data: {
-            labels: ILs,
-        datasets: [{
-            data: ID,
-            label: IL,
-            borderColor: "#3e95cd",
-            fill: false
-          }]
-        }});
-        var myChartM= new Chart(m, {
-                type: 'line',
-                data: {
-            labels: MLs,
-        datasets: [{
-            data: MD,
-            label: ML,
-            borderColor: "#8e5ea2",
-            fill: false
-          }]
-        }});
-        var myChartA = new Chart(a, {
-                type: 'line',
-                data: {
-            labels: ALs,
-        datasets: [{
-            data: AD,
-            label: AL,
-            borderColor: "#c45850",
-            fill: false
-          }]
-        }});
-    }
     function nastavGraf(){
          var r = document.getElementById('Realtime');
          var myChartR = new Chart(r, {
@@ -243,8 +274,129 @@ $.ajax({
         }});
         myChartR.update();
     }
-
-     function tabulkaGrafy(){
+    function vzestupGrafy() {
+         var a = document.getElementById('canvas-ok1');
+         var myChart = new Chart(a, {
+                type: 'line',
+                data: {
+            labels: neco.Vzestup.datum,
+         datasets: [{
+            data:neco.Vzestup.top1.graf,
+            label: neco.Vzestup.top1.nazev,
+            borderColor: "#8e5ea2",
+            fill: false
+          }]
+         }});
+        var b = document.getElementById('canvas-ok2');
+        var myChart = new Chart(b, {
+                type: 'line',
+                data: {
+            labels: neco.Vzestup.datum,
+        datasets: [{
+            data:neco.Vzestup.top2.graf,
+            label: neco.Vzestup.top2.nazev,
+            borderColor: "#8e5ea2",
+            fill: false
+          }]
+        }});
+        var c = document.getElementById('canvas-ok3');
+        var myChart = new Chart(c, {
+                type: 'line',
+                data: {
+            labels: neco.Vzestup.datum,
+        datasets: [{
+            data:neco.Vzestup.top3.graf,
+            label: neco.Vzestup.top3.nazev,
+            borderColor: "#8e5ea2",
+            fill: false
+          }]
+        }});
+        var d = document.getElementById('canvas-ok4');
+        var myChart = new Chart(d, {
+                type: 'line',
+                data: {
+            labels: neco.Vzestup.datum,
+        datasets: [{
+            data:neco.Vzestup.top4.graf,
+            label: neco.Vzestup.top4.nazev,
+            borderColor: "#8e5ea2",
+            fill: false
+          }]
+        }});
+        var e = document.getElementById('canvas-ok5');
+        var myChart = new Chart(e, {
+                type: 'line',
+                data: {
+            labels: neco.Vzestup.datum,
+        datasets: [{
+            data:neco.Vzestup.top5.graf,
+            label: neco.Vzestup.top5.nazev,
+            borderColor: "#8e5ea2",
+            fill: false
+          }]
+        }});
+        var f = document.getElementById('canvas-ok6');
+        var myChart = new Chart(f, {
+                type: 'line',
+                data: {
+            labels: neco.Vzestup.datum,
+        datasets: [{
+            data:neco.Vzestup.top6.graf,
+            label: neco.Vzestup.top6.nazev,
+            borderColor: "#8e5ea2",
+            fill: false
+          }]
+        }});
+        var g = document.getElementById('canvas-ok7');
+        var myChart = new Chart(g, {
+                type: 'line',
+                data: {
+            labels: neco.Vzestup.datum,
+        datasets: [{
+            data:neco.Vzestup.top7.graf,
+            label: neco.Vzestup.top7.nazev,
+            borderColor: "#8e5ea2",
+            fill: false
+          }]
+        }});
+        var h = document.getElementById('canvas-ok8');
+        var myChart = new Chart(h, {
+                type: 'line',
+                data: {
+            labels: neco.Vzestup.datum,
+        datasets: [{
+            data:neco.Vzestup.top8.graf,
+            label: neco.Vzestup.top8.nazev,
+            borderColor: "#8e5ea2",
+            fill: false
+          }]
+        }});
+        var i = document.getElementById('canvas-ok9');
+        var myChart = new Chart(i, {
+                type: 'line',
+                data: {
+            labels: neco.Vzestup.datum,
+        datasets: [{
+            data:neco.Vzestup.top9.graf,
+            label: neco.Vzestup.top9.nazev,
+            borderColor: "#8e5ea2",
+            fill: false
+          }]
+        }});
+        var j = document.getElementById('canvas-ok10');
+        var myChart = new Chart(j, {
+                type: 'line',
+                data: {
+            labels: neco.Vzestup.datum,
+        datasets: [{
+            data:neco.Vzestup.top10.graf,
+            label: neco.Vzestup.top10.nazev,
+            borderColor: "#8e5ea2",
+            fill: false
+          }]
+        }});
+    }
+    function tabulkaGrafy(){
          var a = document.getElementById('canvas-okno1');
          var myChartR = new Chart(a, {
                 type: 'line',

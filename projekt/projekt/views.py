@@ -10,6 +10,8 @@ from . import komodity
 from . import web_scraper
 from . import ceske
 from . import zpravy_ceske
+from . import top
+from . import low
 from .forms import CreateUserForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
@@ -88,6 +90,271 @@ def Vyhledavac(request):
 
 class ChartData(APIView):
     def get(self, request, format=None):
+        top1 = {
+            "symbol": top.list[0]['symbol'],
+            "nazev": top.list[0]['nazev'],
+            "cena": top.list[0]['cena'],
+            "zmena_procenta": top.list[0]['zmena_procenta'],
+            "zmena_cena": top.list[0]['zmena_cena'],
+            "doporuceni": top.list[0]['doporuceni'],
+            "zamestnanci": top.list[0]['zamestnanci'],
+            "volume": top.list[0]['volume'],
+            "sektor": top.list[0]['sektor'],
+            "graf": top.mesic[top.list[0]['symbol']]
+        }
+        top2 = {
+            "symbol": top.list[1]['symbol'],
+            "nazev": top.list[1]['nazev'],
+            "cena": top.list[1]['cena'],
+            "zmena_procenta": top.list[1]['zmena_procenta'],
+            "zmena_cena": top.list[1]['zmena_cena'],
+            "doporuceni": top.list[1]['doporuceni'],
+            "zamestnanci": top.list[1]['zamestnanci'],
+            "volume": top.list[1]['volume'],
+            "sektor": top.list[1]['sektor'],
+            "graf": top.mesic[top.list[1]['symbol']]
+        }
+        top3 = {
+            "symbol": top.list[2]['symbol'],
+            "nazev": top.list[2]['nazev'],
+            "cena": top.list[2]['cena'],
+            "zmena_procenta": top.list[2]['zmena_procenta'],
+            "zmena_cena": top.list[2]['zmena_cena'],
+            "doporuceni": top.list[2]['doporuceni'],
+            "zamestnanci": top.list[2]['zamestnanci'],
+            "sektor": top.list[2]['sektor'],
+            "volume": top.list[2]['volume'],
+            "graf": top.mesic[top.list[2]['symbol']]
+        }
+        top4 = {
+            "symbol": top.list[3]['symbol'],
+            "nazev": top.list[3]['nazev'],
+            "cena": top.list[3]['cena'],
+            "zmena_procenta": top.list[3]['zmena_procenta'],
+            "zmena_cena": top.list[3]['zmena_cena'],
+            "doporuceni": top.list[3]['doporuceni'],
+            "zamestnanci": top.list[3]['zamestnanci'],
+            "volume": top.list[3]['volume'],
+            "sektor": top.list[3]['sektor'],
+            "graf": top.mesic[top.list[3]['symbol']]
+        }
+        top5 = {
+            "symbol": top.list[4]['symbol'],
+            "nazev": top.list[4]['nazev'],
+            "cena": top.list[4]['cena'],
+            "zmena_procenta": top.list[4]['zmena_procenta'],
+            "zmena_cena": top.list[4]['zmena_cena'],
+            "doporuceni": top.list[4]['doporuceni'],
+            "zamestnanci": top.list[4]['zamestnanci'],
+            "volume": top.list[4]['volume'],
+            "sektor": top.list[4]['sektor'],
+            "graf": top.mesic[top.list[4]['symbol']]
+        }
+        top6 = {
+            "symbol": top.list[5]['symbol'],
+            "nazev": top.list[5]['nazev'],
+            "cena": top.list[5]['cena'],
+            "zmena_procenta": top.list[5]['zmena_procenta'],
+            "zmena_cena": top.list[5]['zmena_cena'],
+            "doporuceni": top.list[5]['doporuceni'],
+            "zamestnanci": top.list[5]['zamestnanci'],
+            "volume": top.list[5]['volume'],
+            "sektor": top.list[5]['sektor'],
+            "graf": top.mesic[top.list[5]['symbol']]
+        }
+        top7 = {
+            "symbol": top.list[6]['symbol'],
+            "nazev": top.list[6]['nazev'],
+            "cena": top.list[6]['cena'],
+            "zmena_procenta": top.list[6]['zmena_procenta'],
+            "zmena_cena": top.list[6]['zmena_cena'],
+            "doporuceni": top.list[6]['doporuceni'],
+            "zamestnanci": top.list[6]['zamestnanci'],
+            "volume": top.list[6]['volume'],
+            "sektor": top.list[6]['sektor'],
+            "graf": top.mesic[top.list[6]['symbol']]
+        }
+        top8 = {
+            "symbol": top.list[7]['symbol'],
+            "nazev": top.list[7]['nazev'],
+            "cena": top.list[7]['cena'],
+            "zmena_procenta": top.list[7]['zmena_procenta'],
+            "zmena_cena": top.list[7]['zmena_cena'],
+            "doporuceni": top.list[7]['doporuceni'],
+            "zamestnanci": top.list[7]['zamestnanci'],
+            "volume": top.list[7]['volume'],
+            "sektor": top.list[7]['sektor'],
+            "graf": top.mesic[top.list[7]['symbol']]
+        }
+        top9 = {
+            "symbol": top.list[8]['symbol'],
+            "nazev": top.list[8]['nazev'],
+            "cena": top.list[8]['cena'],
+            "zmena_procenta": top.list[8]['zmena_procenta'],
+            "zmena_cena": top.list[8]['zmena_cena'],
+            "doporuceni": top.list[8]['doporuceni'],
+            "zamestnanci": top.list[8]['zamestnanci'],
+            "volume": top.list[8]['volume'],
+            "sektor": top.list[8]['sektor'],
+            "graf": top.mesic[top.list[8]['symbol']]
+        }
+        top10 = {
+            "symbol": top.list[9]['symbol'],
+            "nazev": top.list[9]['nazev'],
+            "cena": top.list[9]['cena'],
+            "zmena_procenta": top.list[9]['zmena_procenta'],
+            "zmena_cena": top.list[9]['zmena_cena'],
+            "doporuceni": top.list[9]['doporuceni'],
+            "zamestnanci": top.list[9]['zamestnanci'],
+            "volume": top.list[9]['volume'],
+            "sektor": top.list[9]['sektor'],
+            "graf": top.mesic[top.list[9]['symbol']]
+        }
+        low1 = {
+            "symbol": low.list[0]['symbol'],
+            "nazev": low.list[0]['nazev'],
+            "cena": low.list[0]['cena'],
+            "zmena_procenta": low.list[0]['zmena_procenta'],
+            "zmena_cena": low.list[0]['zmena_cena'],
+            "doporuceni": low.list[0]['doporuceni'],
+            "zamestnanci": low.list[0]['zamestnanci'],
+            "volume": low.list[0]['volume'],
+            "sektor": low.list[0]['sektor'],
+            "graf": low.mesic[low.list[0]['symbol']]
+        }
+        low2 = {
+            "symbol": low.list[1]['symbol'],
+            "nazev": low.list[1]['nazev'],
+            "cena": low.list[1]['cena'],
+            "zmena_procenta": low.list[1]['zmena_procenta'],
+            "zmena_cena": low.list[1]['zmena_cena'],
+            "doporuceni": low.list[1]['doporuceni'],
+            "zamestnanci": low.list[1]['zamestnanci'],
+            "volume": low.list[1]['volume'],
+            "sektor": low.list[1]['sektor'],
+            "graf": low.mesic[low.list[1]['symbol']]
+        }
+        low3 = {
+            "symbol": low.list[2]['symbol'],
+            "nazev": low.list[2]['nazev'],
+            "cena": low.list[2]['cena'],
+            "zmena_procenta": low.list[2]['zmena_procenta'],
+            "zmena_cena": low.list[2]['zmena_cena'],
+            "doporuceni": low.list[2]['doporuceni'],
+            "zamestnanci": low.list[2]['zamestnanci'],
+            "volume": low.list[2]['volume'],
+            "sektor": low.list[2]['sektor'],
+            "graf": low.mesic[low.list[2]['symbol']]
+        }
+        low4 = {
+            "symbol": low.list[3]['symbol'],
+            "nazev": low.list[3]['nazev'],
+            "cena": low.list[3]['cena'],
+            "zmena_procenta": low.list[3]['zmena_procenta'],
+            "zmena_cena": low.list[3]['zmena_cena'],
+            "doporuceni": low.list[3]['doporuceni'],
+            "zamestnanci": low.list[3]['zamestnanci'],
+            "volume": low.list[3]['volume'],
+            "sektor": low.list[3]['sektor'],
+            "graf": low.mesic[low.list[3]['symbol']]
+        }
+        low5 = {
+            "symbol": low.list[4]['symbol'],
+            "nazev": low.list[4]['nazev'],
+            "cena": low.list[4]['cena'],
+            "zmena_procenta": low.list[4]['zmena_procenta'],
+            "zmena_cena": low.list[4]['zmena_cena'],
+            "doporuceni": low.list[4]['doporuceni'],
+            "zamestnanci": low.list[4]['zamestnanci'],
+            "volume": low.list[4]['volume'],
+            "sektor": low.list[4]['sektor'],
+            "graf": low.mesic[low.list[4]['symbol']]
+        }
+        low6 = {
+            "symbol": low.list[5]['symbol'],
+            "nazev": low.list[5]['nazev'],
+            "cena": low.list[5]['cena'],
+            "zmena_procenta": low.list[5]['zmena_procenta'],
+            "zmena_cena": low.list[5]['zmena_cena'],
+            "doporuceni": low.list[5]['doporuceni'],
+            "zamestnanci": low.list[5]['zamestnanci'],
+            "volume": low.list[5]['volume'],
+            "sektor": low.list[5]['sektor'],
+            "graf": low.mesic[low.list[5]['symbol']]
+        }
+        low7 = {
+            "symbol": low.list[6]['symbol'],
+            "nazev": low.list[6]['nazev'],
+            "cena": low.list[6]['cena'],
+            "zmena_procenta": low.list[6]['zmena_procenta'],
+            "zmena_cena": low.list[6]['zmena_cena'],
+            "doporuceni": low.list[6]['doporuceni'],
+            "zamestnanci": low.list[6]['zamestnanci'],
+            "volume": low.list[6]['volume'],
+            "sektor": low.list[6]['sektor'],
+            "graf": low.mesic[low.list[6]['symbol']]
+        }
+        low8 = {
+            "symbol": low.list[7]['symbol'],
+            "nazev": low.list[7]['nazev'],
+            "cena": low.list[7]['cena'],
+            "zmena_procenta": low.list[7]['zmena_procenta'],
+            "zmena_cena": low.list[7]['zmena_cena'],
+            "doporuceni": low.list[7]['doporuceni'],
+            "zamestnanci": low.list[7]['zamestnanci'],
+            "volume": low.list[7]['volume'],
+            "sektor": low.list[7]['sektor'],
+            "graf": low.mesic[low.list[7]['symbol']]
+        }
+        low9 = {
+            "symbol": low.list[8]['symbol'],
+            "nazev": low.list[8]['nazev'],
+            "cena": low.list[8]['cena'],
+            "zmena_procenta": low.list[8]['zmena_procenta'],
+            "zmena_cena": low.list[8]['zmena_cena'],
+            "doporuceni": low.list[8]['doporuceni'],
+            "zamestnanci": low.list[8]['zamestnanci'],
+            "volume": low.list[8]['volume'],
+            "sektor": low.list[8]['sektor'],
+            "graf": low.mesic[low.list[8]['symbol']]
+        }
+        low10 = {
+            "symbol": low.list[9]['symbol'],
+            "nazev": low.list[9]['nazev'],
+            "cena": low.list[9]['cena'],
+            "zmena_procenta": low.list[9]['zmena_procenta'],
+            "zmena_cena": low.list[9]['zmena_cena'],
+            "doporuceni": low.list[9]['doporuceni'],
+            "zamestnanci": low.list[9]['zamestnanci'],
+            "volume": low.list[9]['volume'],
+            "sektor": low.list[9]['sektor'],
+            "graf": low.mesic[low.list[9]['symbol']]
+        }
+        zestup = {
+            "low1": low1,
+            "low2": low2,
+            "low3": low3,
+            "low4": low4,
+            "low5": low5,
+            "low6": low6,
+            "low7": low7,
+            "low8": low8,
+            "low9": low9,
+            "low10": low10,
+        }
+        vzestup = {
+            "top1": top1,
+            "top2": top2,
+            "top3": top3,
+            "top4": top4,
+            "top5": top5,
+            "top6": top6,
+            "top7": top7,
+            "top8": top8,
+            "top9": top9,
+            "top10": top10,
+            "datum": top.mesic.index
+        }
         ibm_mesic = {
             "data": yahoo_finance.dfM['IBM'],
             "labels": yahoo_finance.dfM.index,
@@ -309,6 +576,8 @@ class ChartData(APIView):
             "Realtime": realtime,
             "Tabulka": tabulka,
             "Clanek":clanek,
+            "Vzestup": vzestup,
+            "Zestup": zestup,
         }
         return Response(data)
 
@@ -683,14 +952,6 @@ class KomodityData(APIView):
             "cena2": komodity.list2[9]["cena2"],
             "ceska_cena": komodity.list2[9]["ceska_cena"],
         }
-        zemniplyn = {
-            "nazev": komodity.list2[10]["energie"],
-            "datum1": komodity.list2[10]["datum1"],
-            "cena1": komodity.list2[10]["cena1"],
-            "datum2": komodity.list2[10]["datum2"],
-            "cena2": komodity.list2[10]["cena2"],
-            "ceska_cena": komodity.list2[10]["ceska_cena"],
-        }
         hlinik = {
             "nazev": komodity.list4[0]["energie"],
             "datum1": komodity.list4[0]["datum1"],
@@ -868,7 +1129,6 @@ class KomodityData(APIView):
             "ropaWTI": ropaWTI,
             "topnyolej": topnyolej,
             "uhliUS": uhliUS,
-            "zemniplyn": zemniplyn,
         }
         plus1 = {
             'komodita': komodity.list1[0]["komodita"].replace('\n', ''),

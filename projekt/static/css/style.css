@@ -98,7 +98,7 @@ h2 {
 
 #tabulka {
   border-collapse: collapse;
-  width: 1300px;
+  width: 1400px;
   align: center;
 }
 
@@ -168,7 +168,6 @@ h2 {
     -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
-
 }
 
 .login_btn {
@@ -300,6 +299,39 @@ h2 {
     width: 300px;
     padding: 8px;
     border: 2px solid black;
+}
+
+.leva {
+    padding: 10px;
+}
+
+#tabu {
+  border-collapse: collapse;
+  width: 1400px;
+  align: center;
+}
+
+#tabu td, #customers th {
+  padding: 8px;
+}
+
+#tabu tr:nth-child(even){background-color: #f2f2f2;}
+
+#tabu tr:hover {background-color: #ddd;}
+
+#tabu th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+  text-indent: 20px;
+  font-size: 21px
+}
+
+#tabu td {
+  text-indent: 20px;
+  font-size: 16px
 }
 
 
