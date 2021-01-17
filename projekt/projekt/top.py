@@ -39,6 +39,7 @@ for row in rows:
     except:
         pass
 
+
 cas_dnes = dt.date.today()
 mesic = cas_dnes - dt.timedelta(days=30)
 def data(strt, end, symboly_list, this_price):

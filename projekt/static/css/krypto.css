@@ -1,0 +1,77 @@
+body {
+  font-family: Georgia;
+}
+
+h1 {
+ font-size: 62px;
+}
+
+.container {
+  margin-top: 70px;
+  width: 1760px;
+  padding-bottom: 30px;
+}
+h2 {
+ font-size: 80px;
+ padding: 10px;
+}
+
+.tabulka {
+
+  padding: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 1600px;
+}
+
+.tabulka td, #customers th {
+  padding: 8px;
+}
+
+.tabulka td {
+  text-indent: 20px;
+  font-size: 18px
+}
+
+.tabulka tr:nth-child(even){background-color: #f2f2f2;}
+
+.tabulka tr:hover {background-color: #ddd;}
+
+.tabulka th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+  text-indent: 20px;
+  font-size: 24px
+}
+
+.tabule {
+    margin-left: 32px;
+    padding: 20px;
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color:#202020;
+  color: white;
+  font-size: 20px;
+  height: 70px
+}
+
+.footer-login {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.rank {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.col-sm-4 {
+    font-size: 25px;
+}

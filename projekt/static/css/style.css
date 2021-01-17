@@ -1,3 +1,7 @@
+body {
+  font-family: Georgia;
+}
+
 #sloupek {
   margin-top: 10px;
 }
@@ -14,8 +18,8 @@
 }
 
 h1 {
-  font-size: 50px;
-  margin-left: 210px;
+  font-size: 90px;
+  margin-left: 10px;
   font-weight: bold;
 }
 
@@ -97,6 +101,7 @@ h2 {
 }
 
 #tabulka {
+  font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 1400px;
   align: center;
@@ -128,6 +133,7 @@ h2 {
 #real-tabulka {
   border-collapse: collapse;
   width: 220px;
+  font-family: Arial, Helvetica, sans-serif;
   align: center;
 }
 
@@ -305,21 +311,22 @@ h2 {
     padding: 10px;
 }
 
-#tabu {
+.tabu {
+  font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 1400px;
   align: center;
 }
 
-#tabu td, #customers th {
+.tabu td, #customers th {
   padding: 8px;
 }
 
-#tabu tr:nth-child(even){background-color: #f2f2f2;}
+.tabu tr:nth-child(even){background-color: #f2f2f2;}
 
-#tabu tr:hover {background-color: #ddd;}
+.tabu tr:hover {background-color: #ddd;}
 
-#tabu th {
+.tabu th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
@@ -329,9 +336,18 @@ h2 {
   font-size: 21px
 }
 
-#tabu td {
+.tabu td {
   text-indent: 20px;
   font-size: 16px
+}
+
+.odkaz {
+  font-size: 17px;
+  margin-left: 138px;
+}
+
+#prihlaseni {
+    margin-right: 1400px;
 }
 
 

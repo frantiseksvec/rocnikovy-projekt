@@ -4,7 +4,10 @@
 <link  href="{%static '/css/kurzy.css' %}" rel="stylesheet" type="text/css"  media="screen" >
 <script src="{%static '/js/kurzy.js' %}"></script>
 <div class="container">
-  <div class="col-sm-9">
+  <div class="jumbotron">
+      <h1>Kurzovní lístek</h1>
+  </div>
+  <div class="col-sm-8">
     <div class="leva">
       <h2>Kurzy měn</h2>
       <table id="kurzy">
@@ -251,6 +254,20 @@
           <td id="ra10-6"></td>
         </tr>
         </table>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="graf">
+      <h3 class="graf">Vývoj kurzu Britské libry</h3>
+      <canvas id="graf1" width="400" height="300"></canvas>
+    </div>
+    <div class="graf">
+      <h3 class="graf">Vývoj kurzu Amerického dolaru</h3>
+      <canvas id="graf2" width="400" height="300"></canvas>
+    </div>
+    <div class="graf">
+      <h3 class="graf">Vývoj kurzu Eura</h3>
+      <canvas id="graf3" width="400" height="300"></canvas>
     </div>
   </div>
 </div>

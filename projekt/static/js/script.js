@@ -25,11 +25,13 @@ $.ajax({
             VolumeM = data.Mesic.AppleM.volume
             nastavGraf()
             vzestupGrafy()
+            zestupGrafy()
             Texty()
             Tabulka()
             TabulkaR()
             tabulkaGrafy()
             Tabulka_vzestup()
+            Tabulka_zestup()
             Clanky()
     },
     error: function(error_data){
@@ -57,6 +59,17 @@ $.ajax({
         document.getElementById('nadpis-ok8').innerHTML = neco.Vzestup.top8.nazev
         document.getElementById('nadpis-ok9').innerHTML = neco.Vzestup.top9.nazev
         document.getElementById('nadpis-ok10').innerHTML = neco.Vzestup.top10.nazev
+
+        document.getElementById('nadpis-okn1').innerHTML = neco.Zestup.low1.nazev
+        document.getElementById('nadpis-okn2').innerHTML = neco.Zestup.low2.nazev
+        document.getElementById('nadpis-okn3').innerHTML = neco.Zestup.low3.nazev
+        document.getElementById('nadpis-okn4').innerHTML = neco.Zestup.low4.nazev
+        document.getElementById('nadpis-okn5').innerHTML = neco.Zestup.low5.nazev
+        document.getElementById('nadpis-okn6').innerHTML = neco.Zestup.low6.nazev
+        document.getElementById('nadpis-okn7').innerHTML = neco.Zestup.low7.nazev
+        document.getElementById('nadpis-okn8').innerHTML = neco.Zestup.low8.nazev
+        document.getElementById('nadpis-okn9').innerHTML = neco.Zestup.low9.nazev
+        document.getElementById('nadpis-okn10').innerHTML = neco.Zestup.low10.nazev
     }
 
     function Tabulka(){
@@ -199,6 +212,107 @@ $.ajax({
         document.getElementById('ra10-8').innerHTML = neco.Vzestup.top10.zamestnanci
         document.getElementById('ra10-9').innerHTML = neco.Vzestup.top10.sektor
     }
+    function Tabulka_zestup(){
+        document.getElementById('rad1-1').innerHTML = neco.Zestup.low1.symbol
+        document.getElementById('rad1-2').innerHTML = neco.Zestup.low1.nazev
+        document.getElementById('rad1-3').innerHTML = neco.Zestup.low1.cena
+        document.getElementById('rad1-4').innerHTML = neco.Zestup.low1.zmena_procenta
+        document.getElementById('rad1-5').innerHTML = neco.Zestup.low1.zmena_cena
+        document.getElementById('rad1-6').innerHTML = neco.Zestup.low1.doporuceni
+        document.getElementById('rad1-7').innerHTML = neco.Zestup.low1.volume
+        document.getElementById('rad1-8').innerHTML = neco.Zestup.low1.zamestnanci
+        document.getElementById('rad1-9').innerHTML = neco.Zestup.low1.sektor
+
+        document.getElementById('rad2-1').innerHTML = neco.Zestup.low2.symbol
+        document.getElementById('rad2-2').innerHTML = neco.Zestup.low2.nazev
+        document.getElementById('rad2-3').innerHTML = neco.Zestup.low2.cena
+        document.getElementById('rad2-4').innerHTML = neco.Zestup.low2.zmena_procenta
+        document.getElementById('rad2-5').innerHTML = neco.Zestup.low2.zmena_cena
+        document.getElementById('rad2-6').innerHTML = neco.Zestup.low2.doporuceni
+        document.getElementById('rad2-7').innerHTML = neco.Zestup.low2.volume
+        document.getElementById('rad2-8').innerHTML = neco.Zestup.low2.zamestnanci
+        document.getElementById('rad2-9').innerHTML = neco.Zestup.low2.sektor
+
+        document.getElementById('rad3-1').innerHTML = neco.Zestup.low3.symbol
+        document.getElementById('rad3-2').innerHTML = neco.Zestup.low3.nazev
+        document.getElementById('rad3-3').innerHTML = neco.Zestup.low3.cena
+        document.getElementById('rad3-4').innerHTML = neco.Zestup.low3.zmena_procenta
+        document.getElementById('rad3-5').innerHTML = neco.Zestup.low3.zmena_cena
+        document.getElementById('rad3-6').innerHTML = neco.Zestup.low3.doporuceni
+        document.getElementById('rad3-7').innerHTML = neco.Zestup.low3.volume
+        document.getElementById('rad3-8').innerHTML = neco.Zestup.low3.zamestnanci
+        document.getElementById('rad3-9').innerHTML = neco.Zestup.low3.sektor
+
+        document.getElementById('rad4-1').innerHTML = neco.Zestup.low4.symbol
+        document.getElementById('rad4-2').innerHTML = neco.Zestup.low4.nazev
+        document.getElementById('rad4-3').innerHTML = neco.Zestup.low4.cena
+        document.getElementById('rad4-4').innerHTML = neco.Zestup.low4.zmena_procenta
+        document.getElementById('rad4-5').innerHTML = neco.Zestup.low4.zmena_cena
+        document.getElementById('rad4-6').innerHTML = neco.Zestup.low4.doporuceni
+        document.getElementById('rad4-7').innerHTML = neco.Zestup.low4.volume
+        document.getElementById('rad4-8').innerHTML = neco.Zestup.low4.zamestnanci
+        document.getElementById('rad4-9').innerHTML = neco.Zestup.low4.sektor
+
+        document.getElementById('rad5-1').innerHTML = neco.Zestup.low5.symbol
+        document.getElementById('rad5-2').innerHTML = neco.Zestup.low5.nazev
+        document.getElementById('rad5-3').innerHTML = neco.Zestup.low5.cena
+        document.getElementById('rad5-4').innerHTML = neco.Zestup.low5.zmena_procenta
+        document.getElementById('rad5-5').innerHTML = neco.Zestup.low5.zmena_cena
+        document.getElementById('rad5-6').innerHTML = neco.Zestup.low5.doporuceni
+        document.getElementById('rad5-7').innerHTML = neco.Zestup.low5.volume
+        document.getElementById('rad5-8').innerHTML = neco.Zestup.low5.zamestnanci
+        document.getElementById('rad5-9').innerHTML = neco.Zestup.low5.sektor
+
+        document.getElementById('rad6-1').innerHTML = neco.Zestup.low6.symbol
+        document.getElementById('rad6-2').innerHTML = neco.Zestup.low6.nazev
+        document.getElementById('rad6-3').innerHTML = neco.Zestup.low6.cena
+        document.getElementById('rad6-4').innerHTML = neco.Zestup.low6.zmena_procenta
+        document.getElementById('rad6-5').innerHTML = neco.Zestup.low6.zmena_cena
+        document.getElementById('rad6-6').innerHTML = neco.Zestup.low6.doporuceni
+        document.getElementById('rad6-7').innerHTML = neco.Zestup.low6.volume
+        document.getElementById('rad6-8').innerHTML = neco.Zestup.low6.zamestnanci
+        document.getElementById('rad6-9').innerHTML = neco.Zestup.low6.sektor
+
+        document.getElementById('rad7-1').innerHTML = neco.Zestup.low7.symbol
+        document.getElementById('rad7-2').innerHTML = neco.Zestup.low7.nazev
+        document.getElementById('rad7-3').innerHTML = neco.Zestup.low7.cena
+        document.getElementById('rad7-4').innerHTML = neco.Zestup.low7.zmena_procenta
+        document.getElementById('rad7-5').innerHTML = neco.Zestup.low7.zmena_cena
+        document.getElementById('rad7-6').innerHTML = neco.Zestup.low7.doporuceni
+        document.getElementById('rad7-7').innerHTML = neco.Zestup.low7.volume
+        document.getElementById('rad7-8').innerHTML = neco.Zestup.low7.zamestnanci
+        document.getElementById('rad7-9').innerHTML = neco.Zestup.low7.sektor
+
+        document.getElementById('rad8-1').innerHTML = neco.Zestup.low8.symbol
+        document.getElementById('rad8-2').innerHTML = neco.Zestup.low8.nazev
+        document.getElementById('rad8-3').innerHTML = neco.Zestup.low8.cena
+        document.getElementById('rad8-4').innerHTML = neco.Zestup.low8.zmena_procenta
+        document.getElementById('rad8-5').innerHTML = neco.Zestup.low8.zmena_cena
+        document.getElementById('rad8-6').innerHTML = neco.Zestup.low8.doporuceni
+        document.getElementById('rad8-7').innerHTML = neco.Zestup.low8.volume
+        document.getElementById('rad8-8').innerHTML = neco.Zestup.low8.zamestnanci
+        document.getElementById('rad8-9').innerHTML = neco.Zestup.low8.sektor
+
+        document.getElementById('rad9-1').innerHTML = neco.Zestup.low9.symbol
+        document.getElementById('rad9-2').innerHTML = neco.Zestup.low9.nazev
+        document.getElementById('rad9-3').innerHTML = neco.Zestup.low9.cena
+        document.getElementById('rad9-4').innerHTML = neco.Zestup.low9.zmena_procenta
+        document.getElementById('rad9-5').innerHTML = neco.Zestup.low9.zmena_cena
+        document.getElementById('rad9-6').innerHTML = neco.Zestup.low9.doporuceni
+        document.getElementById('rad9-7').innerHTML = neco.Zestup.low9.volume
+        document.getElementById('rad9-8').innerHTML = neco.Zestup.low9.zamestnanci
+        document.getElementById('rad9-9').innerHTML = neco.Zestup.low9.sektor
+
+        document.getElementById('rad10-1').innerHTML = neco.Zestup.low10.symbol
+        document.getElementById('rad10-2').innerHTML = neco.Zestup.low10.nazev
+        document.getElementById('rad10-3').innerHTML = neco.Zestup.low10.cena
+        document.getElementById('rad10-4').innerHTML = neco.Zestup.low10.zmena_procenta
+        document.getElementById('rad10-5').innerHTML = neco.Zestup.low10.zmena_cena
+        document.getElementById('rad10-6').innerHTML = neco.Zestup.low10.doporuceni
+        document.getElementById('rad10-7').innerHTML = neco.Zestup.low10.volume
+        document.getElementById('rad10-8').innerHTML = neco.Zestup.low10.zamestnanci
+        document.getElementById('rad10-9').innerHTML = neco.Zestup.low10.sektor
+    }
 
     function TabulkaR(){
         document.getElementById('r2-1').innerHTML = neco.Realtime.teslaR.label
@@ -273,6 +387,128 @@ $.ajax({
           }]
         }});
         myChartR.update();
+    }
+    function zestupGrafy() {
+         var a = document.getElementById('canvas-okn1');
+         var myChart = new Chart(a, {
+                type: 'line',
+                data: {
+            labels: neco.Zestup.datum,
+         datasets: [{
+            data:neco.Zestup.low1.graf,
+            label: neco.Zestup.low1.nazev,
+            borderColor: "#8e5ea2",
+            fill: false
+          }]
+         }});
+         var b = document.getElementById('canvas-okn2');
+         var myChart = new Chart(b, {
+                type: 'line',
+                data: {
+            labels: neco.Zestup.datum,
+         datasets: [{
+            data:neco.Zestup.low2.graf,
+            label: neco.Zestup.low2.nazev,
+            borderColor: "#8e5ea2",
+            fill: false
+          }]
+         }});
+         var c = document.getElementById('canvas-okn3');
+         var myChart = new Chart(c, {
+                type: 'line',
+                data: {
+            labels: neco.Zestup.datum,
+         datasets: [{
+            data:neco.Zestup.low3.graf,
+            label: neco.Zestup.low3.nazev,
+            borderColor: "#8e5ea2",
+            fill: false
+          }]
+         }});
+         var d = document.getElementById('canvas-okn4');
+         var myChart = new Chart(d, {
+                type: 'line',
+                data: {
+            labels: neco.Zestup.datum,
+         datasets: [{
+            data:neco.Zestup.low4.graf,
+            label: neco.Zestup.low4.nazev,
+            borderColor: "#8e5ea2",
+            fill: false
+          }]
+         }});
+         var e = document.getElementById('canvas-okn5');
+         var myChart = new Chart(e, {
+                type: 'line',
+                data: {
+            labels: neco.Zestup.datum,
+         datasets: [{
+            data:neco.Zestup.low5.graf,
+            label: neco.Zestup.low5.nazev,
+            borderColor: "#8e5ea2",
+            fill: false
+          }]
+         }});
+         var f = document.getElementById('canvas-okn6');
+         var myChart = new Chart(f, {
+                type: 'line',
+                data: {
+            labels: neco.Zestup.datum,
+         datasets: [{
+            data:neco.Zestup.low6.graf,
+            label: neco.Zestup.low6.nazev,
+            borderColor: "#8e5ea2",
+            fill: false
+          }]
+         }});
+         var g = document.getElementById('canvas-okn7');
+         var myChart = new Chart(g, {
+                type: 'line',
+                data: {
+            labels: neco.Zestup.datum,
+         datasets: [{
+            data:neco.Zestup.low7.graf,
+            label: neco.Zestup.low7.nazev,
+            borderColor: "#8e5ea2",
+            fill: false
+          }]
+         }});
+         var h = document.getElementById('canvas-okn8');
+         var myChart = new Chart(h, {
+                type: 'line',
+                data: {
+            labels: neco.Zestup.datum,
+         datasets: [{
+            data:neco.Zestup.low8.graf,
+            label: neco.Zestup.low8.nazev,
+            borderColor: "#8e5ea2",
+            fill: false
+          }]
+         }});
+         var i = document.getElementById('canvas-okn9');
+         var myChart = new Chart(i, {
+                type: 'line',
+                data: {
+            labels: neco.Zestup.datum,
+         datasets: [{
+            data:neco.Zestup.low9.graf,
+            label: neco.Zestup.low9.nazev,
+            borderColor: "#8e5ea2",
+            fill: false
+          }]
+         }});
+         var j = document.getElementById('canvas-okn10');
+         var myChart = new Chart(j, {
+                type: 'line',
+                data: {
+            labels: neco.Zestup.datum,
+         datasets: [{
+            data:neco.Zestup.low10.graf,
+            label: neco.Zestup.low10.nazev,
+            borderColor: "#8e5ea2",
+            fill: false
+          }]
+         }});
     }
     function vzestupGrafy() {
          var a = document.getElementById('canvas-ok1');
@@ -476,10 +712,28 @@ $.ajax({
        document.getElementById('h3-2').innerHTML = neco.Clanek.nadpis2
        document.getElementById('h3-3').innerHTML = neco.Clanek.nadpis3
        document.getElementById('h3-4').innerHTML = neco.Clanek.nadpis4
+       document.getElementById('h3-5').innerHTML = neco.Clanek.nadpis5
+       document.getElementById('h3-6').innerHTML = neco.Clanek.nadpis6
+
        document.getElementById('text1').innerHTML = neco.Clanek.text1
        document.getElementById('text2').innerHTML = neco.Clanek.text2
        document.getElementById('text3').innerHTML = neco.Clanek.text3
        document.getElementById('text4').innerHTML = neco.Clanek.text4
+       document.getElementById('text5').innerHTML = neco.Clanek.text5
+       document.getElementById('text6').innerHTML = neco.Clanek.text6
+
+       a1 = document.getElementById('odkaz1');
+       a1.href = 'https://www.reuters.com/' + neco.Clanek.odkaz1
+       a2 = document.getElementById('odkaz2');
+       a2.href = 'https://www.reuters.com/' + neco.Clanek.odkaz2
+       a3 = document.getElementById('odkaz3');
+       a3.href = 'https://www.reuters.com/' + neco.Clanek.odkaz3
+       a4 = document.getElementById('odkaz4');
+       a4.href = 'https://www.reuters.com/' + neco.Clanek.odkaz4
+       a5 = document.getElementById('odkaz5');
+       a5.href = 'https://www.reuters.com/' + neco.Clanek.odkaz5
+       a6 = document.getElementById('odkaz6');
+       a6.href = 'https://www.reuters.com/' + neco.Clanek.odkaz6
     }
 
 

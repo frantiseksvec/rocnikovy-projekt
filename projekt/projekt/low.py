@@ -52,3 +52,13 @@ def data(strt, end, symboly_list, this_price):
     return data_ackie
 
 mesic = data(mesic, cas_dnes, ticker_list, 'Close')
+mesic[list[0]['symbol']] = mesic[list[0]['symbol']].fillna(0)
+mesic[list[1]['symbol']] = mesic[list[1]['symbol']].fillna(0)
+mesic[list[2]['symbol']] = mesic[list[2]['symbol']].fillna(0)
+mesic[list[3]['symbol']] = mesic[list[3]['symbol']].fillna(0)
+mesic[list[4]['symbol']] = mesic[list[4]['symbol']].fillna(0)
+mesic[list[5]['symbol']] = mesic[list[5]['symbol']].fillna(0)
+mesic[list[6]['symbol']] = mesic[list[6]['symbol']].fillna(0)
+mesic[list[7]['symbol']] = mesic[list[7]['symbol']].fillna(0)
+mesic[list[8]['symbol']] = mesic[list[8]['symbol']].fillna(0)
+mesic[list[9]['symbol']] = mesic[list[9]['symbol']].fillna(0)

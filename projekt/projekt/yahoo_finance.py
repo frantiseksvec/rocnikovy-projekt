@@ -25,7 +25,6 @@ dfT = data(tyden, cas_dnes, symboly, 'Close')
 dfM = data(mesic, cas_dnes, symboly, 'Close')
 dfP = data(pulrok, cas_dnes, symboly, 'Close')
 dfR = data(rok, cas_dnes, symboly, 'Close')
-
 dfM_V = data(mesic, cas_dnes, symboly, 'Volume')
 
 def rozdil(data):

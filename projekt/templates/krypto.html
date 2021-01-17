@@ -1,0 +1,180 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<link  href="{%static '/css/krypto.css' %}" rel="stylesheet" type="text/css"  media="screen" >
+<script src="{%static '/js/krypto.js' %}"></script>
+<div class="container">
+    <div class="jumbotron">
+        <h1>Kryptoměny</h1>
+    </div>
+    <div class="tabule">
+        <table class="tabulka">
+          <tr>
+              <th>Rank</th>
+              <th>Název</th>
+              <th>Symbol</th>
+              <th>Objem prodeje</th>
+              <th>Cena</th>
+              <th>Změna(1 hodina)</th>
+              <th>Změna(1 den)</th>
+              <th>Změna(7 dní)</th>
+          </tr>
+          <tr>
+              <td><p class="rank" id="ra1-1"></p></td>
+              <td>
+                  <div class="row">
+                      <div class="col-sm-4" id="obrazek1"></div>
+                      <div class="col-sm-4"><p id="ra1-2"></p></div>
+                  </div>
+              </td>
+              <td id="ra1-3"></td>
+              <td id="ra1-4"></td>
+              <td id="ra1-5"></td>
+              <td id="ra1-6"></td>
+              <td id="ra1-7"></td>
+              <td id="ra1-8"></td>
+          </tr>
+          <tr>
+              <td><p class="rank" id="ra2-1"></p></td>
+              <td>
+                  <div class="row">
+                      <div class="col-sm-4" id="obrazek2"></div>
+                      <div class="col-sm-4"><p id="ra2-2"></p></div>
+                  </div>
+              </td>
+              <td id="ra2-3"></td>
+              <td id="ra2-4"></td>
+              <td id="ra2-5"></td>
+              <td id="ra2-6"></td>
+              <td id="ra2-7"></td>
+              <td id="ra2-8"></td>
+          </tr>
+          <tr>
+              <td><p class="rank" id="ra3-1"></p></td>
+              <td>
+                 <div class="row">
+                      <div class="col-sm-4" id="obrazek3"></div>
+                      <div class="col-sm-4"><p id="ra3-2"></p></div>
+                  </div>
+              </td>
+              <td id="ra3-3"></td>
+              <td id="ra3-4"></td>
+              <td id="ra3-5"></td>
+              <td id="ra3-6"></td>
+              <td id="ra3-7"></td>
+              <td id="ra3-8"></td>
+          </tr>
+          <tr>
+              <td><p class="rank" id="ra4-1"></p></td>
+              <td>
+                 <div class="row">
+                      <div class="col-sm-4" id="obrazek4"></div>
+                      <div class="col-sm-4"><p id="ra4-2"></p></div>
+                 </div>
+              </td>
+              <td id="ra4-3"></td>
+              <td id="ra4-4"></td>
+              <td id="ra4-5"></td>
+              <td id="ra4-6"></td>
+              <td id="ra4-7"></td>
+              <td id="ra4-8"></td>
+          </tr>
+          <tr>
+              <td><p class="rank" id="ra5-1"></p></td>
+              <td>
+                 <div class="row">
+                      <div class="col-sm-4" id="obrazek5"></div>
+                      <div class="col-sm-4"><p id="ra5-2"></p></div>
+                 </div>
+              </td>
+              <td id="ra5-3"></td>
+              <td id="ra5-4"></td>
+              <td id="ra5-5"></td>
+              <td id="ra5-6"></td>
+              <td id="ra5-7"></td>
+              <td id="ra5-8"></td>
+          </tr>
+          <tr>
+              <td><p class="rank" id="ra6-1"></p></td>
+              <td>
+                 <div class="row">
+                      <div class="col-sm-4" id="obrazek6"></div>
+                      <div class="col-sm-4"><p id="ra6-2"></p></div>
+                  </div>
+              </td>
+              <td id="ra6-3"></td>
+              <td id="ra6-4"></td>
+              <td id="ra6-5"></td>
+              <td id="ra6-6"></td>
+              <td id="ra6-7"></td>
+              <td id="ra6-8"></td>
+          </tr>
+          <tr>
+              <td><p class="rank" id="ra7-1"></p></td>
+              <td>
+                 <div class="row">
+                      <div class="col-sm-4" id="obrazek7"></div>
+                      <div class="col-sm-4"><p id="ra7-2"></p></div>
+                  </div>
+              </td>
+              <td id="ra7-3"></td>
+              <td id="ra7-4"></td>
+              <td id="ra7-5"></td>
+              <td id="ra7-6"></td>
+              <td id="ra7-7"></td>
+              <td id="ra7-8"></td>
+          </tr>
+          <tr>
+              <td><p class="rank" id="ra8-1"></p></td>
+              <td>
+                 <div class="row">
+                      <div class="col-sm-4" id="obrazek8"></div>
+                      <div class="col-sm-4"><p id="ra8-2"></p></div>
+                  </div>
+              </td>
+              <td id="ra8-3"></td>
+              <td id="ra8-4"></td>
+              <td id="ra8-5"></td>
+              <td id="ra8-6"></td>
+              <td id="ra8-7"></td>
+              <td id="ra8-8"></td>
+          </tr>
+          <tr>
+              <td><p class="rank" id="ra9-1"></p></td>
+              <td>
+                 <div class="row">
+                      <div class="col-sm-4" id="obrazek9"></div>
+                      <div class="col-sm-4"><p id="ra9-2"></p></div>
+                  </div>
+              </td>
+              <td id="ra9-3"></td>
+              <td id="ra9-4"></td>
+              <td id="ra9-5"></td>
+              <td id="ra9-6"></td>
+              <td id="ra9-7"></td>
+              <td id="ra9-8"></td>
+          </tr>
+          <tr>
+              <td><p class="rank" id="ra10-1"></p></td>
+              <td>
+                 <div class="row">
+                      <div class="col-sm-4" id="obrazek10"></div>
+                      <div class="col-sm-4"><p id="ra10-2"></p></div>
+                  </div>
+              </td>
+              <td id="ra10-3"></td>
+              <td id="ra10-4"></td>
+              <td id="ra10-5"></td>
+              <td id="ra10-6"></td>
+              <td id="ra10-7"></td>
+              <td id="ra10-8"></td>
+          </tr>
+        </table>
+    </div>
+</div>
+<footer class="footer-login">
+  <div class="footer-copyright text-center py-3">
+    © František Švec
+  </div>
+</footer>
+{% endblock content %}

@@ -19,7 +19,7 @@ from django.urls import path
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 from . import views
-from .views import ChartView, ChartData, Kurzy, KurzyData, KomodityData, Komodity, CeskeAkcieData, AkcieCeske
+from .views import ChartView, ChartData, Kurzy, KurzyData, KomodityData, Komodity, CeskeAkcieData, AkcieCeske, KryptoData, Krypto
 
 urlpatterns = [
     url(r'^$', ChartView.as_view(), name='chart'),
@@ -27,7 +27,9 @@ urlpatterns = [
     url(r'^api/mena-data/$', KurzyData.as_view()),
     url(r'^api/komodity-data/$', KomodityData.as_view()),
     url(r'^api/ceske-data/$', CeskeAkcieData.as_view()),
+    url(r'^api/krypto-data/$', KryptoData.as_view()),
     url(r'^kurzy/$', Kurzy.as_view(), name='kurzy'),
+    url(r'^krypto/$', Krypto.as_view(), name='krypto'),
     path('vyhledavac', views.Vyhledavac, name='vyhledavac'),
     url(r'^komodity/$', Komodity.as_view(), name='komodity'),
     url(r'^ceske/$', AkcieCeske.as_view(), name='ceske'),

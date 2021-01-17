@@ -216,6 +216,45 @@ function tabulka(){
     document.getElementById('rad19-4').innerHTML = mena.CHF.datum1
     document.getElementById('rad19-5').innerHTML = mena.CHF.kurz
     document.getElementById('rad19-6').innerHTML = mena.CHF.datum2
+
+     var a = document.getElementById('graf1');
+     var myChart = new Chart(a, {
+            type: 'line',
+            data: {
+        labels: mena.data_grafy.graf1.datum,
+     datasets: [{
+        data: mena.data_grafy.graf1.data,
+        label: 'GBPxCZK',
+        borderColor: "#3cba9f",
+        fill: false
+      }]
+     }});
+
+     var b = document.getElementById('graf2');
+     var myChart = new Chart(b, {
+            type: 'line',
+            data: {
+        labels: mena.data_grafy.graf2.datum,
+     datasets: [{
+        data: mena.data_grafy.graf2.data,
+        label: 'USDxCZK',
+        borderColor: "#e8c3b9",
+        fill: false
+      }]
+     }});
+
+     var c= document.getElementById('graf3');
+     var myChart = new Chart(c, {
+            type: 'line',
+            data: {
+        labels: mena.data_grafy.graf3.datum,
+     datasets: [{
+        data: mena.data_grafy.graf3.data,
+        label: 'EURxCZK',
+        borderColor: "#c45850",
+        fill: false
+      }]
+     }});
 }
 
 

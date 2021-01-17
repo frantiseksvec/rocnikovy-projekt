@@ -12,6 +12,7 @@ from . import ceske
 from . import zpravy_ceske
 from . import top
 from . import low
+from . import kryptomeny
 from .forms import CreateUserForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
@@ -66,6 +67,12 @@ class Kurzy(View):
 class Komodity(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'komodity.html')
+
+
+class Krypto(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, 'krypto.html')
+
 
 def data_vyhledavac(symbol):
     USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
@@ -341,6 +348,7 @@ class ChartData(APIView):
             "low8": low8,
             "low9": low9,
             "low10": low10,
+            "datum": low.mesic.index,
         }
         vzestup = {
             "top1": top1,
@@ -353,7 +361,7 @@ class ChartData(APIView):
             "top8": top8,
             "top9": top9,
             "top10": top10,
-            "datum": top.mesic.index
+            "datum": top.mesic.index,
         }
         ibm_mesic = {
             "data": yahoo_finance.dfM['IBM'],
@@ -536,10 +544,42 @@ class ChartData(APIView):
             "nadpis2": web_scraper.heading2,
             "nadpis3": web_scraper.heading3,
             "nadpis4": web_scraper.heading4,
+            "nadpis5": web_scraper.heading5,
+            "nadpis6": web_scraper.heading6,
+            "nadpis7": web_scraper.heading7,
+            "nadpis8": web_scraper.heading8,
+            "nadpis9": web_scraper.heading9,
+            "nadpis10": web_scraper.heading10,
             "text1": web_scraper.clanek1["texty"],
             "text2": web_scraper.clanek2["texty"],
             "text3": web_scraper.clanek3["texty"],
             "text4": web_scraper.clanek4["texty"],
+            "text5": web_scraper.clanek5["texty"],
+            "text6": web_scraper.clanek6["texty"],
+            "text7": web_scraper.clanek7["texty"],
+            "text8": web_scraper.clanek8["texty"],
+            "text9": web_scraper.clanek9["texty"],
+            "text10": web_scraper.clanek10["texty"],
+            "obrazek1": web_scraper.clanek1["obrazek"],
+            "obrazek2": web_scraper.clanek2["obrazek"],
+            "obrazek3": web_scraper.clanek3["obrazek"],
+            "obrazek4": web_scraper.clanek4["obrazek"],
+            "obrazek5": web_scraper.clanek5["obrazek"],
+            "obrazek6": web_scraper.clanek6["obrazek"],
+            "obrazek7": web_scraper.clanek7["obrazek"],
+            "obrazek8": web_scraper.clanek8["obrazek"],
+            "obrazek9": web_scraper.clanek9["obrazek"],
+            "obrazek10": web_scraper.clanek10["obrazek"],
+            "odkaz1": web_scraper.clanek1["odkaz"],
+            "odkaz2": web_scraper.clanek2["odkaz"],
+            "odkaz3": web_scraper.clanek3["odkaz"],
+            "odkaz4": web_scraper.clanek4["odkaz"],
+            "odkaz5": web_scraper.clanek5["odkaz"],
+            "odkaz6": web_scraper.clanek6["odkaz"],
+            "odkaz7": web_scraper.clanek7["odkaz"],
+            "odkaz8": web_scraper.clanek8["odkaz"],
+            "odkaz9": web_scraper.clanek9["odkaz"],
+            "odkaz10": web_scraper.clanek10["odkaz"],
         }
         realtime = {
             "microsoftR": mR,
@@ -830,8 +870,30 @@ class KurzyData(APIView):
             "datum2": kurzy.list4[4]["datum2"],
         }
         datumy = {
-            "datum1": kurzy.datum1,
-            "datum2": kurzy.datum2,
+            "datum1": kurzy.datum_1,
+            "datum2": kurzy.datum_2,
+        }
+        graf1 = {
+            "data": kurzy.data1,
+            "datum": kurzy.datum1
+        }
+        graf2 = {
+            "data": kurzy.data2,
+            "datum": kurzy.datum2,
+        }
+        graf3 = {
+            "data": kurzy.data3,
+            "datum": kurzy.datum3,
+        }
+        graf4 = {
+            "data": kurzy.data4,
+            "datum": kurzy.datum4,
+        }
+        data_grafy = {
+            "graf1": graf1,
+            "graf2": graf2,
+            "graf3": graf3,
+            "graf4": graf4,
         }
         kurz = {
             "AUD": aud,
@@ -867,6 +929,7 @@ class KurzyData(APIView):
             "MNT": mnt,
             "UAH": uah,
             "datum": datumy,
+            "data_grafy": data_grafy,
         }
         return Response(kurz)
 
@@ -1372,3 +1435,138 @@ class CeskeAkcieData(APIView):
         }
         return Response(ceske_ackie)
 
+class KryptoData(APIView):
+    def get(self, request, format=None):
+        krypto1 = {
+            "rank": kryptomeny.list[0]['rank'],
+            "nazev": kryptomeny.list[0]['nazev'],
+            "obrazek": kryptomeny.list[0]['obrazek'],
+            "odkaz": kryptomeny.list[0]['odkaz'],
+            "symbol": kryptomeny.list[0]['symbol'],
+            "prodane": kryptomeny.list[0]['prodane'],
+            "cena": kryptomeny.list[0]['cena'],
+            "zmena1": kryptomeny.list[0]['zmena1'],
+            "zmena24": kryptomeny.list[0]['zmena24'],
+            "zmena7": kryptomeny.list[0]['zmena7'],
+        }
+        krypto2 = {
+            "rank": kryptomeny.list[1]['rank'],
+            "nazev": kryptomeny.list[1]['nazev'],
+            "obrazek": kryptomeny.list[1]['obrazek'],
+            "odkaz": kryptomeny.list[1]['odkaz'],
+            "symbol": kryptomeny.list[1]['symbol'],
+            "prodane": kryptomeny.list[1]['prodane'],
+            "cena": kryptomeny.list[1]['cena'],
+            "zmena1": kryptomeny.list[1]['zmena1'],
+            "zmena24": kryptomeny.list[1]['zmena24'],
+            "zmena7": kryptomeny.list[1]['zmena7'],
+        }
+        krypto3 = {
+            "rank": kryptomeny.list[2]['rank'],
+            "nazev": kryptomeny.list[2]['nazev'],
+            "obrazek": kryptomeny.list[2]['obrazek'],
+            "odkaz": kryptomeny.list[2]['odkaz'],
+            "symbol": kryptomeny.list[2]['symbol'],
+            "prodane": kryptomeny.list[2]['prodane'],
+            "cena": kryptomeny.list[2]['cena'],
+            "zmena1": kryptomeny.list[2]['zmena1'],
+            "zmena24": kryptomeny.list[2]['zmena24'],
+            "zmena7": kryptomeny.list[2]['zmena7'],
+        }
+        krypto4 = {
+            "rank": kryptomeny.list[3]['rank'],
+            "nazev": kryptomeny.list[3]['nazev'],
+            "obrazek": kryptomeny.list[3]['obrazek'],
+            "odkaz": kryptomeny.list[3]['odkaz'],
+            "symbol": kryptomeny.list[3]['symbol'],
+            "prodane": kryptomeny.list[3]['prodane'],
+            "cena": kryptomeny.list[3]['cena'],
+            "zmena1": kryptomeny.list[3]['zmena1'],
+            "zmena24": kryptomeny.list[3]['zmena24'],
+            "zmena7": kryptomeny.list[3]['zmena7'],
+        }
+        krypto5 = {
+            "rank": kryptomeny.list[4]['rank'],
+            "nazev": kryptomeny.list[4]['nazev'],
+            "obrazek": kryptomeny.list[4]['obrazek'],
+            "odkaz": kryptomeny.list[4]['odkaz'],
+            "symbol": kryptomeny.list[4]['symbol'],
+            "prodane": kryptomeny.list[4]['prodane'],
+            "cena": kryptomeny.list[4]['cena'],
+            "zmena1": kryptomeny.list[4]['zmena1'],
+            "zmena24": kryptomeny.list[4]['zmena24'],
+            "zmena7": kryptomeny.list[4]['zmena7'],
+        }
+        krypto6 = {
+            "rank": kryptomeny.list[5]['rank'],
+            "nazev": kryptomeny.list[5]['nazev'],
+            "obrazek": kryptomeny.list[5]['obrazek'],
+            "odkaz": kryptomeny.list[5]['odkaz'],
+            "symbol": kryptomeny.list[5]['symbol'],
+            "prodane": kryptomeny.list[5]['prodane'],
+            "cena": kryptomeny.list[5]['cena'],
+            "zmena1": kryptomeny.list[5]['zmena1'],
+            "zmena24": kryptomeny.list[5]['zmena24'],
+            "zmena7": kryptomeny.list[5]['zmena7'],
+        }
+        krypto7 = {
+            "rank": kryptomeny.list[6]['rank'],
+            "nazev": kryptomeny.list[6]['nazev'],
+            "obrazek": kryptomeny.list[6]['obrazek'],
+            "odkaz": kryptomeny.list[6]['odkaz'],
+            "symbol": kryptomeny.list[6]['symbol'],
+            "prodane": kryptomeny.list[6]['prodane'],
+            "cena": kryptomeny.list[6]['cena'],
+            "zmena1": kryptomeny.list[6]['zmena1'],
+            "zmena24": kryptomeny.list[6]['zmena24'],
+            "zmena7": kryptomeny.list[6]['zmena7'],
+        }
+        krypto8 = {
+            "rank": kryptomeny.list[7]['rank'],
+            "nazev": kryptomeny.list[7]['nazev'],
+            "obrazek": kryptomeny.list[7]['obrazek'],
+            "odkaz": kryptomeny.list[7]['odkaz'],
+            "symbol": kryptomeny.list[7]['symbol'],
+            "prodane": kryptomeny.list[7]['prodane'],
+            "cena": kryptomeny.list[7]['cena'],
+            "zmena1": kryptomeny.list[7]['zmena1'],
+            "zmena24": kryptomeny.list[7]['zmena24'],
+            "zmena7": kryptomeny.list[7]['zmena7'],
+        }
+        krypto9 = {
+            "rank": kryptomeny.list[8]['rank'],
+            "nazev": kryptomeny.list[8]['nazev'],
+            "obrazek": kryptomeny.list[8]['obrazek'],
+            "odkaz": kryptomeny.list[8]['odkaz'],
+            "symbol": kryptomeny.list[8]['symbol'],
+            "prodane": kryptomeny.list[8]['prodane'],
+            "cena": kryptomeny.list[8]['cena'],
+            "zmena1": kryptomeny.list[8]['zmena1'],
+            "zmena24": kryptomeny.list[8]['zmena24'],
+            "zmena7": kryptomeny.list[8]['zmena7'],
+        }
+        krypto10 = {
+            "rank": kryptomeny.list[9]['rank'],
+            "nazev": kryptomeny.list[9]['nazev'],
+            "obrazek": kryptomeny.list[9]['obrazek'],
+            "odkaz": kryptomeny.list[9]['odkaz'],
+            "symbol": kryptomeny.list[9]['symbol'],
+            "prodane": kryptomeny.list[9]['prodane'],
+            "cena": kryptomeny.list[9]['cena'],
+            "zmena1": kryptomeny.list[9]['zmena1'],
+            "zmena24": kryptomeny.list[9]['zmena24'],
+            "zmena7": kryptomeny.list[9]['zmena7'],
+        }
+        krypto = {
+            "krypto1": krypto1,
+            "krypto2": krypto2,
+            "krypto3": krypto3,
+            "krypto4": krypto4,
+            "krypto5": krypto5,
+            "krypto6": krypto6,
+            "krypto7": krypto7,
+            "krypto8": krypto8,
+            "krypto9": krypto9,
+            "krypto10": krypto10,
+        }
+        return Response(krypto)

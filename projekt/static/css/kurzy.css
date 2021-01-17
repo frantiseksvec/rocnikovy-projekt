@@ -4,8 +4,20 @@
   padding-bottom: 30px;
 }
 
+body {
+  font-family: Georgia;
+}
+
 h2 {
- font-size: 40px;
+ font-size: 45px;
+}
+
+h3 {
+ font-size: 29px;
+}
+
+h1 {
+ font-size: 62px;
 }
 
 #hlavni-kurzy {
@@ -83,4 +95,9 @@ footer {
 
 .leva {
   padding: 20px;
+}
+
+.graf {
+    padding: 5px;
+    margin-top: 25px;
 }
